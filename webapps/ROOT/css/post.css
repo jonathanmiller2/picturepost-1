@@ -1,0 +1,160 @@
+
+/* this is needed so the scrollintoview picset works because the scrollable vertical space does not exist before all images load */
+#maincontent {
+  margin-bottom: 300px;
+}
+h2 {
+  text-align:center;
+}
+
+#picposttimeslider {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+
+
+#picposttimeslider .isEmpty {
+  opacity: .4;
+  cursor: not-allowed !important;
+  outline: 0 !important;
+}
+
+
+#picsetCtrl {
+  margin-top: 1em;
+}
+
+
+
+.timeslideryear {
+  max-width: 600px;
+  margin: auto;
+  width: 100%;
+  position: relative;
+  height: 4em;
+  display:none;
+  text-align: center;
+}
+.timeslideryear.selected {
+  display: block;
+}
+
+.timeslideryear .mon {
+  float: left;
+  width: 30%;
+  margin: 4px;
+  height: 3em;
+  position: relative;
+  text-align: center;
+}
+
+#picposttimeslider h4 {
+  text-align: center;
+  color: #222;
+  display: inline-block;
+}
+#picposttimeslider h4:hover, #picposttimeslider h5:hover {
+  color: #900;
+}
+.timeslideryear h5 {
+  font-weight: bold;
+  text-align: center;
+  font-size: 1.2em;
+  margin: .3em 0 0 0;
+}
+.timeslideryear button {
+  margin: 10px;
+}
+
+
+a.piclink {
+  display: none;
+}
+
+#uploadyourphotos {
+}
+
+#picpostviewer {
+  position: relative;
+  margin: 2em auto;
+/*  max-width: 800px; */  /* OR.....instead of removing this, should this be added to PostContent */
+}
+
+#picpostviewer h2{
+  margin-bottom: 0;  margin-top: 10px;
+}
+
+#picsetcaption {
+  margin-top: -20px;
+  position: relative;
+  cursor: pointer;
+}
+#annotation {
+  min-height: 2.1em;
+  max-height: 2.1em;
+  overflow: auto;
+  color: #444;
+  padding: .5em;
+  font-size: 12px;
+}
+#annotation:hover {
+  background-color: #eee;
+}
+#picsetcaption.expanded #annotation {
+  max-height: 10em;
+}
+
+#picsetcaptionhtml blockquote {
+  margin: 0 0 0 10px;
+  padding: 0;
+  border: 0;
+}
+
+#orientationCtrl {
+  margin: 0 auto 10px auto;
+}
+
+#picsetcaption blockquote footer {
+  margin-left: 1em;
+}
+#picsetcmds a {
+  margin: 4px;
+}
+
+
+#picpostcomments {
+  margin-top: 1em;
+}
+#picpostcomments img {
+  margin: 0 10px 0 0;
+}
+
+.picusercomment {
+  overflow: auto;
+}
+
+.picsetcommentdt {
+  font-size: 12px;
+  color: #222;
+  margin-top:2px;
+  text-align:center;
+
+}
+
+@media (max-width: 600px) {
+  #PlayButGrp {
+    bottom: 1px;
+  }
+  #picpostdir {
+    top: 1px;
+  }
+
+  #picdt {
+    font-size: 11px; 
+    width: 3em;
+  }
+}

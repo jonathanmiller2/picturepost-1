@@ -1,0 +1,57 @@
+Eclipse IDE Instructions
+------------------------------
+Download "Eclipse IDE for Java Developers" at http://www.eclipse.org/downloads/
+
+Install eclipse to your home area
+  cd
+  tar -zxvf ~/Downloads/eclipse-java-juno-SR2-linux-gtk-x86_64.tar.gz
+  ~/eclipse/eclipse
+
+Install Additional Plugins
+  Help -> Install new Software
+  In "Work with", pick "Select All Available Sites"
+  Select:
+    Web, XML, Java EE
+      [x] Web Page Editor
+  Click "Next"
+
+# If your dev machine is remote, use sshfs to mount your files. 
+Mount your development area on your local machine
+  mkdir -p ~/mnt/fudd
+  sshfs fudd.sr.unh.edu:/web/picturepost-$USER ~/mnt/fudd
+  ls ~/mnt/fudd 
+
+Create picturepost project
+  File -> New -> Java Project
+  Project name: picturepost
+  [x] Use default JRE
+  [x] Create separate folders for sources and class files
+    click "Configure default..."
+    [x] Folders
+    click [Finish]
+
+Configure Project
+  right click new project on left pane, click New -> Folder
+  Folder name: [ picturepost ]
+  Click Advanced
+  [x] Link to alternate location (Linked Folder)
+  Click Browse
+  Choose mnt/fudd folder, click [OK]
+  Click [Resource Filters...]
+    Click [Add]
+      [x] Exclude all
+      [x] Folders
+      [Name] [matches] [ data ]
+      Click [OK]
+    Click [OK]
+  Click [Finish]
+
+Add Java Source to Build Path
+  expand picturepost -> src
+  right click picturepost, click Build Path -> Use as Source Folder
+
+Add Libraries
+  expand picturepost -> lib
+  right click all jar files, click Build Path -> Add to Build Path
+
+Start hacking!

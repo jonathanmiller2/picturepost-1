@@ -1,0 +1,333 @@
+/* this is the old css file used by files that have not been modernized */
+/* use bootstrap and the main.css file which are automatically included by includes/header.jsp */
+
+@charset "utf-8";
+
+input[type=text], textarea, select {
+  padding: 2px;
+  border-radius: 1px;
+  border-width: 1px; 
+}
+
+#header {
+  background-color: #FFFFFF;
+  max-width: 980px;
+  margin: auto;
+}
+
+#headermenu {
+  position: relative;
+  top: 26px;
+  margin-left: 6px;
+}
+#headermenu a {
+  color: #003366;
+  text-decoration: none;
+  margin: 6px;
+} 
+#header a:hover, #header a:active {
+    color: #FFCC66;
+}
+
+#container {
+    background-color: #FFFFFF;
+    margin: auto;
+    border: 0px;
+    text-decoration: none;
+    max-width: 980px; 
+    position: relative;
+    margin-top: 20px;
+}
+#mobilediv {
+    background-color: #FFFFFF;
+    margin: auto;
+    border: 0px;
+    text-decoration: none;
+    position: relative;
+    margin-top: 20px;
+	font-size:16px;
+}
+#adminmenu {
+  border: 1px outset gray;
+  background-color: #eee;
+  margin-bottom: 6px;
+  padding: 6px;
+  border-radius: 2px;
+}
+#adminmenu a {
+  text-decoration: none;
+}
+#adminmenu h2 {
+  display: inline;
+  font-size: .9em;  
+}
+
+
+#sidebarright{
+	float: right; /* since this element is floated, a width must be given */
+	width: 170px; /* the actual width of this div, in standards-compliant browsers, or standards mode in Internet Explorer 
+	              will include the padding and border in addition to the width */
+	background: #9999dd; /* the background color will be displayed for the length of the content in the column, but no further -- was #EBEBEB* and #CAB8E6 */
+	padding: 12px 5px 10px 18px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 10px;
+	margin-left: 12px;
+	clear: right;
+	
+}
+
+#footer {
+	font-size: 11px;
+    margin: auto;
+	margin-top: 10px;
+	line-height: 1.8;
+    clear: both;
+    max-width: 980px;
+}
+#footersupport {
+  text-align: center;
+}
+#footersupport * {
+  vertical-align: middle;
+}
+#footerattribution {
+  text-align: center;
+}
+#footerlinks {
+  text-align: center;
+}
+
+#footerlinks a {
+  margin: 0 6px; 
+}
+
+.fltrt { /* this class can be used to float an element right in your page. The floated element must precede 
+         the element it should be next to on the page. */
+	float: right;
+	margin-left: 8px;
+}
+.fltlft { /* this class can be used to float an element left in your page */
+	float: left;
+	margin-right: 8px;
+}
+.clearfloat { /* this class should be placed on a div or break element and should be the final element 
+              before the close of a container  that should fully contain a float */
+	clear:both;
+	height:0;
+	font-size: 1px;
+	line-height: 20px;
+}
+
+
+#footer a {
+    color: #003366;
+    text-decoration: none;
+} 
+#footer a:hover, #footer a:active {
+    color: #FFCC66;
+}
+
+body {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    background-color: #FFFFFF;
+    margin: 0;
+    padding: 0;
+    color: #003366;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+th, td {
+    font: normal 1em Verdana, Arial, Helvetica, sans-serif;
+    background: #FFFFFF;
+    margin: 0;
+    color: #003366;
+    text-decoration: none;
+}
+
+th {
+    font-weight: bold;
+}
+
+.smallText {
+    font-size: 80%;
+}
+
+.smallerText {
+    font-size: 75%;
+}
+
+.bigText {
+    font-size: 110%;
+}
+
+.smallTextBold {
+    font-size: 80%;
+	font-weight: bold;
+}
+
+.smallerTextBold {
+    font-size: 75%;
+	font-weight: bold;
+}
+
+.bigTextBold {
+    font-size: 110%;
+	font-weight: bold;
+}
+
+
+.orange {
+    color: #FF9966;
+}
+
+.errorColor {
+    color: #CC0000;
+}
+
+#skipmenu a, #skipmenu a:visited, #skipmenu a:hover {
+    position:absolute;
+    left:0px;
+    top:-500px;
+    width:1px;
+    height:1px;
+    overflow:hidden;
+}
+
+#skipmenu a:active, #skipmenu a:focus {
+    position:static;
+    width:auto;
+    height:auto;
+} 
+.h3grey {
+	color: #DAAB16;
+}
+.h3mist {
+	color: #7CA9A1;
+}
+.stylebrown {color: #666633
+}
+
+.stylenavy {color: #003366
+}
+
+.stylegreen {
+	color: #669999;
+	font-weight: bold;
+	font-size: 1em;
+}
+
+.styledkorange {
+	color: #CC6600;
+}
+
+
+
+.style10 {
+	color: #A9DCA7;
+	font-size: 0.8em;
+}
+
+.style4 {
+	font-size: .9em
+}
+
+.style5 {
+	color: #A53301
+}
+
+.style6 {
+	font-size: 0.8em;
+	font-weight: normal;
+	color: #666666;
+}
+h1 {
+	color: #CC6600;
+	padding-bottom: 3px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 1.9em;
+	border-bottom: 0px #999999;
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-left-width: 0px;
+}
+h2 {
+	color: #669999;
+	font-size: 1.4em;
+	padding: 0px;
+}
+.h2white {
+	color: #FFF
+}
+h3 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 1.1em;
+	font-weight: bold;
+	color: #003366;
+	margin: 0px;
+	padding: 6px 0px 0px 1px;
+}
+.h3white {
+	color: #FFF
+}
+.h3gold {
+	color: #DAAB16;
+}
+.h3green {
+	color: #458A8D;
+}
+.h3grey {
+	color: #999999;
+}
+.h3navy {
+	color: #003366;
+	}
+.h3dkgold {
+		color: #CC6600;
+	}
+.h3plum {  /* This is changed to navy because it was all over the ppost site and I did not like it. Plum is now h3plum2 */
+	color: #003366;
+}
+.h3plum2 {
+	color: #663366;
+}.h3gold {
+	color: #FF9900;
+}
+.h3team {
+	color: #003366;
+	text-align: center;
+}
+p {
+	line-height: 1.2;
+	margin: 4px 8px 8px 0px;
+	padding: 0px;
+}
+
+/*label {
+  font-weight: bold;
+}*/
+
+.errordialog {
+  margin: auto;
+  margin-top: 10px;
+  max-width: 600px;
+  padding: 10px;
+  color: #990000;
+  font-weight: bold;
+}
+
+.smalldialog {
+  margin: auto;
+  margin-top: 10px;
+  max-width: 600px;
+  padding: 10px;
+}
+
+#theForm td,
+#theForm th {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+

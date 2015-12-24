@@ -1,0 +1,21 @@
+.headerLinks{
+    color: #003366               !important;
+    text-decoration: none        !important;
+    font-weight: bold            !important;
+}
+
+.headerLinks:visited{
+    color: #003366               !important;
+    text-decoration: none        !important;
+    font-weight: bold            !important;
+}
+
+.headerLinks:hover{
+    color: #FFCC66               !important;
+}
+
+.headerLinks:active{
+    color: #003366               !important;
+    text-decoration: none        !important;
+    font-weight: bold            !important;
+}

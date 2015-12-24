@@ -1,0 +1,206 @@
+h1 {
+  color: #444;
+}
+h2 {
+  color: #777;
+}
+h3 {
+  color: #888;
+}
+h4 {
+  color: #999;
+}
+
+.btn input {
+  vertical-align: middle;
+  margin: 0 !important;
+}
+
+#topbar {
+  margin-bottom: 6px;
+}
+
+#topbar > h1 {
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  font-size: 2em;
+}
+#maincontent {
+  margin: 5em auto 2em auto;
+  max-width: 1200px;
+}
+
+
+.trunc {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;  /** Opera 9 & 10 **/
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 6em;
+  vertical-align: middle;
+}
+
+.inlinechildren {
+  margin: .5em 0;
+}
+.inlinechildren > * {
+  vertical-align: middle;
+  display: inline-block;
+  margin: 0;
+}
+
+.justify {
+  display: table;
+  width: 100%
+}
+
+.justify > * {
+  display: table-cell;
+  text-align: center
+}
+
+
+.shadow {
+  box-shadow: 1px 1px 5px #ccc;
+}
+
+#aboutheader {
+  margin: 0 0 20px 0;
+}
+#aboutheader > * {
+  vertical-align: middle;
+}
+#aboutheader > span {
+  margin-left: 6px;
+}
+
+.jumbotron h1 {
+  font-size: 2em;
+  margin-bottom:6px;
+}
+.jumbotron p {
+  font-size: 1.1em;
+}
+
+@media (max-width: 767px) {
+  .desktoponly {
+    display: none;
+  }
+}
+
+@media (max-width: 400px) {
+  #maincontent {
+    margin-top: 4em;
+  }
+  #topbar > h1 {
+    margin-top: .5em;
+    font-size: 1.2em;
+  }
+  .navbar-header {
+    margin: 0 !important;
+  }
+  .navbar-header button {
+    margin: 8px 0 8px 3px !important;
+  }
+  body {
+    padding:0;
+  }
+
+  .jumbotron {
+    padding: 6px;
+  } 
+  .jumbotron p {
+    font-size: 1em;
+  }
+
+  #aboutheader {
+    display: none;
+  }
+}
+
+@media (max-width: 991px) {
+  .row > * {
+    margin-top: 40px; 
+  }
+}
+
+.formfileuploadbut {
+  position: relative;
+  display: inline-block;
+  width: 5em;
+  height: 2.4em;
+  margin: 4px;
+  vertical-align: middle;
+  overflow:hidden;
+}
+
+.formfileuploadbut * {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  top: 0; left: 0;
+  cursor: pointer;
+}
+.formfileuploadbut input[type=file] {
+  opacity: 0;
+  z-index: 2;
+  font-size: 26px;
+}
+
+
+#footer {
+  font-size: 11px;
+    margin: auto;
+  margin-top: 10px;
+  line-height: 1.8;
+    clear: both;
+    max-width: 980px;
+}
+#footersupport {
+  text-align: center;
+}
+#footersupport * {
+  vertical-align: middle;
+}
+#footerattribution {
+  text-align: center;
+}
+#footerlinks {
+  text-align: center;
+}
+
+#footerlinks a {
+  margin: 0 6px; 
+}
+
+.btn-facebook {
+  background: #3e6194;
+  color: #fff
+}
+.btn-facebook:link, .btn-facebook:visited {
+  color: #fff
+}
+.btn-facebook:active, .btn-facebook:hover {
+  background: #3e6194;
+  color: #fff;
+  opacity: .8;
+}
+
+.aspect-ratio {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 51%;
+}
+.aspect-ratio iframe {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0; top: 0;
+}

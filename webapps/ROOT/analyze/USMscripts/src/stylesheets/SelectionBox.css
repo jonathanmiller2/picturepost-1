@@ -1,0 +1,30 @@
+
+#pictureSelectionDiv{
+    z-index: 100;
+    position: relative;
+    top: -307px; 
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}    
+
+#pictureSelectionCanvas{
+    z-index: 101;
+    position: relative;
+    /* Removing this line eliminates the red border
+    * on the medium size preview picture. There was
+    * a problem with a browser window being zoomed
+    * and causing the canvas to be displaced
+    * Ryan Turner -  Campus Ventures - June 2014
+    
+    border: 2px solid red; */
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.untouchable{
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}

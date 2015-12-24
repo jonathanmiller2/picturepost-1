@@ -1,0 +1,18 @@
+<project name="picturepost" default="compile" basedir=".">
+  <description>Build picturepost</description>
+
+  <path id="classpath">
+    <fileset dir="lib" includes="**/*.jar"/>
+  </path>
+
+  <target name="compile" description="compile picturepost" >
+    <javac srcdir="src/picturepost" destdir="webapps/ROOT/WEB-INF/classes" classpathref="classpath" debug="true" includeantruntime="false" />
+  </target>
+
+
+  <target name="clean" description="clean up">
+    <delete includeemptydirs="true">
+      <fileset dir="webapps/ROOT/WEB-INF/classes" includes="**/*" />
+    </delete>
+  </target>
+</project>

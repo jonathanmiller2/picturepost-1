@@ -1,0 +1,28 @@
+.thumbnail-default
+{
+	border: 2px solid black;
+}
+
+.thumbnail-focus
+{
+	border: 2px solid red;
+}
+
+.thumbnail-outof_focus {
+
+}
+
+.thumbnail-selected
+{
+	border: 2px solid green;
+}
+
+#analyzeButton 
+{
+    float: left;
+}
+
+#showLastButton
+{
+    float: left;
+}

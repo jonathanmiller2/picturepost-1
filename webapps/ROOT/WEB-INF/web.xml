@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN" "http://java.sun.com/dtd/web-app_2_3.dtd">
+
+<web-app>
+
+	<filter>
+		<filter-name>AppFilter</filter-name>
+		<filter-class>edu.unh.sr.picturepost.AppFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>AppFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<listener>
+		<listener-class>edu.unh.sr.picturepost.StartupPicturepost</listener-class>
+	</listener>
+	
+	<servlet>
+		<servlet-name>GetPictureInfo</servlet-name>
+		<servlet-class>edu.unh.sr.picturepost_rest.GetPictureInfo</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>GetAutoScrollPictures</servlet-name>
+		<servlet-class>edu.unh.sr.picturepost_rest.GetAutoScrollPictures</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>AddPost</servlet-name>
+		<servlet-class>edu.unh.sr.picturepost_rest.AddPost</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>AddPictureSet</servlet-name>
+		<servlet-class>edu.unh.sr.picturepost_rest.AddPictureSet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>IsValidMobilePhone</servlet-name>
+		<servlet-class>edu.unh.sr.picturepost_rest.IsValidMobilePhone</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>GetPostList</servlet-name>
+		<servlet-class>edu.unh.sr.picturepost_rest.GetPostList</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>GetPost</servlet-name>
+		<servlet-class>edu.unh.sr.picturepost_rest.GetPost</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>GetPostPicture</servlet-name>
+		<servlet-class>edu.unh.sr.picturepost_rest.GetPostPicture</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>GetPicture</servlet-name>
+		<servlet-class>edu.unh.sr.picturepost_rest.GetPicture</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>GetPictureSet</servlet-name>
+		<servlet-class>edu.unh.sr.picturepost_rest.GetPictureSet</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>FlagPictureSet</servlet-name>
+		<servlet-class>edu.unh.sr.picturepost_rest.FlagPictureSet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>GetPictureSetIds</servlet-name>
+		<servlet-class>edu.unh.sr.picturepost_rest.GetPictureSetIds</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>GetPostAndPictureSets</servlet-name>
+		<servlet-class>edu.unh.sr.picturepost_rest.GetPostAndPictureSets</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>AddPicture</servlet-name>
+		<servlet-class>edu.unh.sr.picturepost_rest.AddPicture</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>AddPostPicture</servlet-name>
+		<servlet-class>edu.unh.sr.picturepost_rest.AddPostPicture</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>SetReferencePictureSetId</servlet-name>
+		<servlet-class>edu.unh.sr.picturepost_rest.SetReferencePictureSetId</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>GetPictureInfo</servlet-name>
+		<url-pattern>/servlet/GetPictureInfo</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>GetAutoScrollPictures</servlet-name>
+		<url-pattern>/servlet/GetAutoScrollPictures</url-pattern>
+	</servlet-mapping>
+
+
+
+	<servlet-mapping>
+		<servlet-name>AddPost</servlet-name>
+		<url-pattern>/app/AddPost</url-pattern>
+	</servlet-mapping>
+
+
+
+	<servlet-mapping>
+		<servlet-name>AddPictureSet</servlet-name>
+		<url-pattern>/app/AddPictureSet</url-pattern>
+	</servlet-mapping>
+
+
+
+	<servlet-mapping>
+		<servlet-name>IsValidMobilePhone</servlet-name>
+		<url-pattern>/app/IsValidMobilePhone</url-pattern>
+	</servlet-mapping>
+
+
+
+	<servlet-mapping>
+		<servlet-name>GetPostList</servlet-name>
+		<url-pattern>/app/GetPostList</url-pattern>
+	</servlet-mapping>
+
+
+
+	<servlet-mapping>
+		<servlet-name>GetPost</servlet-name>
+		<url-pattern>/app/GetPost</url-pattern>
+	</servlet-mapping>
+
+
+
+	<servlet-mapping>
+		<servlet-name>GetPicture</servlet-name>
+		<url-pattern>/app/GetPicture</url-pattern>
+	</servlet-mapping>
+
+
+
+	<servlet-mapping>
+		<servlet-name>GetPostPicture</servlet-name>
+		<url-pattern>/app/GetPostPicture</url-pattern>
+	</servlet-mapping>
+
+
+
+	<servlet-mapping>
+		<servlet-name>GetPictureSet</servlet-name>
+		<url-pattern>/app/GetPictureSet</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>FlagPictureSet</servlet-name>
+		<url-pattern>/app/FlagPictureSet</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>GetPictureSetIds</servlet-name>
+		<url-pattern>/app/GetPictureSetIds</url-pattern>
+	</servlet-mapping>
+
+
+
+	<servlet-mapping>
+		<servlet-name>GetPostAndPictureSets</servlet-name>
+		<url-pattern>/app/GetPostAndPictureSets</url-pattern>
+	</servlet-mapping>
+
+
+
+	<servlet-mapping>
+		<servlet-name>AddPicture</servlet-name>
+		<url-pattern>/app/AddPicture</url-pattern>
+	</servlet-mapping>
+
+
+
+	<servlet-mapping>
+		<servlet-name>AddPostPicture</servlet-name>
+		<url-pattern>/app/AddPostPicture</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet-mapping>
+		<servlet-name>SetReferencePictureSetId</servlet-name>
+		<url-pattern>/app/SetReferencePictureSetId</url-pattern>
+	</servlet-mapping>
+
+
+
+
+</web-app>

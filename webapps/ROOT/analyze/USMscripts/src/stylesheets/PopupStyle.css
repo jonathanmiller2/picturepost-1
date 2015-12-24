@@ -1,0 +1,175 @@
+#popup{
+	cursor: move;
+    position: fixed; top: 50%; left: 50%;
+    margin-left:-475px; margin-top: -275px;
+    padding: 0px;
+    width: 950px; height: 550px;
+    border: 3px solid #949cc4;
+    border-radius: 20px;
+    box-shadow: 0px 0px 0px 3px #e88b44, 0px 0px 0px 6px #d05743, 0px 0px 0px 9px #d8e44d;
+    background-color: #fff;
+    z-index: 9002; 
+    visibility: hidden;
+}
+
+#blanket{
+    position: fixed; top: 0px; left: 0px;
+    width: 100%; height: 100%;
+    //background-color: rgba(1, 1, 1, 0.34);
+    z-index: 9001;
+    visibility: hidden;
+}
+
+#logo{
+    position: fixed; left: 50%; top: 50%;
+    margin-left: 345px; margin-top: 240px;
+    visibility: hidden;
+}
+
+#imageDisplayDiv{
+    position: fixed; left: 50%; top: 50%;
+    margin-left: -200px; margin-top: -200px;
+    visibility: hidden;
+    z-index: 9004;
+}
+
+#loadicon{
+   top: 50%; left: 50%;
+    
+}
+
+#loadCounter{
+   visibility: hidden;
+   text-align: center;
+   position: fixed; top: 50%; left: 50%;
+   width: 300px; height: 25px;
+   margin-left: -150px; margin-top: 120px;
+   z-index: 9003;
+}
+
+div.graphcanvas{
+    position: fixed; top: 50%; left: 50%;
+    margin-left: -450px; margin-top: -225px;
+}
+
+#CSVDiv {
+    position: fixed; top: 50%; left: 50%;
+    margin-left: -450px; margin-top: -225px;
+    overflow: auto;
+    z-index: 9003;
+    -moz-user-select: text;
+    -webkit-user-select: text;
+    -ms-user-select: text;
+}
+
+#uldiv{
+    position: fixed; top: 50%; left: 50%;
+    margin-left: -500px; margin-top: -285px;
+    visibility: hidden;
+}
+
+li.popupmenu{display: inline;}
+
+a.popupmenu{
+    font-size: 72%;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    color: #003366;
+}
+
+a.popupmenu:hover{
+    color: #FFCC66;
+}
+
+#menu1{
+    padding-right: 10px;
+    border-right: 1px solid #003366;
+}
+
+#menu2{
+    padding-left: 10px;
+}
+
+#chart2
+{
+    padding: 2px 2px 2px 2px;
+}
+
+/*The opening animation for the analysis popup window.*/
+@-webkit-keyframes openAnimation{
+    from{
+        width: 0px; height: 0px;
+        margin-left: 0px; margin-top: 0px;
+    }
+    to{
+        width: 950px; height: 550px;
+        margin-left: -475px; margin-top: -275px;
+    }
+}
+
+@keyframes openAnimation{
+    from{
+        width: 0px; height: 0px;
+        margin-left: 0px; margin-top: 0px;
+    }
+    to{
+        width: 950px; height: 550px;
+        margin-left: -475px; margin-top: -275px;
+    }
+}
+
+/*The class to be added to the actual window div using jQuery*/
+.animate{
+    -webkit-animation: openAnimation 1.5s;
+    animation: openAnimation 1.5s;
+}
+
+/*A fade-in animation, used on the logo and exit icon.*/
+@-webkit-keyframes show{
+    from{
+        opacity: 0.0;
+    }
+    to{
+        opacity: 1.0;
+    }
+}
+
+@keyframes show{
+    from{
+        opacity: 0.0;
+    }
+    to{
+        opacity: 1.0;
+    }
+}
+
+/*The fade-in class to be added to the logo and exit icon using jQuery.*/
+.show{
+    -webkit-animation: show 1s;
+    animation: show 1s;
+}
+
+/*The animation for the rotation of the loading icon.*/
+@-webkit-keyframes rotate{
+    from{
+        -webkit-transform: rotate(0deg);
+    }
+    to{
+        -webkit-transform: rotate(359deg);
+    }
+}
+
+@keyframes rotate{
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(359deg);
+    }
+}
+
+/*The rotation class to be added to the loading icon using jQuery.*/
+.rotate{
+    -webkit-animation: rotate 1s linear 0s infinite;
+    animation: rotate 1s linear 0s infinite;
+}

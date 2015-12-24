@@ -1,0 +1,926 @@
+#!/usr/bin/perl
+
+use strict;
+use DBI();
+use FindBin qw($Bin);
+use Digest::SHA qw( sha256 sha256_hex);
+
+
+my %CONFIG;
+$CONFIG{BASE_PATH} = $Bin;
+$CONFIG{BASE_PATH} =~ s/\/bin$//;
+
+my $DBH;
+
+sub test_db_user_connection {
+  # test connect as DB_USER 
+  my $dsn = "dbi:Pg:dbname=$CONFIG{DATABASE};host=$CONFIG{DB_HOST_IP};port=$CONFIG{DB_PORT}";
+  my $dbh = DBI->connect($dsn, $CONFIG{DB_USER}, $CONFIG{DB_PASSWORD});
+  if (! $dbh) {
+    print "Could not connect to the database as user $CONFIG{DB_USER}.\n";
+    exit(-1);
+  }
+  my ($test) = $dbh->selectrow_array("SELECT count(*) FROM picturepost.post LIMIT 1");
+  if ($test eq '') {
+    print "WARNING: Could not execute query in database as user $CONFIG{DB_USER}.\n";
+    exit(-1);
+  }
+  print "DB connection to $CONFIG{DATABASE} as $CONFIG{DB_USER} successful\n";
+}
+  
+sub init_dbh {
+  my $dsn = "dbi:Pg:dbname=$CONFIG{DATABASE};host=127.0.0.1;port=5432";
+  $DBH = DBI->connect($dsn, $CONFIG{DB_ADMIN_USER}, $CONFIG{DB_ADMIN_PASSWORD});
+  if (! $DBH) {
+    print "
+Could not connect to the database:
+  $dsn as $CONFIG{DB_ADMIN_USER}
+
+# Make sure you have enable password authentication:
+sudo vi /var/lib/pgsql/data/pg_hba.conf
+# change line:
+host    all         all         127.0.0.1/32          ident
+# To:
+host    all         all         127.0.0.1/32          md5
+sudo service postgresql restart
+
+# Also make sure you have set the postgres user password
+sudo -u postgres psql -c \"ALTER USER postgres WITH PASSWORD '$CONFIG{DB_ADMIN_PASSWORD}';\" postgres
+
+";
+    exit(-1);
+  }
+  $$DBH{RaiseError}=1;
+  print "DB connection to $CONFIG{DATABASE} as $CONFIG{DB_ADMIN_USER} successful\n";
+  $DBH->do("SET search_path TO picturepost, public");
+}
+
+sub reset_db_privs {
+  print "Resetting privileges for $CONFIG{DB_USER} on $CONFIG{DATABASE}\n";
+
+  my ($db_user_exists) = $DBH->selectrow_array(
+    "SELECT 1 FROM pg_user WHERE usename = ?", undef, $CONFIG{DB_USER});
+  if (!$db_user_exists) {
+    $DBH->do("CREATE USER \"$CONFIG{DB_USER}\" WITH PASSWORD ?", undef, $CONFIG{DB_PASSWORD});
+  } else {
+    $DBH->do("ALTER USER \"$CONFIG{DB_USER}\" WITH PASSWORD ?", undef, $CONFIG{DB_PASSWORD});
+  }
+  $DBH->do("REVOKE ALL PRIVILEGES ON DATABASE \"$CONFIG{DATABASE}\" FROM public");
+  $DBH->do("REVOKE ALL PRIVILEGES ON DATABASE \"$CONFIG{DATABASE}\" FROM $CONFIG{DB_USER}");
+  $DBH->do("GRANT CONNECT ON DATABASE \"$CONFIG{DATABASE}\" TO $CONFIG{DB_USER}");
+  $DBH->do("GRANT USAGE ON SCHEMA picturepost TO $CONFIG{DB_USER}");
+
+  my $t = $DBH->selectcol_arrayref("SELECT table_name FROM information_schema.tables WHERE table_schema='picturepost'");
+  $DBH->do("GRANT SELECT, INSERT, UPDATE, DELETE ON picturepost.$_ TO $CONFIG{DB_USER}") for @$t;
+
+  my $t = $DBH->selectcol_arrayref("SELECT sequence_name FROM information_schema.sequences WHERE sequence_schema='picturepost'");
+  $DBH->do("GRANT SELECT, UPDATE ON SEQUENCE picturepost.$_ TO $CONFIG{DB_USER}") for @$t;
+  
+  $DBH->do("ALTER USER dbuser SET search_path TO picturepost,public");
+}
+
+sub load_conf {
+  # read in conf
+  open my $fh, "< $CONFIG{BASE_PATH}/conf/picturepost.cfg" or die $!;
+  while (<$fh>) {
+    s/\#.*//g;
+    if (/(\w+)\s+(.*)/) {
+      my $name = uc($1);
+      my $val = $2;
+      $val =~ s/^\s+//; $val =~ s/\s+$//;
+      $CONFIG{$name} = $val;
+    }
+  }
+  $CONFIG{APACHE_ADDR_PORT} ||= "*:80";
+}
+
+sub build_conf_comments {
+  my $cfg = get_example_conf();
+  my %comments;
+  my $buff;
+  for (split /\n/, $cfg) {
+    next if /^\s*$/;
+    $buff .= $_."\n";
+    if (/^\s*(\w+)/) {
+      $comments{$1} = $buff;
+      $buff = '';
+    }
+  }
+  return \%comments;
+}
+
+sub validate_conf {
+  # conf validation
+  my $errs;
+  my $comment_cache;
+  
+  for (qw(URL DATABASE DB_USER DB_PASSWORD EMAIL_COMMAND MAX_FILE_UPLOAD_SIZE DB_PORT DB_HOST_IP APACHE_SERVER_NAME OS_OWNER OS_GROUP DB_ADMIN_USER DB_ADMIN_PASSWORD TOMCAT_HOME APACHE_ADDR_PORT SECRET )) {
+    if ($CONFIG{$_} eq '') {
+      $comment_cache ||= build_conf_comments();
+      $errs .= "** Missing conf: $_ **\n$$comment_cache{$_}\n";
+    } 
+  }
+  if ($errs) {
+    print "\n** Errors found in $CONFIG{BASE_PATH}/conf/picturepost.cfg\n\n$errs\n\nFix the errors, then rerun $0\n\n";
+    exit(-1);
+  }
+  if ($CONFIG{DB_ADMIN_USER} eq $CONFIG{DB_USER}) {
+    print "DB_ADMIN_USER and DB_USER can not be the same\n";
+    exit(-1);
+  }
+}
+
+sub get_example_conf {
+  my $hostname = `hostname`; chomp $hostname;
+
+  my $TOMCAT_HOME;
+  for (qw( /usr/local/tomcat /usr/share/tomcat /usr/share/tomcat8 /usr/share/tomcat7 /usr/share/tomcat6 /usr/share/tomcat5 )) {
+    if (-d $_) {
+      $TOMCAT_HOME = $_;
+      last;
+    }
+  }
+
+  return
+"# picture post settings
+# you may edit this file
+# if you delete it, running bin/picturepost.pl will recreate it
+SUPPORT_EMAIL	$ENV{USER}\@$hostname
+SUPPORT_PHONE	603-862-7038
+EMAIL_COMMAND	/usr/sbin/sendmail -oi -t
+GOOGLE_MAPS_KEY	ABQIAAAAXLtB9cZEiOZ_WJC3vUyI2RQG0VXM1isChuPqZL77qjLf3s1C-hSFtmTt8t6XLAWqQA-40gXr1h4CJg
+RECAPTCHA_PRIVATE_KEY	nokey	# If devel site, reCaptcha is optional 
+RECAPTCHA_PUBLIC_KEY	nokey
+CONVERT			/usr/bin/convert
+MAX_FILE_UPLOAD_SIZE 10485760   # 10 * 1024 * 1024  (10 MB)
+OS_OWNER        $ENV{USER}
+OS_GROUP        users
+APACHE_ADDR_PORT      *:80 
+APACHE_SERVER_NAME         # SET THIS like picturepost-phil.sr.unh.edu
+APACHE_GROUP    apache
+TOMCAT_GROUP    tomcat
+URL				           # SET THIS like http://picturepost-phil.sr.unh.edu
+GOOGLE_ANALYTICS_KEY
+
+# set server secret used to sign and authenticate rememberme
+SECRET
+
+# location of your tomcat server files
+TOMCAT_HOME     $TOMCAT_HOME
+
+# The name must be unique for the server
+# It is used to identify the application for tomcat.
+NAME            picturepost 
+
+# mode should be set to development OR live
+# when site is in development mode, the system will redirect all outgoing
+# email to SUPPORT_EMAIL to prevent accidental emails from being sent to
+# users.
+MODE            development
+
+# use createuser command to create your database user
+# the DB_ADMIN_USER, DB_ADMIN_PASSWORD info is needed for database updates
+# test connection with command:
+# psql --host=DB_HOSTNAME --port=DB_PORT --username=DB_USER
+# Developers: you may share databases between picturepost development sites.
+DATABASE		# SET THIS if dev site add suffix example: picturepost_phil
+DB_USER			dbuser
+DB_PASSWORD		n0rMal1
+DB_ADMIN_USER   postgres
+DB_ADMIN_PASSWORD postgres
+DB_PORT			6432
+DB_HOST_IP		127.0.0.1
+
+# facebook app ID
+FACEBOOK_APP_ID  487210394773372
+
+# These options are required to allow users to publish photos to an FTP site
+EXPORT_FTP_SERVER
+EXPORT_FTP_USER
+EXPORT_FTP_PASS
+EXPORT_FTP_PATH
+";
+}
+
+sub get_apache_conf {
+  return
+"# This file is autogenerated by $CONFIG{BASE_PATH}/bin/picturepost.pl
+# Any changes you make will be lost.
+# Please make changes to the generator function: get_apache_conf
+<VirtualHost $CONFIG{APACHE_ADDR_PORT}>
+  ServerName              $CONFIG{APACHE_SERVER_NAME}
+  ServerAdmin             $CONFIG{SUPPORT_EMAIL}
+  DocumentRoot            $CONFIG{BASE_PATH}/webapps/ROOT
+
+  ErrorLog                $CONFIG{BASE_PATH}/logs/error.log
+  CustomLog               $CONFIG{BASE_PATH}/logs/access.log combined
+
+  Alias /images/pictures/ $CONFIG{BASE_PATH}/data/pictures/
+  Alias /webalizer/       $CONFIG{BASE_PATH}/data/webalizer/
+  Alias /wmsTmp/          $CONFIG{BASE_PATH}/data/wmsTmp/
+  ScriptAlias  /cgi-bin/  $CONFIG{BASE_PATH}/cgi-bin/
+  ProxyTimeout 900
+
+  RewriteEngine On
+  RewriteRule \"^/*\$\" /index.jsp [R]
+  RewriteRule \"^/(.*\\.jsp|app\\/.*|servlet\\/.*)\$\" ajp://$CONFIG{APACHE_SERVER_NAME}:8009/\$1 [P,L]
+
+  <Directory />
+    AllowOverride None
+    Order deny,allow
+    Deny from all
+    Allow from all
+    Require all granted
+  </Directory>
+
+  <Location /webalizer>
+    AuthName 'Picture Post Webalizer'
+    AuthType Basic
+    AuthUserFile $CONFIG{BASE_PATH}/conf/picturepost_webalizer.users
+    Require valid-user
+  </Location>
+</VirtualHost>";
+}
+
+sub fix_file_permissions {
+  print "fixing file permissions\n";
+  chdir $CONFIG{BASE_PATH};
+  system("chown -R $CONFIG{OS_OWNER}.$CONFIG{OS_GROUP} .");
+  system("setfacl -R --set u::rwX,g::rwX,o::--X,u:$CONFIG{OS_OWNER}:rwX,d:u:$CONFIG{OS_OWNER}:rwX .");
+  system("setfacl -R --modify u:apache:r-X,d:u:apache:r-X conf webapps");
+  system("setfacl -R --modify u:apache:r-x,d:u:apache:r-x cgi-bin");
+  system("setfacl -R --modify u:apache:r-x,d:u:apache:r-x bin/colorMod");
+  system("setfacl -R --modify u:tomcat:r-X,d:u:tomcat:r-X conf lib webapps");
+  system("setfacl -R --modify u:apache:rwX,d:u:apache:rwX logs data tmp");
+  system("setfacl -R --modify u:tomcat:rwX,d:u:tomcat:rwX logs data tmp");
+  system("chmod -R ug+x cgi-bin bin");
+  system("chmod 664 cgi-bin/*.map");
+
+  if (`sestatus` =~ /SELinux status\:\s+enabled/s) {
+    system('chcon system_u:object_r:root_t:s0 .');
+    system('chcon -R system_u:object_r:httpd_log_t:s0 logs');
+    system('chcon -R system_u:object_r:httpd_sys_script_exec_t:s0 cgi-bin');
+    system('chcon system_u:object_r:httpd_sys_content_t:s0 cgi-bin/*.map');
+    system('chcon -R system_u:object_r:httpd_sys_content_t:s0 conf data webapps/ROOT');
+    system('chcon -R system_u:object_r:httpd_config_t:s0 conf/apache');
+    system('chcon -R system_u:object_r:cert_t:s0 conf/certs') if -d 'conf/certs';
+    system('chcon -R system_u:object_r:usr_t:s0 lib');
+    system('chcon -R system_u:object_r:bin_t:s0 bin');
+    system('chcon -R system_u:object_r:tmp_t:s0 tmp');
+    print "Setup SELinux file contexts\n";
+  }
+}
+
+sub restart_apache {
+  print "restarting apache\n";
+  my $rv = system("apachectl restart");
+  if ($rv != 0) {
+    print "Warning apachectl restart returned $rv\n";
+  }
+}
+
+sub act_setup {
+
+  # check for root user
+  if ($^O !~ /MSWin/i && $> != 0) {
+    print "You must be root to run this command.\n";
+    exit(-1);
+  }
+
+  chdir $CONFIG{BASE_PATH};
+
+  # make these directories if they don't already exist
+  system("mkdir -p data/wmsTmp data/pictures data/satellite tmp webapps/ROOT/WEB-INF/classes logs conf");
+
+  # generate minimal conf if not exists
+  if (! -f "conf/picturepost.cfg") {
+    open my $fh, "> conf/picturepost.cfg" or die $!;
+    print $fh get_example_conf();
+    print "
+Created default $CONFIG{BASE_PATH}/conf/picturepost.cfg file.
+Edit this file and rerun picturepost.pl
+
+";
+    exit(0);
+  }
+
+  load_conf();
+  validate_conf();
+
+  # regenerate apache conf
+  my $APACHE_CONFIG_CHANGED = 0;
+  { my $md5sum1 = `md5sum conf/apache/apache.conf`;
+    open my $fh, "> conf/apache/apache.conf" or die $!;
+    print $fh get_apache_conf();
+    my $md5sum2 = `md5sum conf/apache/apache.conf`;
+    $APACHE_CONFIG_CHANGED = 1 if $md5sum1 ne $md5sum2;
+  }
+
+  eval {
+    init_dbh();
+    handle_db_upgrades();
+    reset_db_privs(); 
+  };
+  if ($@) {
+    print STDERR $@;
+  }
+
+  test_db_user_connection();
+
+  # install mapserv
+  if (! -f "cgi-bin/mapserv") {
+    print "Warning: could not find cgi-bin/mapserv\n";
+  }
+  $DBH->disconnect() if $DBH;
+
+  # rebuild java files
+  print "building java files\n";
+  system("ant");
+
+  clear_caches();
+  fix_file_permissions();
+  restart_apache() if $APACHE_CONFIG_CHANGED;
+  restart_tomcat();
+
+  print "$0 complete\n";
+  exit(0); 
+}
+
+sub clear_caches {
+}
+
+sub globalvar {
+  if (scalar(@_) == 2) {
+    my ($name, $val) = @_;
+    my $rv = $DBH->do("UPDATE globalvar SET val=? WHERE name=?", undef, $val, $name);
+    if ($rv == 0) {
+      $DBH->do("INSERT INTO globalvar (val, name) VALUES (?,?)", undef, $val, $name);
+    }
+    return undef;
+  } else {
+    my ($name) = @_;
+    my ($val) = $DBH->selectrow_array("SELECT val FROM globalvar WHERE name=?", undef, $name);
+    return $val;
+  }
+}
+
+sub handle_db_upgrades {
+  while (1) {
+    my ($version) = globalvar('version');
+    my $codeRef = __PACKAGE__->can('upgrade_'.$version);
+    if ($codeRef) {
+      print "Applying upgrade_$version\n";
+      $codeRef->();
+    } else {
+      print "Version detected: $version\n";
+      last;
+    }
+  }
+}
+
+our $EXECCMD_PRINT = 1;
+our $EXECCMD_RUN_CMDS = 1;
+our $EXECCMD_EXIT_ON_NONZERO = 0;
+sub execCmd {
+  my (@cmd) = @_;
+  print join(' ', @cmd)."\n" if $EXECCMD_PRINT;
+  my $rv = system(@cmd) if $EXECCMD_RUN_CMDS;
+  if ($rv != 0 && $EXECCMD_EXIT_ON_NONZERO) {
+    print STDERR "returned: $rv\naborting\n";
+    exit($rv);
+  }
+  return $rv;
+}
+
+sub upgrade_2 {
+  local $$DBH{RaiseError}=0;
+  $DBH->do("CREATE INDEX idx_picture_md_picture_id ON picture_md(picture_id)"); 
+  $DBH->do("DROP SCHEMA IF EXISTS phpbb CASCADE");
+  chdir $CONFIG{BASE_PATH};
+  system("rm -rf phpBB3") if -d "phpBB3";
+  globalvar('version', 3);
+}
+
+sub upgrade_3 {
+  $DBH->do("ALTER TABLE person ADD facebook_id TEXT UNIQUE");
+
+  $DBH->do("
+CREATE TABLE story (
+  story_id SERIAL NOT NULL PRIMARY KEY,
+  author_person_id INTEGER NOT NULL REFERENCES person(person_id),
+  title TEXT NOT NULL,
+  html TEXT NOT NULL,
+  txtsearch TSVECTOR,
+  publish_dt TIMESTAMP WITHOUT TIME ZONE
+)");
+
+  $DBH->do("CREATE INDEX idx_story_publish_dt ON story(publish_dt)");
+  $DBH->do("CREATE INDEX idx_story_txtsearch ON story USING GIN(txtsearch)");
+  $DBH->do("CREATE INDEX idx_map_parms ON map_parms(person_id)");
+  $DBH->do("CREATE INDEX idx_picturemap_parms ON map_parms(person_id)");
+
+  $DBH->do("
+DELETE FROM picture WHERE EXISTS (
+  SELECT 1
+  FROM picture p
+  WHERE picture.picture_set_id=p.picture_set_id
+  AND picture.orientation=p.orientation
+  AND picture.picture_id < p.picture_id
+)");
+
+  $DBH->do("ALTER TABLE picture ADD CONSTRAINT unq_picture UNIQUE (picture_set_id, orientation)");
+
+  $DBH->do("
+DELETE FROM picture_comment WHERE EXISTS (
+  SELECT 1
+  FROM picture_comment p
+  WHERE picture_comment.picture_id=p.picture_id
+  AND picture_comment.person_id=p.person_id
+  AND picture_comment.picture_comment_id < p.picture_comment_id
+)");
+
+  $DBH->do("ALTER TABLE picture_comment ADD CONSTRAINT unq_picture_comment UNIQUE(picture_id, person_id)");
+  $DBH->do("ALTER TABLE picture_set ADD COLUMN txtsearch TSVECTOR");
+  $DBH->do("CREATE INDEX idx_picture_set_personpost ON picture_set(person_id,post_id)");
+  $DBH->do("CREATE INDEX idx_picture_set_postperson ON picture_set(post_id, person_id)");
+  $DBH->do("CREATE INDEX idx_picture_set_timestamp ON picture_set(picture_set_timestamp,post_id, person_id)");
+  $DBH->do("ALTER TABLE post ADD COLUMN logohtml TEXT");
+  $DBH->do("ALTER TABLE post ADD COLUMN thankyouhtml TEXT");
+  $DBH->do("ALTER TABLE post ADD COLUMN txtsearch TSVECTOR");
+  $DBH->do("CREATE INDEX idx_picture_set_txtsearch ON post USING GIN(txtsearch)");
+  $DBH->do("CREATE INDEX idx_post_txtsearch ON post USING GIN(txtsearch)");
+  $DBH->do("CREATE INDEX idx_post_name ON post(name)");
+  $DBH->do("CREATE INDEX unq_post_reference_picture_set_id ON post(reference_picture_set_id)"); 
+  $DBH->do("ALTER TABLE post_picture ADD CONSTRAINT unq_post_picture UNIQUE(post_id, seq_nbr)"); 
+  $DBH->do("ALTER TABLE remember_me ADD CONSTRAINT unq_remember_me UNIQUE(person_id,remember_me_key)");
+
+  $DBH->do("
+CREATE OR REPLACE FUNCTION updatefulltextsearchidx() RETURNS void AS \$\$
+BEGIN
+
+UPDATE post SET txtsearch=x.txtsearch
+FROM (
+  SELECT post.post_id,
+    SETWEIGHT(TO_TSVECTOR(COALESCE(person.username,'')),'C') ||
+    SETWEIGHT(TO_TSVECTOR(COALESCE(person.last_name,'')),'C') ||
+    SETWEIGHT(TO_TSVECTOR(COALESCE(person.first_name,'')),'C') ||
+    SETWEIGHT(TO_TSVECTOR(COALESCE(person.email,'')),'B') ||
+    SETWEIGHT(TO_TSVECTOR(COALESCE(post.name,'')),'A') ||
+    SETWEIGHT(TO_TSVECTOR(COALESCE(post.description,'')),'A') txtsearch
+  FROM post
+  JOIN person ON (post.person_id=person.person_id)
+) x
+WHERE post.txtsearch IS NULL
+AND post.post_id=x.post_id;
+
+UPDATE picture_set SET txtsearch=x.txtsearch
+FROM (
+  SELECT picture_set.picture_set_id,
+    SETWEIGHT(TO_TSVECTOR(COALESCE(person.username,'')),'C') ||
+    SETWEIGHT(TO_TSVECTOR(COALESCE(person.last_name,'')),'C') ||
+    SETWEIGHT(TO_TSVECTOR(COALESCE(person.first_name,'')),'C') ||
+    SETWEIGHT(TO_TSVECTOR(COALESCE(person.email,'')),'B') ||
+    SETWEIGHT(TO_TSVECTOR(COALESCE(picture_set.annotation,'')),'A') ||
+    SETWEIGHT(TO_TSVECTOR(COALESCE(comments.vals,'')),'A') txtsearch
+  FROM picture_set
+  JOIN person ON (picture_set.person_id=person.person_id)
+  LEFT JOIN (
+    SELECT picture.picture_set_id, STRING_AGG(picture_comment.comment_text,' ') vals
+    FROM picture
+    JOIN picture_comment ON (picture.picture_id=picture_comment.picture_id)
+    GROUP BY picture.picture_set_id
+  ) comments ON (picture_set.picture_set_id=comments.picture_set_id)
+) x
+WHERE picture_set.txtsearch IS NULL
+AND picture_set.picture_set_id=x.picture_set_id;
+
+-- create full text search for story
+UPDATE story SET txtsearch=x.txtsearch
+FROM (
+  SELECT story.story_id,
+    SETWEIGHT(TO_TSVECTOR(COALESCE(person.username,'')),'C') ||
+    SETWEIGHT(TO_TSVECTOR(COALESCE(person.last_name,'')),'C') ||
+    SETWEIGHT(TO_TSVECTOR(COALESCE(person.first_name,'')),'C') ||
+    SETWEIGHT(TO_TSVECTOR(COALESCE(person.email,'')),'B') ||
+    SETWEIGHT(TO_TSVECTOR(COALESCE(story.html,'')),'A') ||
+    SETWEIGHT(TO_TSVECTOR(COALESCE(story.title,'')),'A') txtsearch
+  FROM story
+  JOIN person ON (story.author_person_id=person.person_id)
+) x
+WHERE story.txtsearch IS NULL
+AND story.story_id=x.story_id;
+END \$\$ LANGUAGE plpgsql");
+
+  $DBH->do("SELECT updatefulltextsearchidx()");
+
+  $DBH->do("
+-- the news query
+CREATE OR REPLACE VIEW news AS
+SELECT
+  'story' rectype,
+  story.author_person_id author_id,
+  COALESCE(person.username,person.first_name||' '||person.last_name,person.email) author,
+  story.story_id id1,
+  NULL id2,
+  story.publish_dt dt,
+  story.title title,
+  story.html content1,
+  '' content2,
+  story.txtsearch
+FROM story
+JOIN person ON (story.author_person_id=person.person_id)
+UNION ALL
+SELECT
+  'picset' rectype,
+  picture_set.person_id author_id,
+  COALESCE(person.username,person.first_name||' '||person.last_name,person.email) author,
+  picture_set.post_id id1,
+  picture_set.picture_set_id id2,
+  picture_set.picture_set_timestamp dt,
+  post.name title,
+  picture_set.annotation content1,
+  pics.val content2,
+  picture_set.txtsearch
+FROM picture_set
+JOIN post ON (picture_set.post_id=post.post_id)
+JOIN person ON (picture_set.person_id=person.person_id)
+JOIN (
+  SELECT picture_set_id,
+    MAX((CASE WHEN orientation='N'  THEN picture_id ELSE 0 END)) ||','||
+    MAX((CASE WHEN orientation='NE' THEN picture_id ELSE 0 END)) ||','||
+    MAX((CASE WHEN orientation='E'  THEN picture_id ELSE 0 END)) ||','||
+    MAX((CASE WHEN orientation='SE' THEN picture_id ELSE 0 END)) ||','||
+    MAX((CASE WHEN orientation='S'  THEN picture_id ELSE 0 END)) ||','||
+    MAX((CASE WHEN orientation='SW' THEN picture_id ELSE 0 END)) ||','||
+    MAX((CASE WHEN orientation='W'  THEN picture_id ELSE 0 END)) ||','||
+    MAX((CASE WHEN orientation='NW' THEN picture_id ELSE 0 END)) ||','||
+    MAX((CASE WHEN orientation='UP' THEN picture_id ELSE 0 END)) val
+  FROM picture
+  GROUP BY picture_set_id
+) pics ON (picture_set.picture_set_id=pics.picture_set_id)
+WHERE post.ready=true
+AND picture_set.ready=true
+AND picture_set.flagged=false
+UNION ALL
+SELECT
+  'post' rectype,
+  post.person_id author_id,
+  COALESCE(person.username,person.first_name||' '||person.last_name,person.email) author,
+  post.post_id id1,
+  postpic.post_picture_id id2,
+  post.record_timestamp dt,
+  post.name title,
+  post.description content1,
+  '' content2,
+  post.txtsearch
+FROM post
+JOIN person ON (post.person_id=person.person_id)
+JOIN (
+  SELECT DISTINCT post_id,
+    FIRST_VALUE(post_picture_id) OVER w AS post_picture_id
+  FROM post_picture
+  WHERE active=true
+  WINDOW w as (PARTITION BY post_id ORDER BY seq_nbr)
+) postpic ON (post.post_id=postpic.post_id)
+WHERE post.ready=true");
+  
+  globalvar('version', 4);
+}
+
+sub upgrade_4 {
+  $DBH->do("DROP TABLE map_parms");
+  $DBH->do("DROP TABLE remember_me");
+  globalvar('version', 5);
+}
+
+sub act_usage {
+  print "
+Usage:
+  picpost setup            set up a picturepost site, run upgrade scripts, fix file permissions
+  picpost redeploy         compile picturepost source code and redeploy to server
+  picpost backup           backup picturepost database to data/backup.sql.gz
+  picpost restore          drop picturepost database and import data/backup.sql.gz
+  picpost clear_all_data   delete all data (posts, pictures, records in database)
+  picpost sql              start up database shell as admin user
+  picpost manage_user      create and modify picturepost users from the command line
+  picpost delete_user      delete picturepost users and their associated data from the command line
+  picpost maint            execute maintenance routines
+";
+  exit(0); 
+}
+
+sub restart_tomcat {
+  system("sudo systemctl restart tomcat.service");
+}
+
+sub act_redeploy {
+  load_conf();
+  chdir $CONFIG{BASE_PATH};
+  system("ant");
+  restart_tomcat();
+  exit(0); 
+}
+
+sub act_backup {
+  load_conf();
+  local $ENV{PGPASSWORD} = $CONFIG{DB_ADMIN_PASSWORD};
+  local $ENV{PATH} = "$ENV{PATH}:/usr/local/bin";
+  my $PGDUMP_CMD = $CONFIG{PGDUMP_CMD} || 'pg_dump';
+  my $cmd = "$PGDUMP_CMD --username=$CONFIG{DB_ADMIN_USER} --no-password --no-owner --no-privileges --host=$CONFIG{DB_HOST_IP} --port=$CONFIG{DB_PORT} -n picturepost $CONFIG{DATABASE} | gzip > $CONFIG{BASE_PATH}/data/backup.sql.gz";
+  my $rv = system($cmd);
+  print "\nbackupDB successfully completed\n";
+  exit(0); 
+}
+
+sub hash_passwd {
+  my ($pass) = @_;
+
+  # generate random salt
+  my $salt; {
+    my @chars = ("A".."Z", "a".."z", 0 .. 9);
+    $salt .= $chars[rand @chars] for 1 .. 16;
+  }
+  
+  my $hash = sha256($salt.$pass);
+  $hash = sha256($hash) for 0 .. 998;
+  $hash = sha256_hex($hash);
+  return ($salt, uc($hash));
+}
+
+sub act_delete_user {
+  load_conf();
+  init_dbh();
+
+  my $search_term = $ARGV[0];
+  my $person_rec;
+
+  if ($search_term =~ /^\d+$/) {
+    $person_rec = $DBH->selectrow_hashref("SELECT * FROM person WHERE person_id=?", undef,  $search_term);
+  }
+  else {
+    $person_rec = $DBH->selectrow_hashref("SELECT * FROM person WHERE LOWER(username)=LOWER(?) OR LOWER(email)=LOWER(?)", undef,  $search_term, $search_term);
+  }
+
+  if ($person_rec eq undef) {
+    print "Person not found!\n";
+    return;
+  }
+
+  my ($post_count) = $DBH->selectrow_array("SELECT COUNT(*) FROM post WHERE person_id=?", undef, $$person_rec{person_id});
+  my ($pictureset_count) = $DBH->selectrow_array("SELECT COUNT(*) FROM picture_set WHERE person_id=?", undef, $$person_rec{person_id});
+  my ($comment_count) = $DBH->selectrow_array("SELECT COUNT(*) FROM picture_comment WHERE person_id=?", undef, $$person_rec{person_id});
+
+  print "Are you sure you want to delete the following user?
+Name: $$person_rec{first_name} $$person_rec{last_name}
+Email: $$person_rec{email}
+Username: $$person_rec{username}
+Posts Owned: $post_count
+Picturesets Uploaded: $pictureset_count
+Comments: $comment_count
+
+(y/N)
+";
+
+  my $choice = <STDIN>;
+  chomp $choice;
+  if (lc($choice) eq "y") {
+    eval {
+      $DBH->do("DELETE FROM post WHERE person_id=?", undef, $$person_rec{person_id});
+      $DBH->do("DELETE FROM favorite_post WHERE person_id=?", undef, $$person_rec{person_id});
+      $DBH->do("DELETE FROM map_parms WHERE person_id=?", undef, $$person_rec{person_id});
+      $DBH->do("DELETE FROM picture_set WHERE person_id=?", undef, $$person_rec{person_id});
+      $DBH->do("DELETE FROM picture_comment WHERE person_id=?", undef, $$person_rec{person_id});
+      $DBH->do("DELETE FROM remember_me WHERE person_id=?", undef, $$person_rec{person_id});
+      $DBH->do("DELETE FROM story WHERE author_person_id=?", undef, $$person_rec{person_id});
+      $DBH->do("DELETE FROM person WHERE person_id=?", undef, $$person_rec{person_id});
+    }; if ($@) {
+      $DBH->rollback();
+      print "Something went wrong: $@";
+    }
+    else {
+      print "Person deleted.";
+    }
+  }
+  print "\n";
+}
+
+sub act_manage_user {
+  load_conf();
+  init_dbh();
+
+  # turn into hash
+  my %v = @ARGV;
+
+  if (! $v{-person_id} && $v{-username}) {
+    ($v{-person_id}) = $DBH->selectrow_array("SELECT person_id FROM person WHERE UPPER(username)=UPPER(?)", undef,  $v{-username});
+  }
+  if (! $v{-person_id} && $v{-email}) {
+    ($v{-person_id}) = $DBH->selectrow_array("SELECT person_id FROM person WHERE UPPER(email)=UPPER(?)", undef,  $v{-email});
+  }
+
+  my $is_update = ($v{-person_id}) ? 1 : 0;
+
+  if (! $is_update) {
+    $v{-admin} = 0 unless exists $v{-admin};
+    $v{-confirmed} = 1 unless exists $v{-confirmed};
+  }
+  if (exists $v{-admin}) {
+    $v{-admin} = ($v{-admin} =~ /1|true|y/i) ? 1 : 0;
+  }
+  if (exists $v{-confirmed}) {
+    $v{-confirmed} = ($v{-confirmed} =~ /1|true|y/i) ? 1 : 0;
+  }
+
+  my @fields = (qw(username email first_name last_name phone mobile_phone admin confirmed ));
+  my @cols;
+  my @binds;
+
+  foreach my $col (@fields) {
+    if (exists $v{"-$col"} ne '') {
+      my $val = $v{"-$col"};
+      $val = undef if $val eq '';
+      push @cols, $col;
+      push @binds, $val;
+    }
+  }
+  if ($v{"-pass"} ne '') {
+    my ($salt, $hash) = hash_passwd($v{"-pass"});
+    push @cols, 'password_salt';
+    push @binds, $salt;
+    push @cols, 'encrypted_password';
+    push @binds, $hash;
+  }
+
+  eval {
+    die if scalar(@cols)==0;
+  
+    if ($is_update) {
+      my $sql = "UPDATE person SET ".join(', ', map { "$_=?" } @cols)." WHERE person_id=?";
+      my $rv = $DBH->do($sql, undef, @binds, $v{-person_id});
+      if ($rv == 1) {
+        print "person updated\n";
+      } else {
+        print "could not update person!\n";
+      }
+    }
+    else {
+      my @ques = ('?') x scalar(@cols);
+      push @cols, "signup_timestamp"; 
+      push @ques, 'now()';
+      my $sql = "INSERT INTO person (".join(',', @cols).") VALUES (".join(',', @ques).")";
+      my $rv = $DBH->do($sql, undef, @binds);
+      if ($rv == 1) {
+        print "person created\n";
+      } else {
+        print "could not create person!\n";
+      }
+    }
+  };
+  if ($@) {
+    print "
+Usage:
+
+  # create or update user
+  # user will be created if no user with username or email exists
+  picpost manage_user -username 'john' -email 'john\@x.com' -first_name 'John' -last_name 'Smith' -admin 0 -pass 'secret' -confirmed 1
+";
+  }
+}
+
+sub act_restore {
+  load_conf();
+  chdir $CONFIG{BASE_PATH};
+
+  if (! -f "data/backup.sql.gz") {
+    print "Sorry, could not file restore file: $CONFIG{BASE_PATH}/data/backup.sql.gz\n";
+    exit(-1);
+  }
+
+  local $EXECCMD_RUN_CMDS = ($ARGV[0] eq 'yes_i_am_sure') ? 1 : 0;
+  if (! $EXECCMD_RUN_CMDS) {
+    print "
+Are you sure you want to destroy the current database and reload it?
+
+If yes, execute:
+picpost restore yes_i_am_sure
+
+Or execute the following commands manually:\n";
+  }
+
+  # upgrade/install database
+  my $port = $CONFIG{DB_PORT};
+  $port = 5432 if $port == 6432; # use non pgpool port otherwise PGOPTIONS doesn't work 
+  my $opts = "--username=$CONFIG{DB_ADMIN_USER} --no-password --host=$CONFIG{DB_HOST_IP} --port=$port";
+  local $ENV{PGPASSWORD} = $CONFIG{DB_ADMIN_PASSWORD};
+  print "export PGPASSWORD=$CONFIG{DB_ADMIN_PASSWORD}\n";
+
+  execCmd("dropdb $opts $CONFIG{DATABASE}");
+  local $EXECCMD_EXIT_ON_NONZERO = 1;
+  execCmd("createdb $opts $CONFIG{DATABASE}");
+  execCmd("echo 'CREATE EXTENSION postgis; CREATE EXTENSION postgis_topology;' | psql $opts $CONFIG{DATABASE}");
+  execCmd("zcat $CONFIG{BASE_PATH}/data/backup.sql.gz | psql $opts $CONFIG{DATABASE}");
+  
+  if ($EXECCMD_RUN_CMDS) {
+    print "
+restoreDB successfully completed
+Don't forget to run $CONFIG{BASE_PATH}/bin/picpost setup\n";
+  }
+  exit(0); 
+}
+
+sub act_clear_all_data {
+  load_conf();
+  init_dbh();
+  eval {
+    $DBH->begin_work();
+    $DBH->do("SET search_path=picturepost,public"); 
+    my $sql = "TRUNCATE favorite_post,map_parms,picture_comment,picture_md,picture_set,post_picture,remember_me,picture,post,person RESTART IDENTITY CASCADE";
+    print "$sql\n";
+    $DBH->do($sql);
+    $DBH->commit();
+
+    # remove data files
+    chdir $CONFIG{BASE_PATH};
+    my $cmd = "rm -rf data/wmsTmp data/pictures data/satellite tmp";
+    print "$cmd\n";
+    system($cmd);
+
+    print "data cleared successfully\n";
+  }; if ($@) {
+    print STDERR "could not clear data; ERROR: $@\n";
+    $DBH->rollback();
+  }
+}
+
+sub act_maint {
+  load_conf();
+  init_dbh();
+
+  my %posts;
+  eval {
+    $DBH->begin_work();
+    $DBH->do("SET search_path=picturepost,public"); 
+
+    # delete stale picture sets
+    my $rv = $DBH->do("DELETE FROM picture_set WHERE ready=false AND record_timestamp < now()::timestamp - interval '1 month'");
+    $rv = 0 unless $rv >= 1;
+    print "Deleted $rv stale not ready picture sets\n";
+
+    # load valid ids for all posts, picture_sets, and pictures
+    { my $recs = $DBH->selectall_arrayref("
+        SELECT post.post_id, picture_set.picture_set_id, picture.picture_id
+        FROM post
+        LEFT JOIN picture_set ON (post.post_id=picture_set.post_id)
+        LEFT JOIN picture ON (picture_set.picture_set_id=picture.picture_set_id)");
+      foreach my $rec (@$recs) {
+        $posts{$$rec[0]}{pics}{$$rec[2]} = $$rec[1];
+        $posts{$$rec[0]}{picsets}{$$rec[1]}{$$rec[2]} = 1;
+      }
+    }
+    $DBH->commit();
+  };
+  if ($@) {
+    print STDERR "could not complete maintenance; ERROR: $@\n";
+    $DBH->rollback();
+  }
+
+  # ensure a post record exists for all posts in filesystem
+  chdir $CONFIG{BASE_PATH}."/data/pictures" or die "could not chdir to data/pictures";
+  foreach my $postdir (glob("*")) {
+    my $postId = ($postdir =~ /post\_(\d+)/) ? int($1) : undef;
+    next unless $postId > 0;
+
+    if (! exists $posts{$postId}) {
+      print "post_$postId does not exist in database, deleting dir\n";
+      system("rm","-rf","post_".$postId);    
+      next;
+    }
+
+    # look at pictures in directory, make sure they exist in database
+    foreach my $picdir (glob("post_$postId/picture_*")) {
+      my $picId = ($picdir =~ /picture\_(\d+)\.jpg/) ? int($1) : undef;
+      if ($picId > 0 && ! exists $posts{$postId}{pics}{$picId}) {
+        print "removing picture $picId for post $postId\n";
+        system("rm -f post_$postId/picture_$picId.* post_$postId/picture_".$picId."_*");
+        next;
+      }
+    }
+  }
+}
+
+sub act_sql {
+  load_conf();
+  local $ENV{PGPASSWORD} = $CONFIG{DB_ADMIN_PASSWORD};
+  local $ENV{PATH} = "$ENV{PATH}:/usr/local/bin";
+  local $ENV{PGOPTIONS} = "--search_path=picturepost,public"; 
+  my $port = $CONFIG{DB_PORT};
+  $port = 5432 if $port == 6432; # use non pgpool port otherwise PGOPTIONS doesn't work 
+  my $cmd = "psql --username=$CONFIG{DB_ADMIN_USER} --no-password --host=$CONFIG{DB_HOST_IP} --port=$port $CONFIG{DATABASE}";
+  print "Connect Command:\nPGPASSWORD=$CONFIG{DB_ADMIN_PASSWORD} PGOPTIONS=--search_path=picturepost,public $cmd\n\n";
+  exec($cmd);
+}
+
+# call the appropriate action
+my ($act) = shift @ARGV;
+my $codeRef = __PACKAGE__->can('act_'.$act) || __PACKAGE__->can('act_usage');
+$codeRef->(); 

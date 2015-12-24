@@ -1,0 +1,13 @@
+/data
+/tmp
+/webapps/ROOT/WEB-INF/classes
+/logs
+/conf
+/cgi-bin/mapserv
+/.Trash*
+*~
+*.swp
+*.o
+/
+/src/colorMod/colorMod
+/bin/colorMod

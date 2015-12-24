@@ -1,0 +1,166 @@
+System Setup
+====================================
+
+# Instructions for RHEL 7/Scientific Linux 7
+
+# install OS dependancies
+yum install http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm
+yum install http://yum.postgresql.org/9.4/redhat/rhel-7-x86_64/pgdg-redhat94-9.4-1.noarch.rpm
+sudo yum -y groupinstall "PostgreSQL Database Server 9.4 PGDG"
+sudo yum -y install git httpd php ant tomcat-webapps postgresql-jdbc php-pgsql proj-epsg perl-DBD-Pg perl-Digest-SHA perl-CGI postgis2_94 postgis2_94-client postgis2_94-utils ImageMagick pgbouncer
+
+# install mapserver 6 from source or find rpm
+# note: mapserver 7 did not seem to be working in EL7 in last build
+
+
+# initialize postgres database
+sudo /usr/pgsql-9.4/bin/postgresql94-setup initdb
+
+# Enable postgres user/password auth
+sudo vi /var/lib/pgsql/9.4/data/pg_hba.conf
+
+# change line:
+host    all         all         127.0.0.1/32          ident
+# To:
+host    all         all         127.0.0.1/32          trust
+
+# ensure postgres starts on boot
+sudo systemctl enable postgresql-9.4.service
+sudo systemctl enable tomcat.service
+sudo systemctl enable httpd.service
+sudo systemctl enable pgbouncer.service
+
+# start postgres
+sudo systemctl restart postgresql-9.4.service
+
+# set a password for postgres user
+sudo -u postgres psql -c "ALTER USER postgres WITH PASSWORD 'postgres';" postgres
+
+# if using SELinux, run the following commands
+# note: httpd_use_nfs=true because satellite imagery is on NFS mount
+sudo setsebool -P httpd_builtin_scripting=true httpd_can_network_connect=true httpd_can_network_connect_db=true httpd_can_sendmail=true httpd_enable_cgi=true httpd_use_nfs=true
+
+
+Create a picturepost instance
+====================================
+cd /opt
+
+# If you are an UNH RCC employee run this command
+git clone git@code.sr.unh.edu:picturepost
+
+# OR
+# If are external to UNH RCC run this command
+# If this command gives you trouble, itis likely that you
+# need to send us your public ssh key to picturepost-dev@sr.unh.edu
+git clone picturepost-dev@code.sr.unh.edu
+
+# set up new tomcat virtual host
+vi /usr/share/tomcat/conf/server.xml 
+  <Host name="picturepost.sr.unh.edu" appBase="/opt/picturepost/webapps">
+    <Context docBase="ROOT" path="" allowLinking="true">
+      <Parameter name="BASE_PATH" value="/opt/picturepost" />
+    </Context>
+  </Host>
+
+  <!-- verify Connector has a large maxPostSize (otherwise large photo uploads won't work)
+  <Connector port="8009" protocol="AJP/1.3" redirectPort="8443" maxPostSize="20971520" />
+
+
+# go into project directory
+cd /opt/picturepost
+
+# execute setup and follow instructions to create a config file
+sudo bin/setup
+
+# set up new apache virtual host
+cd /etc/httpd/conf.d
+ln -s /opt/picturepost/conf/apache/apache.conf picturepost.conf
+
+# You will need to install data and a database
+# If you want to develop on a fresh database with no data, use the starter database
+cd /opt/picturepost
+cp src/starter_database.sql.gz data/backup.sql.gz
+bin/picpost restore
+
+# OR if you want a copy of the live data (you need ~ 80G free space)
+rsync -av picturepost.unh.edu:/opt/picturepost/data data/
+
+# run command to restore database from data/backup.sql.gz
+bin/picpost restore
+
+# run setup again to complete the setup process
+# this will also build java files, restart tomcat, restart apache
+bin/picpost setup
+
+
+# configure bgbouncer connection pooling
+sudo su
+cd /etc/pgbouncer
+vi pgbouncer.ini
+
+# add connection
+picturepost = host=127.0.0.1 port=5432 user=dbuser client_encoding=UNICODE datestyle=ISO connect_query='SELECT 1'
+
+# uncomment this line
+ignore_startup_parameters = extra_float_digits
+
+# save file
+
+# add userlist file
+python mkauth.py userlist.txt "host=127.0.0.1 dbname=postgres user=postgres"
+chown pgbouncer userlist.txt
+
+# restart the services
+sudo systemctl restart pgbouncer.service
+
+# test bgbouncer connection
+psql -h 127.0.0.1 -p 6432 -U dbuser picturepost
+
+
+Build colorMod
+======================================
+git clone https://github.com/collinsp/colorMod.git 
+cd colorMod.git
+make
+cp colorMod /opt/picturepost/bin
+
+
+Configure Crontabs
+======================================
+sudo su
+crontab -e
+0 0 * * * /usr/bin/webalizer -K 72 -k 72 -o /opt/picturepost/data/webalizer /opt/picturepost/logs/access.log >/dev/null
+0 1 * * 0 /opt/picturepost/bin/auto_clean_picturepost_ftp >/dev/null 2>&1
+0 2 * * * /opt/picturepost/bin/picpost backup >/dev/null
+0 3 * * * /opt/picturepost/bin/picpost maint  >/dev/null
+0 4 * * * /opt/picturepost/bin/satellite.pl   >/dev/null 2>&1
+0 5 * * * /opt/picturepost/bin/auto_notify_picturepost_flagged_posts.pl >/dev/null
+0 6 * * * /opt/picturepost/bin/auto_notify_picturepost_update.pl >/dev/null
+
+
+Other Developer Instructions
+======================================
+
+# the general manage script - run without command line options to see what else it can do
+bin/picpost
+
+# anytime you update your repo, make sure you run setup to handle database migrations, and changes to config
+bin/picpost setup
+
+# if you make changes to the java files in src/ you need to recompile and redeploy
+bin/picpost redeploy
+
+# shortcut to get an sql shell as postgres user
+bin/picpost sql
+
+# make sure you create a picturepost account for yourself
+bin/picpost manage_user
+
+# to use reCaptcha, go to http://www.google.com/recaptcha and
+# generate your keys and put them in the appropriate places.
+# if this is a devel site and you don't want recaptcha,
+# then leave the key values as "nokey"
+vi conf/picturepost.cfg
+
+If you need help email picturepost-dev@sr.unh.edu
+
