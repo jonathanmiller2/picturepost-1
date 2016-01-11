@@ -23,6 +23,11 @@ h2 {
   outline: 0 !important;
 }
 
+#ppimg {
+  max-width: 100%;
+  display: block;
+  margin: auto;
+}
 
 #picsetCtrl {
   margin-top: 1em;

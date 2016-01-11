@@ -365,7 +365,7 @@ if (p == null) return;
     </div>
   </div>
 
-  <img class=shadow id=ppimg alt='picturepost photo showing selected orientation' style='width:100%;'>
+  <img class=shadow id=ppimg alt='picturepost photo showing selected orientation'>
 
   <div id=picsetcaptionhtml></div>
         
