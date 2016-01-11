@@ -135,7 +135,8 @@ crontab -e
 0 3 * * * /opt/picturepost/bin/picpost maint  >/dev/null
 0 4 * * * /opt/picturepost/bin/satellite.pl   >/dev/null 2>&1
 0 5 * * * /opt/picturepost/bin/auto_notify_picturepost_flagged_posts.pl >/dev/null
-0 6 * * * /opt/picturepost/bin/auto_notify_picturepost_update.pl >/dev/null
+0,10,20,30,40,50 * * * * /opt/picturepost/bin/auto_notify_picturepost_update.pl >>/web/picturepost/logs/emails.log
+
 
 
 Other Developer Instructions

@@ -238,7 +238,7 @@
 
     // if picset was provided automatically scroll to pictureset viewer
     if (/picset\=\d+/.test(h)) {
-      $('#picsetheader')[0].scrollIntoView();
+      $('#picsetCtrl')[0].scrollIntoView(false);
     }
   });
 
