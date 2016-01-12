@@ -4,7 +4,12 @@ use strict;
 use FindBin qw($Bin);
 
 chdir "$Bin/../";
+
 my $SRC_DIR = "/net/nfs/leghorn/raid2/archive/MODIS_images";
+
+if (! -d $SRC_DIR) {
+  die "could not find modis images\n";
+}
 
 my $GDALTINDEX_CMD = (-f "/usr/local/gdal/bin/gdaltindex")
   ? "/usr/local/gdal/bin/gdaltindex" : "gdaltindex";
