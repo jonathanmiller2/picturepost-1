@@ -525,19 +525,17 @@ $("input[type=file]").change(function(e){
           };
           return xhr;
         },
-        success: function(d) {
-          //console.log(["upload complete", d]);
-          if (/picture_id\=(\d+)/.test(d)) {
+        complete: function(xhr, txtstatus) {
+          var msg;
+          if (txtstatus == 'success' && /picture_id\=(\d+)/.test(xhr.responseText)) {
             var id = RegExp.$1; 
             $but.closest('.picpanel').find('.pic').html('<img src="/images/pictures/post_'+post_id+'/picture_'+id+'_medium.jpg" class=realphoto>');
-            $uploadmsg.removeClass("inprogressupload").text('upload successful').fadeOut();
+            msg = 'upload successful';
           } else {
-            $uploadmsg.removeClass("inprogressupload").text('upload error').delay(5000).fadeOut();
+            msg = 'upload errror: ' + txtstatus + '; ' + xhr.responseText;
           }
+          $uploadmsg.removeClass("inprogressupload").text(msg).delay(5000).fadeOut();
         },
-        error: function() {
-          $uploadmsg.removeClass("inprogressupload").text('upload error').delay(5000).fadeOut();
-        }
       });
 
       // if upload speed is slow, downgrade image quality
