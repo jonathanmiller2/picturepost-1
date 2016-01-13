@@ -19,8 +19,6 @@ use Data::Dumper;
 use Mail::Sendmail();
 use FindBin qw($Bin);
 
-sub isEmail { $_[0] =~ /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/ ? 1 : 0 }
-
 # load config
 my %Config;
 { open my $fh, "< $Bin/../conf/picturepost.cfg" or die "could not read picturepost.cfg; $!";
@@ -45,7 +43,7 @@ my $dbh = DBI->connect(
 
 
 # get current_time (subtract one minute for fudge)
-my ($current_time) = $dbh->selectrow_array("SELECT current_timestamp - interval '1 minutes'");
+my ($current_time) = $dbh->selectrow_array("SELECT localtimestamp - interval '5 minutes'");
 
 
 # get/set time_last_ran
@@ -61,12 +59,11 @@ my $time_last_ran;
 
   # write time
   { open my $fh, "> $fn" or die "could not write $fn\n";
-    print $fh $time_last_ran;
+    print $fh $current_time;
   }
 }
 
 print "starting... time_last_ran: $time_last_ran; current_time: $current_time\n";
-
 
 # emails to send; key is email address; value is email body
 my %emails;
@@ -164,10 +161,10 @@ New Post - $$h{name}
 # sendemail
 if ($Config{MODE} eq 'live') {
   while (my ($to,$body) = each %emails) {
-    next unless isEmail($to);
+    next unless $to =~ /[^\@]\@[^\@]/;
     print "sending email: $to\n";
 
-    my $rv = sendmail(
+    my $rv = Mail::Sendmail::sendmail(
       to => $to,
       from => $Config{SUPPORT_EMAIL},
       subject => "Picture Post Updates",
