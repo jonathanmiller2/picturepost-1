@@ -25,6 +25,12 @@
    
 <h3><strong>2015</h3>
 
+
+
+<p align="left" class="h3navy">  <A href="http://hosted.verticalresponse.com/1051743/96eb0dfac1/519485881/e42887c9be/" target="_blank" title="November 2015 Newsletter"> November 2015</A> - <SPAN class="smallText">Picture Post documents a rainy month in Oregon.</SPAN>  </p> 
+
+<p align="left" class="h3navy">  <A href="http://hosted.verticalresponse.com/1051743/c77ce7cc85/519485881/e42887c9be/" target="_blank" title="October 2015 Newsletter"> October 2015</A> - <SPAN class="smallText">Picture Post goes to Washington! We are honored to be chosen to participate in the President's initiative on citizen science.</SPAN>  </p> 
+
 <p align="left" class="h3navy">  <A href="http://hosted.verticalresponse.com/1051743/db6fcac371/519485881/e42887c9be/" target="_blank" title="September 2015 Newsletter"> September 2015</A> - <SPAN class="smallText">What's happening at the University of Idaho picture post? Students learn about phenology, and more.</SPAN>  </p> 
 
 <p align="left" class="h3navy">  <A href="http://hosted.verticalresponse.com/1051743/aa53c181b2/519485881/e42887c9be/" target="_blank" title="August 2015 Newsletter"> August 2015</A> - <SPAN class="smallText">Falling Waters State Park in FL is the largest water fall in the state and has a picture post!</SPAN>  </p> 
