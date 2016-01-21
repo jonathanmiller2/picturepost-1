@@ -469,7 +469,7 @@ function updatePictureInfo() {
         var extent = lon0+','+lat0+','+lon1+','+lat1;
         var mapurl = "https://earthdata.nasa.gov/labs/worldview/?t=" + ymd + "&v=" + extent;
         var imgsrc = "http://map2.vis.earthdata.nasa.gov/image-download?TIME="+ymd+"&extent="+extent+"&epsg=4326&layers=MODIS_Terra_CorrectedReflectance_TrueColor,Coastlines&opacities=1,1&worldfile=false&format=image/jpeg&width=430&height=300"; 
-        $("#pictureInfoDiv").html("<a href='"+mapurl+"' title='click to open interactive map'><img src='"+imgsrc+"'></a>");
+        $("#pictureInfoDiv").html("<a target=_blank href='"+mapurl+"' title='click to open interactive map'><img src='"+imgsrc+"'></a>");
       } else {
         $("#pictureInfoDiv").html("");
       }
