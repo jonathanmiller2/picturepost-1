@@ -107,10 +107,7 @@ if (!pictureOptions.equals("metadata") && !pictureOptions.equals("satelliteTrueC
 }
 %>
 <%@ include file="/includes/header.jsp" %>
-
-<script src="OpenLayers.js"></script>
 <script>
-
 var xhr;
 
 if (window.XMLHttpRequest) {
@@ -129,7 +126,6 @@ var curPictureId = 0;
 var pictureOrientation = "";
 var pictureSetTimestamp = "";
 var metadata  = "";
-var openLayersMap = new OpenLayers.Map( "pictureInfoDiv", { projection: "EPSG:4326" });
 var centerLat = "<%=post.getLat()%>";
 var centerLon = "<%=post.getLon()%>";
 var postLat   = "<%=post.getLat()%>";
@@ -149,16 +145,6 @@ function AutoScrollPicture(pictureId, pictureSetTimestamp, image) {
 var autoScrollPictures = new Array();
 var intervalId = 0;
 var autoScrollDirection;
-
-function mapEvent() {
-    centerLat = openLayersMap.getCenter().lat;
-    centerLon = openLayersMap.getCenter().lon;
-    zoom = openLayersMap.getZoom();
-}
-
-function mapClick() {
-    alert("hey there");
-}
 
 function htmlEscape(s) {
     s = s.replace(/&/g, "&amp;");
@@ -214,28 +200,20 @@ function addOrientation(pictureId) {
 		orientationArray[0]++;
 	} else if (pictureElement.hasClass('orientation-NE-')) {
 		orientationArray[1]++;
-		console.log(orientationArray[1]);
 	} else if (pictureElement.hasClass('orientation-E-')) {
 		orientationArray[2]++;
-		console.log(orientationArray[2]);
 	} else if (pictureElement.hasClass('orientation-SE-')) {
 		orientationArray[3]++;
-		console.log(orientationArray[3]);
 	} else if (pictureElement.hasClass('orientation-S-')) {
 		orientationArray[4]++;
-		console.log(orientationArray[4]);
 	} else if (pictureElement.hasClass('orientation-SW-')) {
 		orientationArray[5]++;
-		console.log(orientationArray[5]);
 	} else if (pictureElement.hasClass('orientation-W-')) {
 		orientationArray[6]++;
-		console.log(orientationArray[6]);
 	} else if (pictureElement.hasClass('orientation-NW-')) {
 		orientationArray[7]++;
-		console.log(orientationArray[7]);
 	} else if (pictureElement.hasClass('orientation-UP-')) {
 		orientationArray[8]++;
-		console.log(orientationArray[8]);
 	}
 }
 
@@ -247,28 +225,20 @@ function removeOrientation(pictureId) {
 		orientationArray[0] = orientationArray[0] - 1;;
 	} else if (pictureElement.hasClass('orientation-NE-')) {
 		orientationArray[1] = orientationArray[1] - 1;
-		console.log(orientationArray[1]);
 	} else if (pictureElement.hasClass('orientation-E-')) {
 		orientationArray[2] = orientationArray[2] - 1;
-		console.log(orientationArray[2]);
 	} else if (pictureElement.hasClass('orientation-SE-')) {
 		orientationArray[3] = orientationArray[3] - 1;
-		console.log(orientationArray[3]);
 	} else if (pictureElement.hasClass('orientation-S-')) {
 		orientationArray[4] = orientationArray[4] - 1;
-		console.log(orientationArray[4]);
 	} else if (pictureElement.hasClass('orientation-SW-')) {
 		orientationArray[5] = orientationArray[5] - 1;
-		console.log(orientationArray[5]);
 	} else if (pictureElement.hasClass('orientation-W-')) {
 		orientationArray[6] = orientationArray[6] - 1;
-		console.log(orientationArray[6]);
 	} else if (pictureElement.hasClass('orientation-NW-')) {
 		orientationArray[7] = orientationArray[7] - 1;
-		console.log(orientationArray[7]);
 	} else if (pictureElement.hasClass('orientation-UP-')) {
 		orientationArray[8] = orientationArray[8] - 1;
-		console.log(orientationArray[8]);
 	}
 }
 
@@ -486,48 +456,25 @@ function updatePictureInfo() {
     }
 
     if (document.getElementById("pictureOptionsMetadata").checked) {
-        openLayersMap.destroy();
-        document.getElementById("pictureInfoDiv").innerHTML = metadata;
+        document.getElementById("pictureInfoDiv").innerHTML = "<div>" + metadata + "</div>";
     }
     else if (document.getElementById("pictureOptionsSatelliteTrueColor").checked) {
-        document.getElementById("pictureInfoDiv").innerHTML = "";
-        if (! layerNamePrefix) {
-            document.getElementById("pictureInfoDiv").innerHTML = "<H3 STYLE=\"text-align: center;\">No satellite image available for this date.</H3>";
-        }
-        else {
-            openLayersMap = new OpenLayers.Map( "pictureInfoDiv", { projection: "EPSG:4326", controls: [] } );
-            openLayersMap.addControl(new OpenLayers.Control.Navigation());
-            openLayersMap.addControl(new OpenLayers.Control.PanZoomBar());
-
-            openLayersMap.events.register("moveend", openLayersMap, mapEvent);
-            openLayersMap.events.register("zoomend", openLayersMap, mapEvent);
-            var layerName = layerNamePrefix;
-            if (document.getElementById("pictureOptionsSatelliteTrueColor").checked) {
-                layerName += ".truecolor";
-            }
-            var theLayer = new OpenLayers.Layer.WMS(layerName, "<%=Config.get("URL")%>/cgi-bin/mapserv?map=modis.map", {layers: layerName}, {isBaseLayer: true, resolutions: [0.015625, 0.0078125, 0.00390625, 0.001953125, 0.000976562, 0.000488281, 0.000244141]});
-            openLayersMap.addLayer(theLayer);
-            openLayersMap.setCenter(new OpenLayers.LonLat(centerLon, centerLat), zoom);
-
-            var markerLayer = new OpenLayers.Layer.Markers( "Markers" );
-            openLayersMap.addLayer(markerLayer);
-            var size = new OpenLayers.Size(32, 32);
-            var offset = new OpenLayers.Pixel(-(size.w/2), -size.h);
-            var icon = new OpenLayers.Icon('images/red-dot.png', size, offset);
-            markerLayer.addMarker(new OpenLayers.Marker(new OpenLayers.LonLat(postLon, postLat), icon));
-        }
-    } 
+      if (/^(\d\d\d\d)\-(\d+)\-(\d+)/.test(pictureSetTimestamp)) {
+        var ymd = RegExp.$1 + '-' + RegExp.$2 + '-' + RegExp.$3;
+        var dt = new Date(parseInt(RegExp.$1,10), parseInt(RegExp.$2,10) - 1, parseInt(RegExp.$3,10)); 
+        var lon0 = parseFloat(postLon) - 2;
+        var lon1 = parseFloat(postLon) + 2;
+        var lat0 = parseFloat(postLat) - 1.3;
+        var lat1 = parseFloat(postLat) + 1.3;
+        var extent = lon0+','+lat0+','+lon1+','+lat1;
+        var mapurl = "https://earthdata.nasa.gov/labs/worldview/?t=" + ymd + "&v=" + extent;
+        var imgsrc = "http://map2.vis.earthdata.nasa.gov/image-download?TIME="+ymd+"&extent="+extent+"&epsg=4326&layers=MODIS_Terra_CorrectedReflectance_TrueColor,Coastlines&opacities=1,1&worldfile=false&format=image/jpeg&width=430&height=300"; 
+        $("#pictureInfoDiv").html("<a href='"+mapurl+"' title='click to open interactive map'><img src='"+imgsrc+"'></a>");
+      } else {
+        $("#pictureInfoDiv").html("");
+      }
+    }
     else if(document.getElementById("pictureOptionsAnalyze").checked){
-    	/*
-     	 * 	The code below is for the analyze feature being added by USM. It clears the current info div and replaces it with instructions for users
-     	 *	to select their Region of Interest (ROI) and the images they want selected. Inside the new div is a button to launch the blanket that holds
-     	 *	the actual graph of the data as well as the relevant links. Clicking the analyze radio button also opens a transparant div on top of the medium
-     	 *	sized image. To make sure this closes when the button is not checked the window variable 'USManalyze' was created.
-     	 *
-	     *	Collin Sage, USM. June 24, 2013.
-     	 *
-     	 */
-       openLayersMap.destroy();
        
        /* 	
         *	Change the focus so that the user isn't confused at what thumbnails are part of the analysis and what ones aren't. At the moment this is the only
@@ -560,14 +507,9 @@ function updatePictureInfo() {
        selectAllButton.setAttribute("value", "Deselect All Images");
        selectAllButton.setAttribute("id", "selectAllButton");
        selectAllButton.onclick = selectAllImages;
-       
-       document.getElementById("pictureInfoDiv").innerHTML = ("<div style='margin:10px; font-size:12px;'>Greenup in spring and development of color in autumn are ways that plants respond to their environment. Changes in the timing of these events are important indicators of climate change. Pictures capture the &quot;greenness&quot; in vegetation that can be used to create a greenness index over time.<BR><a href='/adopt_cci.jsp' title='background'>Learn more.</a></p><ul><li>Click to select a column of images below, such as the &quot;N&quot; column.</li><li>Draw a box by clicking and dragging on the large picture on the left.</li><li> Click on the greenness button when you are ready to analyze the area you selected.</li></ul></div>");
-
-
-
-
-
-document.getElementById("pictureInfoDiv").appendChild(analyzeButton);
+       var $div = $("<div style='font-size:12px;'>Greenup in spring and development of color in autumn are ways that plants respond to their environment. Changes in the timing of these events are important indicators of climate change. Pictures capture the &quot;greenness&quot; in vegetation that can be used to create a greenness index over time.<BR><a href='/adopt_cci.jsp' title='background'>Learn more.</a></p><ul><li>Click to select a column of images below, such as the &quot;N&quot; column.</li><li>Draw a box by clicking and dragging on the large picture on the left.</li><li> Click on the greenness button when you are ready to analyze the area you selected.</li></ul></div>");
+       $div.append(analyzeButton);
+       $("#pictureInfoDiv").empty().append($div);
        if (!window.USManalyze){
            $("#selectAllTable").append(selectAllButton);
            document.getElementById("pictureDiv").innerHTML=document.getElementById("pictureDiv").innerHTML.concat("<div id ='pictureSelectionDiv' width = '400px' height = '300px'><canvas id='pictureSelectionCanvas' width='400px' height='300px'>Canvas Tag Not Supported!</canvas></div>");
@@ -875,6 +817,15 @@ $(function(){
   </DIV>
 
 <style>
+  #pictureInfoDiv > div {
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    right: 6px;
+    bottom: 6px;
+    overflow: auto;
+  }
+
   #analyzeButton {
     margin-left: 50px;
   }
@@ -902,7 +853,7 @@ $(function(){
 
       <label><INPUT TYPE="radio" NAME="pictureOptions" VALUE="metadata" ID="pictureOptionsMetadata" <%=(pictureOptions.equals("metadata")) ? "CHECKED" : ""%> onClick="updatePictureInfo()"> exif data</label>
     </div>
-    <DIV ID="pictureInfoDiv" STYLE="width:430px; height: 300px; border: 2px solid #000; overflow: auto;" ALIGN="justify"></DIV>
+    <DIV ID="pictureInfoDiv" STYLE="position: relative; width:430px; height: 300px; border: 2px solid #000; overflow:hidden;" ALIGN="justify"></DIV>
   </div>
 
   <DIV STYLE="clear: both;"></DIV>
