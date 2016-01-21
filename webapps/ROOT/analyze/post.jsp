@@ -561,7 +561,7 @@ function updatePictureInfo() {
        selectAllButton.setAttribute("id", "selectAllButton");
        selectAllButton.onclick = selectAllImages;
        
-       document.getElementById("pictureInfoDiv").innerHTML = ("<div style='margin:10px; font-size:12px;'>Greenup in spring and development of color in autumn are ways that plants respond to their environment. Changes in the timing of these events are important indicators of climate change. Pictures capture the &quot;greenness&quot; in vegetation that can be used to create a greenness index over time.<BR><a href='/adopt_cci.jsp' title='background'>Learn more.</a></p><ul><li>Click to select a column of images below, such as the &quot;N&quot; column.</li><li>Draw a box by clicking and dragging on the large picture on the left.</li><li> Click on the greenness button when you are ready to analyze the area you selected.</li><li><a href='/resources/greennesshelpvideoweb/Resources/greennesshelpvideoweb.mov' rel='qtposter'>Help Video</a> </li></ul></div>");
+       document.getElementById("pictureInfoDiv").innerHTML = ("<div style='margin:10px; font-size:12px;'>Greenup in spring and development of color in autumn are ways that plants respond to their environment. Changes in the timing of these events are important indicators of climate change. Pictures capture the &quot;greenness&quot; in vegetation that can be used to create a greenness index over time.<BR><a href='/adopt_cci.jsp' title='background'>Learn more.</a></p><ul><li>Click to select a column of images below, such as the &quot;N&quot; column.</li><li>Draw a box by clicking and dragging on the large picture on the left.</li><li> Click on the greenness button when you are ready to analyze the area you selected.</li></ul></div>");
 
 
 

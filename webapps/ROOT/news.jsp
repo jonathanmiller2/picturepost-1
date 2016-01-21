@@ -52,9 +52,11 @@ while (q.fetch()) {
   news.add(ni); 
 }
 
+boolean showNews = true;
 String searchTitle;
 if (! wu.param("q").equals("")) {
   searchTitle = "<label for=SearchBox><strong>search:</strong> " + WebUtil.esc(wu.param("q")) + "</label>";
+  showNews = false;
 } else {
   searchTitle = "<label for=SearchBox><strong>showing:</strong> latest articles, new posts and picture sets</label>";
 }
@@ -103,6 +105,16 @@ if (! wu.param("q").equals("")) {
 <%=wu.popNotifications()%>
 
 <div id=SearchDescr class=well><%= searchTitle %></div>
+
+
+<% if (showNews == true) { 
+  // LATEST NEWS HTML HERE %>
+<div id=picpostnewscustom>
+</div>
+<%
+  // END LATEST NEWS HERE
+} %>
+
 
 <div id=picpostnews>
   <%for (NewsItem ni : news) {%>

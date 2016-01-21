@@ -25,6 +25,7 @@
     <div class="col-md-4">
 
         <ul>
+          <li><a href="http://panopicturepost.tumblr.com" title="tumblr blog of panoramas">Tumblr Blog - Last Week in Panoramas</a></li>
           <Li><A href="gallery-newsletters.jsp" title="newsletters">Newsletters</A>
          <Li><A href="gallery-media.jsp" title="media archive">Blogs, Popular Articles, Research Articles</A>
         <Li><A href="gallery-downloadables.jsp" title="Materials for Download">Downloadable Picture Post Logos, Promotional Materials, Brochures</A>
