@@ -310,7 +310,7 @@ if (p == null) return;
 <div id="PostContent" class="panel panel-default clearfix" style="background-color: #eee">
     <div class=pull-left style='min-width: 300px; text-align:center;'>
     <% if (p.postPicIds.size() > 0) { %>
-      <img class=shadow data-i=0 data-pics="<%= p.postPicIds.toString()%>" style='margin:15px;max-width:calc(100% - 20px);' src="/images/pictures/post_<%=p.postId%>/post_picture_<%=p.postPicIds.get(0)%>_medium.jpg">
+      <img id=postPic title='Click to view full size photo' class=shadow data-i=0 data-pics="<%= p.postPicIds.toString()%>" style='margin:15px;max-width:calc(100% - 20px);' src="/images/pictures/post_<%=p.postId%>/post_picture_<%=p.postPicIds.get(0)%>_medium.jpg">
     <% } %>
     <% if (p.postPicIds.size() > 1) { %>
       <div id=postphotonav style='text-align: center; margin-bottom:10px;'>

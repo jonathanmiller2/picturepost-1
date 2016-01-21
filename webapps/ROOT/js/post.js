@@ -54,6 +54,12 @@
     return val;
   }
 
+  $("#postPic,#ppimg").click(function(){
+    var url = this.src.replace(/_medium/,'');
+    var w = window.open(url,'_blank');
+    w.focus();
+  });
+
   $('#picposttimeslider').click(function(e) {
     var $t = $(e.target);
     if ($t.is('a')) return;
