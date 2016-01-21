@@ -569,7 +569,7 @@ function updatePictureInfo() {
 
 document.getElementById("pictureInfoDiv").appendChild(analyzeButton);
        if (!window.USManalyze){
-           document.getElementById("selectAllTable").appendChild(selectAllButton);
+           $("#selectAllTable").append(selectAllButton);
            document.getElementById("pictureDiv").innerHTML=document.getElementById("pictureDiv").innerHTML.concat("<div id ='pictureSelectionDiv' width = '400px' height = '300px'><canvas id='pictureSelectionCanvas' width='400px' height='300px'>Canvas Tag Not Supported!</canvas></div>");
        }
        ROIStart();
