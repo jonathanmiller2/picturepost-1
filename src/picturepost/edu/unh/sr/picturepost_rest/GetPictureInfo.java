@@ -138,47 +138,9 @@ public class GetPictureInfo extends HttpServlet {
 
         // Satellite.
         // Make sure the layer exists before sending it back.
-        String layerNamePrefix = Utils.yyyymmdd2yyyyddd(pictureSet.getPictureSetTimestamp().toString().substring(0, 10)) + ".terra.250m";
-        boolean layerExists = false;
-        try {
-            BufferedReader input =  new BufferedReader(new FileReader(Config.get("LAYERS_FILE")));
-            try {
-                String line = null;
-                String layerName = "";
-                while ((line = input.readLine()) != null) {
-                    // check for layer
-                    line = line.trim();
-                    if (line.toUpperCase().startsWith("NAME")) {
-                        String[] parts = line.split("\\s+");
-                        if (parts.length == 2) {
-                            layerName = parts[1];
-                            if (layerName.startsWith("\"") || layerName.startsWith("'")) {
-                                layerName = layerName.substring(1);
-                            }
-                            if (layerName.endsWith("\"") || layerName.endsWith("'")) {
-                                layerName = layerName.substring(0, layerName.length() - 1);
-                            }
-                            if (layerName.equals(layerNamePrefix + ".truecolor") || layerName.equals(layerNamePrefix + ".ndvi")) {
-                                layerExists = true;
-                                break;
-                            }
-                        }
-                    }
-                }
-            }
-            finally {
-                input.close();
-            }
-        }
-        catch (IOException e){
-            Log.writeLog("ERROR, GetPictureInfo.java: Cannot read layers file, " + Config.get("LAYERS_FILE") + ", " + e.toString());
-        }
-
-        if (!layerExists) {
-            layerNamePrefix = "undefined";
-        }
+        // Note this is now handled externally - show dummy value instead
         out.println("<satellite>");
-        out.println("<layerNamePrefix>" + layerNamePrefix + "</layerNamePrefix>");
+        out.println("<layerNamePrefix>undefined</layerNamePrefix>");
         out.println("</satellite>");
 
         // Print the closing root element.

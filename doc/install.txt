@@ -7,11 +7,7 @@ System Setup
 yum install http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm
 yum install http://yum.postgresql.org/9.4/redhat/rhel-7-x86_64/pgdg-redhat94-9.4-1.noarch.rpm
 sudo yum -y groupinstall "PostgreSQL Database Server 9.4 PGDG"
-sudo yum -y install git httpd php ant tomcat-webapps postgresql-jdbc php-pgsql proj-epsg perl-DBD-Pg perl-Digest-SHA perl-CGI postgis2_94 postgis2_94-client postgis2_94-utils ImageMagick pgbouncer
-
-# install mapserver 6 from source or find rpm
-# note: mapserver 7 did not seem to be working in EL7 in last build
-
+sudo yum -y install git httpd ant tomcat-webapps postgresql-jdbc perl-DBD-Pg perl-Digest-SHA perl-CGI postgis2_94 postgis2_94-client postgis2_94-utils ImageMagick pgbouncer
 
 # initialize postgres database
 sudo /usr/pgsql-9.4/bin/postgresql94-setup initdb
@@ -133,7 +129,6 @@ crontab -e
 0 1 * * 0 /opt/picturepost/bin/auto_clean_picturepost_ftp >/dev/null 2>&1
 0 2 * * * /opt/picturepost/bin/picpost backup >/dev/null
 0 3 * * * /opt/picturepost/bin/picpost maint  >/dev/null
-0 4 * * * /opt/picturepost/bin/satellite.pl   >/dev/null 2>&1
 0 5 * * * /opt/picturepost/bin/auto_notify_picturepost_flagged_posts.pl >/dev/null
 0,10,20,30,40,50 * * * * /opt/picturepost/bin/auto_notify_picturepost_update.pl >>/web/picturepost/logs/emails.log
 

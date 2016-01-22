@@ -217,7 +217,6 @@ sub get_apache_conf {
 
   Alias /images/pictures/ $CONFIG{BASE_PATH}/data/pictures/
   Alias /webalizer/       $CONFIG{BASE_PATH}/data/webalizer/
-  Alias /wmsTmp/          $CONFIG{BASE_PATH}/data/wmsTmp/
   ScriptAlias  /cgi-bin/  $CONFIG{BASE_PATH}/cgi-bin/
   ProxyTimeout 900
 
@@ -254,13 +253,11 @@ sub fix_file_permissions {
   system("setfacl -R --modify u:apache:rwX,d:u:apache:rwX logs data tmp");
   system("setfacl -R --modify u:tomcat:rwX,d:u:tomcat:rwX logs data tmp");
   system("chmod -R ug+x cgi-bin bin");
-  system("chmod 664 cgi-bin/*.map");
 
   if (`sestatus` =~ /SELinux status\:\s+enabled/s) {
     system('chcon system_u:object_r:root_t:s0 .');
     system('chcon -R system_u:object_r:httpd_log_t:s0 logs');
     system('chcon -R system_u:object_r:httpd_sys_script_exec_t:s0 cgi-bin');
-    system('chcon system_u:object_r:httpd_sys_content_t:s0 cgi-bin/*.map');
     system('chcon -R system_u:object_r:httpd_sys_content_t:s0 conf data webapps/ROOT');
     system('chcon -R system_u:object_r:httpd_config_t:s0 conf/apache');
     system('chcon -R system_u:object_r:cert_t:s0 conf/certs') if -d 'conf/certs';
@@ -290,7 +287,7 @@ sub act_setup {
   chdir $CONFIG{BASE_PATH};
 
   # make these directories if they don't already exist
-  system("mkdir -p data/wmsTmp data/pictures data/satellite tmp webapps/ROOT/WEB-INF/classes logs conf");
+  system("mkdir -p data/pictures tmp webapps/ROOT/WEB-INF/classes logs conf");
 
   # generate minimal conf if not exists
   if (! -f "conf/picturepost.cfg") {
@@ -327,10 +324,6 @@ Edit this file and rerun picturepost.pl
 
   test_db_user_connection();
 
-  # install mapserv
-  if (! -f "cgi-bin/mapserv") {
-    print "Warning: could not find cgi-bin/mapserv\n";
-  }
   $DBH->disconnect() if $DBH;
 
   # rebuild java files
@@ -841,7 +834,7 @@ sub act_clear_all_data {
 
     # remove data files
     chdir $CONFIG{BASE_PATH};
-    my $cmd = "rm -rf data/wmsTmp data/pictures data/satellite tmp";
+    my $cmd = "rm -rf data/pictures tmp";
     print "$cmd\n";
     system($cmd);
 

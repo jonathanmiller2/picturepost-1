@@ -294,11 +294,6 @@ function processPictureInfo() {
                 }
             }
 
-            // Build the satellite openlayers thing.
-            if (rootElement.getElementsByTagName("satellite")[0]) {
-                if (rootElement.getElementsByTagName("satellite")[0].getElementsByTagName("layerNamePrefix")[0] && rootElement.getElementsByTagName("satellite")[0].getElementsByTagName("layerNamePrefix")[0].childNodes[0]) { layerNamePrefix = rootElement.getElementsByTagName("satellite")[0].getElementsByTagName("layerNamePrefix")[0].childNodes[0].nodeValue; }
-            }
-
             updatePictureInfo();
         }
     }
