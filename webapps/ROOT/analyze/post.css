@@ -1,0 +1,51 @@
+#pictureInfoDiv > div {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  right: 6px;
+  bottom: 6px;
+  overflow: auto;
+}
+
+#analyzeButton {
+  margin-left: 50px;
+}
+#pictureOptionsDiv {
+  text-align: center;
+}
+#pictureOptionsDiv * {
+  vertical-align: middle;
+}
+#pictureOptionsDiv label {
+  font-weight: normal;
+}
+#pictureOptionsDiv label + label {
+  margin-left: 14px;
+}
+#pictureOptionsDiv input {
+ margin: 0;
+}
+#pictureSet {
+  border-collapse:collapse;
+  margin-top: 20px;
+}
+#pictureSet td {
+  padding: 0;
+  margin: 0;
+}
+#pictureSet td.info {
+  font-size: .9em;
+  text-align: center;
+  padding-left: 6px;
+}
+#pictureSet th {
+  text-align: center;
+  color: #222;
+}
+#SatImgMsg {
+  padding-top: 30%;
+  text-align:center;
+  font-size:20px;
+  color: #666;
+  font-weight: bold;
+}
