@@ -420,15 +420,15 @@ if (p==null) return;
 <input type=hidden name=id value='<%=WebUtil.esc(wu.param("id"))%>'>
 
 <div class=form-group>
-<label for=annotation>date taken
+<label>date taken
 <br>
 <input type=datetime-local class="form-control" name=picture_set_timestamp value="<%=WebUtil.esc(p.picture_set_timestamp)%>">
 </label>
 </div>
 
 <div class=form-group>
-<label for=annotation>photographer note</label>
-<textarea class="form-control" id=annotation name=annotation style='width:98%; height: 6em;'><%=WebUtil.esc(p.annotation)%></textarea>
+<label>photographer note
+<br><textarea class="form-control" id=annotation name=annotation style='width:600px;max-width:100%;height: 6em;'><%=WebUtil.esc(p.annotation)%></textarea>
 </label>
 </div>
 
@@ -485,7 +485,7 @@ $("input[type=file]").change(function(e){
         if (/^(\d\d\d\d)\D(\d\d)\D(\d\d)\D(\d\d)\D(\d\d)/.test(dt)) {
           dt = RegExp.$1 + '-' + RegExp.$2 + '-' + RegExp.$3 + 'T' + RegExp.$4 + ':' + RegExp.$5; 
           $("input[name=picture_set_timestamp]").val(dt);
-          $.ajax({ type: 'post', data: { act: 'setdt', picture_set_timestamp: dt }});
+          $.ajax({ type: 'post', data: { id: picset_id, act: 'setdt', picture_set_timestamp: dt }});
         }
       }
 
