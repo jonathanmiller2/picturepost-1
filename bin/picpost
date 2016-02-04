@@ -194,7 +194,9 @@ DB_HOST_IP		127.0.0.1
 # facebook app ID
 FACEBOOK_APP_ID  487210394773372
 
-# These options are required to allow users to publish photos to an FTP site
+# FTP export server - You may want to install a crontab on the server that
+# cleans up the # files on a regular basis using command:
+# find /pub/outgoing/picturepost/ -mtime +14 -exec rm -rf {} \;
 EXPORT_FTP_SERVER
 EXPORT_FTP_USER
 EXPORT_FTP_PASS
