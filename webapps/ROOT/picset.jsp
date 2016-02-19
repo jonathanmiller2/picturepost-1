@@ -158,8 +158,13 @@ if ("save".equals(act)) {
     post.setReferencePictureSetId(id);
     post.dbUpdate();
   }
+
+  String thankYouHtml = post.getThankyouHtml();
+  if ("".equals(thankYouHtml)) {
+    thankYouHtml = "Thanks for being a citizen scientist!";
+  }
   
-  wu.addNotification("<div class='alert alert-success alert-dismissible' role='alert'><button type=button class=close data-dismiss=alert aria-label=Close><span aria-hidden=true>&times;</span></button><strong>pictureset saved</strong><span id=thankyouhtml>" + post.getThankyouHtml() + "</span></div>");
+  wu.addNotification("<div class='alert alert-success alert-dismissible' role='alert'><button type=button class=close data-dismiss=alert aria-label=Close><span aria-hidden=true>&times;</span></button><strong>pictureset saved</strong><span id=thankyouhtml>" + thankYouHtml + "</span></div>");
   wu.redirect("/post.jsp?postId="+ps.getPostId()+"#picset="+ps.getPictureSetId());
   return;
 }

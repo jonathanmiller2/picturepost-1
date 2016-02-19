@@ -66,7 +66,8 @@ vi /usr/share/tomcat/conf/server.xml
 cd /opt/picturepost
 
 # execute setup and follow instructions to create a config file
-sudo bin/setup
+# ignore error regarding failed database connection
+sudo bin/picpost setup
 
 # set up new apache virtual host
 cd /etc/httpd/conf.d
@@ -84,13 +85,7 @@ rsync -av picturepost.unh.edu:/opt/picturepost/data data/
 # run command to restore database from data/backup.sql.gz
 bin/picpost restore
 
-# run setup again to complete the setup process
-# this will also build java files, restart tomcat, restart apache
-bin/picpost setup
-
-
 # configure bgbouncer connection pooling
-sudo su
 cd /etc/pgbouncer
 vi pgbouncer.ini
 
@@ -112,16 +107,24 @@ sudo systemctl restart pgbouncer.service
 # test bgbouncer connection
 psql -h 127.0.0.1 -p 6432 -U dbuser picturepost
 
+# run setup again to complete the setup process
+# this will also build java files, restart tomcat, restart apache
+/opt/picturepost/bin/picpost setup
+
+
+
+
 
 Build colorMod
 ======================================
+cd /tmp
 git clone https://github.com/collinsp/colorMod.git 
-cd colorMod.git
+cd colorMod
 make
 cp colorMod /opt/picturepost/bin
 
 
-Configure Crontabs
+Configure Crontabs (ignore on dev systems)
 ======================================
 sudo su
 crontab -e
