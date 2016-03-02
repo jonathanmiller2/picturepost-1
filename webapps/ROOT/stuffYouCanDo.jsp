@@ -28,13 +28,16 @@ Your pictures contain a wealth of information. DEW has created software to help 
            <div class="col-md-4">
        <h2>Where to Begin?</h2>
 
-          <LI>Find posts on the map and add posts to my favorites list.
-          <Li>Visit nearby Picture Posts.</LI>
-          <LI>Start my own Picture Post.</LI> 
-          <li>Take and upload pictures.</LI> 
+          <LI><A href="http://picturepost.unh.edu/map.jsp" title="map of posts">
+                       Find posts on the map and add posts to my favorites list.</li>
+          <Li><A href="http://picturepost.unh.edu/nearme.jsp" title="nearby posts">Visit nearby Picture Posts.</a></LI>
+          <LI><A href="http://picturepost.unh.edu/help.jsp" title="start a new post">Start my own Picture Post.</a></LI> 
+          <li><A href="http://picturepost.unh.edu/taking_photos.jsp" title="take and upload pictures">Take and upload pictures.</a></LI> 
           <LI>Make comments.</LI>
-          <LI>View pictures to observe change.</LI> 
-           <li><a href="https://itunes.apple.com/us/app/id849676550" target="_blank">iPhone Users - Get the iPhone app!</a>  
+          <LI><A href="http://picturepost.unh.edu/news.jsp" title="news">View pictures to observe change.</a></LI> 
+          <li><a href="gallery-newsletters.jsp" title="newsletters">Read about picture post projects in our Newsletters.</a></li>
+          <li><a href="http://panopicturepost.tumblr.com" title="tumblr blog of panoramas">Follow us on Tumblr.</a></li>
+          <li><a href="https://itunes.apple.com/us/app/id849676550" target="_blank">iPhone Users - Get the iPhone app!</a></li>  
 
 
              <h2>Citizen Science Academy</h2>
@@ -57,7 +60,7 @@ Your pictures contain a wealth of information. DEW has created software to help 
                          <LI><A href="adopt_cci.jsp" title="Adopt a climate change indicator">Adopt a Climate Change Indicator </A> - Track the timing of seasonal changes in greenness in existing pictures. 
                         <LI><A href="adopt_season.jsp" title="Adopt a Season">Adopt a Season </A> - Record the changing fall colors in deciduous trees. 
                          <LI><A href="https://www.usanpn.org/trail-resources" title="USANPN phenology trail resources">Set up a Phenology Walk </A> - Set up a site to highlight seasonal changes, aka - phenology, in plants.
-                        <LI><A href="http://budburst.org" target="_blank" title="Project Budburst">Join Project Budburst. </A> - Contribute my seasonal observations to a national network.
+                        <LI><A href="http://budburst.org" target="_blank" title="Project Budburst">Join Project Budburst </A> - Contribute my seasonal observations to a national network.
                       </UL>
         <p align="center"></p><a class="btn btn-default" href="community-educators.jsp" role="button">Projects for Educators</a></p>
 

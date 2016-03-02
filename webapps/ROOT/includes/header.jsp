@@ -16,7 +16,8 @@
 <meta property="og:title" content="<%= WebUtil.esc(og_title) %>" />
 <meta property="og:description" content="<%= WebUtil.esc(og_description) %>" />
 <meta property="og:image" content="<%= WebUtil.esc(og_image) %>" />
-<link rel="icon" href="/favicon.ico">
+<link rel='mask-icon' href='/pictureposticon.svg' color='#979BC3'>
+<link rel="icon" href="/favicon.ico"> 
 <title>Picture Post</title>
 <link href=/css/bootstrap.min.css rel=stylesheet>
 <link href=/css/main.css?1 rel=stylesheet>

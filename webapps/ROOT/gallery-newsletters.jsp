@@ -23,9 +23,16 @@
      <div class="col-md-4">
  <h3 align="left" class="h3navy"><a href="/newslettersignup.jsp" target="_self">Sign up for our Monthly Newsletter!</a></h3>
    
+
+
+<h3><strong>2016</h3>
+
+<p align="left" class="h3navy">  <A href="http://hosted.verticalresponse.com/1051743/23bdbdd216/519485881/e42887c9be/" target="_blank" title="January 2016 Newsletter"> January 2016</A> - <SPAN class="smallText">Review of 2015. Our new mobile website launches with many thanks to the US National Park Service!</SPAN>  </p> 
+
+
+
+
 <h3><strong>2015</h3>
-
-
 
 <p align="left" class="h3navy">  <A href="http://hosted.verticalresponse.com/1051743/96eb0dfac1/519485881/e42887c9be/" target="_blank" title="November 2015 Newsletter"> November 2015</A> - <SPAN class="smallText">Picture Post documents a rainy month in Oregon.</SPAN>  </p> 
 
