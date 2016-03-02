@@ -1,6 +1,6 @@
 <%@ include file="/includes/common.jsp" %>
 <%
-String sql = "SELECT post.post_id, post.name, post_picture.post_picture_id FROM ( SELECT random() RND, post.post_id, post.name FROM post WHERE ready=true) post JOIN post_picture ON (post.post_id=post_picture.post_id) WHERE post_picture.active=true AND post_picture.seq_nbr=1 ORDER BY post.RND LIMIT 50";
+String sql = "SELECT q1.post_id, q1.name, q1.post_picture_id FROM ( SELECT post.post_id, post.name, post_picture.post_picture_id, random() RND FROM ( SELECT post_id, count(1) FROM picture_set WHERE ready=true AND flagged=false GROUP BY post_id HAVING COUNT(1) > 5) okpost JOIN post ON (okpost.post_id=post.post_id) JOIN post_picture ON (post.post_id=post_picture.post_id AND post_picture.seq_nbr=1) WHERE post.ready=true) q1 ORDER BY q1.RND LIMIT 50";
 
 PreparedStatement stmt = wu.dbh().prepareStatement(sql);
 ResultSet rs = stmt.executeQuery();

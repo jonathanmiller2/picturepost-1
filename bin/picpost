@@ -13,7 +13,6 @@ $CONFIG{BASE_PATH} =~ s/\/bin$//;
 my $DBH;
 
 sub test_db_user_connection {
-  # test connect as DB_USER 
   my $dsn = "dbi:Pg:dbname=$CONFIG{DATABASE};host=$CONFIG{DB_HOST_IP};port=$CONFIG{DB_PORT}";
   my $dbh = DBI->connect($dsn, $CONFIG{DB_USER}, $CONFIG{DB_PASSWORD});
   if (! $dbh) {
