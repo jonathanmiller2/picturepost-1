@@ -127,6 +127,10 @@ public class Post {
 
     public boolean dbUpdate() {
     	boolean rv = false;
+
+        // post if ready if reference pictureset is uploaded
+        if (getReferencePictureSetId() > 0) setReady(true);
+
     	int numUpdated = Utils.q().update("post")
     			.set("person_id","?",getPersonId())
     			.set("name","?",getName())
