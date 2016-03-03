@@ -76,7 +76,7 @@
 <p id="loadingText" style="text-align: center;"></p>
 </div>
 
-<div id="chartdiv" style="width:900px; display: none; margin-left: auto; margin-right: auto;">
+<div id="chartdiv" style="width:900px; display: none; margin-left: auto; margin-right: auto; margin-top:13em;">
   <div id="cd"></div>	
 </div>
 
