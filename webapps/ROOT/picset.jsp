@@ -164,7 +164,7 @@ if ("save".equals(act)) {
     thankYouHtml = "Thanks for being a citizen scientist!";
   }
   
-  wu.addNotification("<div class='alert alert-success alert-dismissible' role='alert'><button type=button class=close data-dismiss=alert aria-label=Close><span aria-hidden=true>&times;</span></button><strong>pictureset saved</strong><span id=thankyouhtml>" + thankYouHtml + "</span></div>");
+  wu.addNotification("<div class='alert alert-success alert-dismissible' role='alert'><button type=button class=close data-dismiss=alert aria-label=Close><span aria-hidden=true>&times;</span></button><strong>pictureset saved</strong> <span id=thankyouhtml>" + thankYouHtml + "</span></div>");
   wu.redirect("/post.jsp?postId="+ps.getPostId()+"#picset="+ps.getPictureSetId());
   return;
 }
@@ -429,6 +429,9 @@ if (p==null) return;
 <br>
 <input type=datetime-local class="form-control" name=picture_set_timestamp value="<%=WebUtil.esc(p.picture_set_timestamp)%>">
 </label>
+<% if (! p.ready) { %>
+<br><label><input type=checkbox id=verifydatetaken>  Please check to verify that the <em>date taken</em> is correct.</label>
+<% } %>
 </div>
 
 <div class=form-group>
@@ -540,6 +543,7 @@ $("input[type=file]").change(function(e){
             msg = 'upload errror: ' + txtstatus + '; ' + xhr.responseText;
           }
           $uploadmsg.removeClass("inprogressupload").text(msg).delay(5000).fadeOut();
+          $e.val(''); // clear filename
         },
       });
 
@@ -558,7 +562,6 @@ $("input[type=file]").change(function(e){
   });
 });
 
-
 $("button[value=save]").click(function(e){
   if ($(".refphotoindicator").length>0) {
     var rv = confirm("You have not uploaded all pictures. Are you sure you are done?");
@@ -567,6 +570,10 @@ $("button[value=save]").click(function(e){
       return;
     }
   }
+});
+
+$("input[name=picture_set_timestamp]").change(function(){
+  $("#verifydatetaken").prop('checked',true);
 });
 
 function enableNavAlert() {
@@ -585,6 +592,15 @@ function disableNavAlert() {
 
 <% if (! p.ready) { %>
   enableNavAlert();
+
+$("button[value=save]").click(function(e){
+  if ($("#verifydatetaken:checked").length==0) {
+    alert("Please verify the date taken field.");
+    e.preventDefault();
+    $("#verifydatetaken").focus();
+    return;
+  }
+});
 <% } %>
 
 
