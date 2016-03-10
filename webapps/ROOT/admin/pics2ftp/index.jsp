@@ -258,11 +258,13 @@ Post:
 
 <%
     for (int i = 0; i < postRecords.size(); i++) {
+      if (! "".equals(postRecords.get(i).getName())) {
 %>
 
   <OPTION VALUE="<%=String.valueOf(postRecords.get(i).getPostId())%>" <%=(postRecords.get(i).getPostId() == postId) ? "SELECTED" : ""%>> <%=postRecords.get(i).getName()%>
 
 <%
+      }
     }
 %>
 

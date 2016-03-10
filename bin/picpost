@@ -856,9 +856,20 @@ sub act_maint {
     $DBH->do("SET search_path=picturepost,public"); 
 
     # delete stale picture sets
-    my $rv = $DBH->do("DELETE FROM picture_set WHERE ready=false AND record_timestamp < now()::timestamp - interval '1 month'");
+    my $rv = $DBH->do("DELETE FROM picture_set WHERE ready=false AND record_timestamp < now()::timestamp - interval '1 week'");
     $rv = 0 unless $rv >= 1;
     print "Deleted $rv stale not ready picture sets\n";
+
+    # delete posts that have a blank name
+    my $rv = $DBH->do("DELETE FROM post WHERE name='' AND record_timestamp < now()::timestamp - interval '1 day'");
+    $rv = 0 unless $rv >= 1;
+    print "Deleted $rv unfinished posts\n";
+
+    # delete posts that aren't ready after one month
+    # confirm this with annette
+    #my $rv = $DBH->do("DELETE FROM post WHERE ready=false AND record_timestamp < now()::timestamp - interval '1 month'");
+    #$rv = 0 unless $rv >= 1;
+    #print "Deleted $rv nonready posts after one month\n";
 
     # load valid ids for all posts, picture_sets, and pictures
     { my $recs = $DBH->selectall_arrayref("
