@@ -17,6 +17,7 @@
 <meta property="og:description" content="<%= WebUtil.esc(og_description) %>" />
 <meta property="og:image" content="<%= WebUtil.esc(og_image) %>" />
 <link rel="icon" href="/favicon.ico">
+<link rel="mask-icon" href="pictureposticon.svg" color="#9999CC">
 <title>Picture Post</title>
 <link href=/css/bootstrap.min.css rel=stylesheet>
 <link href=/css/main.css?1 rel=stylesheet>
@@ -69,7 +70,6 @@
             <li><a href="/buy.jsp">Buy</a>
             <li><a href="/build.jsp">Build</a>
             <li><a href="/community.jsp">Community</a>
-            <li><a href="/help.jsp">Help</a>
           </ul>
       </ul>
 

@@ -110,6 +110,9 @@ if (! wu.param("q").equals("")) {
 <% if (showNews == true) { 
   // LATEST NEWS HTML HERE %>
 <div id=picpostnewscustom>
+ <li><a href="gallery-newsletters.jsp" title="newsletters">Newsletters</a></li>
+          <li><a href="http://panopicturepost.tumblr.com" target="_blank" title="tumblr blog of panoramas">Follow us on Tumblr</a></li>
+          <br>
 </div>
 <%
   // END LATEST NEWS HERE

@@ -196,6 +196,30 @@ var curPictureId="<%=String.valueOf(curPictureId)%>";
 
   <DIV STYLE="clear: both;"></DIV>
   <DIV ID="pictureSetAnnotationDiv" STYLE="display: none; margin: 12px;"></DIV>
+  
+  <% if (pictureSetRecords.size() == 0) { %>
+  No pictures are available for this post.
+<% } else { %>
+
+  <DIV ID="pagingDiv" style='margin-top:1em; text-align: left;'>
+    <% if (numPerPage > 0 && curPage > 0) { %>
+      <a class="btn btn-default" href="javascript:previousPage();">&lt;&lt;</a>
+    <% } %>
+      <SELECT ID=numPerPage NAME=numPerPage SIZE=1 onChange="newNumPerPage();">
+        <OPTION VALUE=10 <%=(numPerPage == 10)   ? " SELECTED" : ""%>>view 10 per page
+        <OPTION VALUE=20 <%=(numPerPage == 20)   ? " SELECTED" : ""%>>view 20 per page
+        <OPTION VALUE=50 <%=(numPerPage == 50)   ? " SELECTED" : ""%>>view 50 per page
+        <OPTION VALUE=100 <%=(numPerPage == 100) ? " SELECTED" : ""%>>view 100 per page
+        <OPTION VALUE=0 <%=(numPerPage == 0)     ? " SELECTED" : ""%>>view All
+      </SELECT>
+    <% if (numPerPage > 0 && post.dbGetNumViewablePictureSetPages(numPerPage) > curPage + 1) { %>
+      <a class="btn btn-default" href="javascript:nextPage();">&gt;&gt;</a>
+    <% } %>
+  </DIV>
+<% } %>
+
+
+  
 
     <TABLE ID="pictureSet">
       <TR>
@@ -249,26 +273,6 @@ for (int ps = 0; ps < pictureSetRecords.size(); ps++) {
 
     </TABLE>
 
-<% if (pictureSetRecords.size() == 0) { %>
-  No pictures are available for this post.
-<% } else { %>
-
-  <DIV ID="pagingDiv" style='margin-top:1em; text-align: center;'>
-    <% if (numPerPage > 0 && curPage > 0) { %>
-      <a class="btn btn-default" href="javascript:previousPage();">&lt;&lt;</a>
-    <% } %>
-      <SELECT ID=numPerPage NAME=numPerPage SIZE=1 onChange="newNumPerPage();">
-        <OPTION VALUE=10 <%=(numPerPage == 10)   ? " SELECTED" : ""%>>view 10 per page
-        <OPTION VALUE=20 <%=(numPerPage == 20)   ? " SELECTED" : ""%>>view 20 per page
-        <OPTION VALUE=50 <%=(numPerPage == 50)   ? " SELECTED" : ""%>>view 50 per page
-        <OPTION VALUE=100 <%=(numPerPage == 100) ? " SELECTED" : ""%>>view 100 per page
-        <OPTION VALUE=0 <%=(numPerPage == 0)     ? " SELECTED" : ""%>>view All
-      </SELECT>
-    <% if (numPerPage > 0 && post.dbGetNumViewablePictureSetPages(numPerPage) > curPage + 1) { %>
-      <a class="btn btn-default" href="javascript:nextPage();">&gt;&gt;</a>
-    <% } %>
-  </DIV>
-<% } %>
 
 </FORM>
 
