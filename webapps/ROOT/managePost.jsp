@@ -194,7 +194,7 @@ label {
 </style>
 <div class=clearfix id=topbar>
   <a href="post.jsp?postId=<%=p.getPostId()%>" class="btn btn-default pull-left"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
- add pictures</a>
+ back</a>
   <h1><%= (p.getName()==null || "".equals(p.getName())) ? "New Post" : WebUtil.esc(p.getName()) %></h1>
 </div>
 <%=wu.popNotifications()%>

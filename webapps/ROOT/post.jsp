@@ -103,6 +103,7 @@ class PostPage {
     double lon = 0;
     int postmaster_person_id = 0;
     String postmaster_name = "";
+    int reference_picture_set_id=0;
  
     boolean isFavorite = false;
  
@@ -144,7 +145,8 @@ class PostPage {
 "  ST_X(post.location) lon, " +
 "  post.person_id, " +
 "  CONCAT(person.first_name, ' ', person.last_name), " +
-"  post.logohtml " +
+"  post.logohtml, " +
+"  post.reference_picture_set_id " +
 "FROM post " +
 "JOIN person ON (post.person_id=person.person_id) " +
 "WHERE post_id=?";
@@ -160,6 +162,7 @@ class PostPage {
 			postmaster_person_id = rs.getInt(6);
 			postmaster_name = rs.getString(7);
 			logohtml = WebUtil.str(rs.getString(8));
+			reference_picture_set_id = rs.getInt(9);
 		} else {
 			throw new Exception("post not found");
 		}
@@ -306,6 +309,12 @@ if (p == null) return;
 </div>
 
 <%=wu.popNotifications()%>
+
+<% if (!(p.reference_picture_set_id > 0)) { %>
+  <div class="alert alert-warning">
+    <strong>Attention!</strong> Please select a reference pictureset to complete post setup. Either upload or edit an existing picture set. Click the <em>make reference pictureset</em> checkbox and click <em>save</em>.
+  </div>
+<% } %>
 
 <div id="PostContent" class="panel panel-default clearfix" style="background-color: #eee">
     <div class=pull-left style='min-width: 300px; text-align:center;'>
