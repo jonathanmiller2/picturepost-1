@@ -4,7 +4,7 @@ System Setup
 # Instructions for RHEL 7/Scientific Linux 7
 
 # install OS dependancies
-yum install http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm
+yum install http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-6.noarch.rpm #mdl changed from 7.5 to 7.6 2015/05/10
 yum install http://yum.postgresql.org/9.4/redhat/rhel-7-x86_64/pgdg-redhat94-9.4-1.noarch.rpm
 sudo yum -y groupinstall "PostgreSQL Database Server 9.4 PGDG"
 sudo yum -y install git httpd ant tomcat-webapps postgresql-jdbc perl-DBD-Pg perl-Digest-SHA perl-CGI postgis2_94 postgis2_94-client postgis2_94-utils ImageMagick pgbouncer
@@ -97,6 +97,10 @@ ignore_startup_parameters = extra_float_digits
 
 # save file
 
+
+# MDL added following so that mkauth.py can be run
+# sudo yum install python-psycopg2
+
 # add userlist file
 python mkauth.py userlist.txt "host=127.0.0.1 dbname=postgres user=postgres"
 chown pgbouncer userlist.txt
@@ -104,7 +108,7 @@ chown pgbouncer userlist.txt
 # restart the services
 sudo systemctl restart pgbouncer.service
 
-# test bgbouncer connection
+# test pgbouncer connection
 psql -h 127.0.0.1 -p 6432 -U dbuser picturepost
 
 # run setup again to complete the setup process
