@@ -311,7 +311,7 @@ $("#postphotoupload").change(function(e){
   var $but = $(this).prev();
 
   loadImage.parseMetaData(file, function (data) {
-    var opts = { maxWidth: MAX_WIDTH };
+    var opts = { maxWidth: MAX_WIDTH, canvas: true };
     var exif;
     var lastProgress;
     if (data.exif) {
