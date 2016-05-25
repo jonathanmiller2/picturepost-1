@@ -50,6 +50,9 @@
                         <LI>Create a plan for taking regular pictures -- share the responsibility with others in your group or community.
                         <BR>                        
                       </UL>
+                      
+                      <H2>Ready?</H2>
+                      	<UL><LI><a href= "http://picturepost.unh.edu/help.jsp" target="_blank">Get Started Here!</a></LI></UL>
 
  </div>
    <div class="col-md-4">
@@ -77,7 +80,7 @@
 
                         <H2>Need Help Planning Your Project? - Look Here:</H2>
                         <UL>
-                        <LI><a href="http://www.birds.cornell.edu/citscitoolkit/toolkit" target="_blank">The Citizen Science Toolkit</a> is a great resource for planning projects.
+                        <LI><a href="https://crowdsourcing-toolkit.sites.usa.gov/howto/" target="_blank">The Citizen Science Toolkit</a> is a great resource for planning projects.
 						<LI><a href="http://scistarter.com/index.html" target="_blank">SciStarter</a> features many projects and member blogs.
                         </UL> 
 </div>
