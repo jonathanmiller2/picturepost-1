@@ -28,6 +28,15 @@
 <h3><strong>2016</h3>
 
 
+
+<p align="left" class="h3navy">  <A href="http://hosted.verticalresponse.com/1051743/2c6fce7376/519485881/e42887c9be/" target="_blank" title="June 2016 Newsletter"> June 2016</A> - <SPAN class="smallText">Travelogue Part 2: An intrepid Picture Poster makes observations at posts along the Maine Coast - we learn that Mile Markers along a walkway make good picture posts, and the post at Schoodic Beaver Pond is the easternmost Picture Post in the USA!</SPAN>  </p> 
+
+<p align="left" class="h3navy">  <A href="http://hosted.verticalresponse.com/1051743/dab2935866/519485881/e42887c9be/" target="_blank" title="May 2016 Newsletter"> May 2016</A> - <SPAN class="smallText">Travelogue Part 1: An intrepid Picture Poster makes observations at posts along the Maine Coast - Wells National Estuarine Reserve, Scarborough Marsh Audubon Center, and more.</SPAN>  </p> 
+
+<p align="left" class="h3navy">  <A href="http://hosted.verticalresponse.com/1051743/67b92ffcd4/519485881/e42887c9be/" target="_blank" title="April 2016 Newsletter"> April 2016</A> - <SPAN class="smallText">The Value of Long-Term Monitoring. Picture Post visits the Citizen Science Workshop in Brattleboro VT.</SPAN>  </p> 
+
+<p align="left" class="h3navy">  <A href="http://hosted.verticalresponse.com/1051743/8eb4de3c29/519485881/e42887c9be/" target="_blank" title="March 2016 Newsletter"> March 2016</A> - <SPAN class="smallText">Johnny's Pond in CO - is drought affecting this small recreational pond?</SPAN>  </p> 
+
 <p align="left" class="h3navy">  <A href="http://hosted.verticalresponse.com/1051743/203c6b8c19/519485881/e42887c9be/" target="_blank" title="February 2016 Newsletter"> February 2016</A> - <SPAN class="smallText">Clouds and NASA satellite images - what you can see at a Picture Post.</SPAN>  </p> 
 
 <p align="left" class="h3navy">  <A href="http://hosted.verticalresponse.com/1051743/23bdbdd216/519485881/e42887c9be/" target="_blank" title="January 2016 Newsletter"> January 2016</A> - <SPAN class="smallText">Review of 2015. Our new mobile website launches with many thanks to the US National Park Service!</SPAN>  </p> 

@@ -45,6 +45,13 @@ Your pictures contain a wealth of information. DEW has created software to help 
         <p class=clearfix><i>Explorations in Educational Settings</i> is an Online Course about Picture Post and other citizen science programs that is offered several times a year.</p>
          <p align="center"></p><a class="btn btn-default" href="http://www.citizenscienceacademy.org/courses/csa520" title="NEON Citizen science academy" target="_blank" role="button">See More</a></p>                       
 
+            <h2>iBook: Monitoring Environmental Change with iPads</h2>
+             <img class='shadow pull-left' style='margin:0 16px 16px 0;' src="/images/ibook1.jpg" width="360"  alt="screen shot ibook"  border="1px"> 
+        <p class=clearfix>Available from<i> iTunes, </i>this iBook explains everything about using Picture Posts with students including analyzing data in pictures, and is a great reference for anyone who wants to plan and begin a Picture Post project. Authored by <i>Apple Distinguished Educator</i> and award-winning environmental science teacher, Nick LaFave, we are pleased to share this exciting resource.</p>
+         <p align="center"></p><a class="btn btn-default" href="https://itunes.apple.com/us/book/id1086864270" title="Monitoring Environmental Change iBook" target="_blank" role="button">Get the iBook</a></p>                       
+
+
+
 </div>
 
       <div class="col-md-4">

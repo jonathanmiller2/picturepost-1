@@ -70,6 +70,7 @@
             <li><a href="/buy.jsp">Buy</a>
             <li><a href="/build.jsp">Build</a>
             <li><a href="/community.jsp">Community</a>
+            <li><a href="/help.jsp">Help!</a></li>
           </ul>
       </ul>
 

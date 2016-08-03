@@ -399,6 +399,7 @@ if (p==null) return;
   <a href="post.jsp?postId=<%=p.postId%>" class="btn btn-default pull-left"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
  post</a>
   <h1>Upload picture set</h1>
+  <h3 align=center>If the connection is slow, you can take all of your pictures and upload them later.</h3>
 </div>
 <%=wu.popNotifications()%>
 

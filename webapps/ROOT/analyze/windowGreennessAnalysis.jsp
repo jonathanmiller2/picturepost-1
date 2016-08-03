@@ -80,6 +80,8 @@
   <div id="cd"></div>	
 </div>
 
+<H3 align="center" style="color:#003366">Click below to save the image or save the data.</H3>
+<p align="center" style="color:#003366">Your download will begin immediately.</p>
 <div id=footlinks>
 <a id="generateGraphLink" title="Save Graph as an Image" href="#" onclick="getGraphAsImage();return false;">save image</a> |
 <a id="generateCSVLink" title="Save Data as a CSV" href="#" onclick="getGraphAsCSV();return false">save data</a>
