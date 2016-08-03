@@ -1,0 +1,141 @@
+<html>
+<head>
+<title>Picturepost Web API</title>
+<style>
+body {
+  font-family: sans-serif;
+}
+h2 {
+  padding-top: 10px;
+  margin: 10px 0 4px 0;
+  border-top: 1px solid #ccc;
+  
+}
+</style>
+</head>
+<body>
+
+<h1>Picturepost Web API</h1>
+
+<h2>get all posts</h2>
+<a href=/app/GetPostList>/app/GetPostList</a>
+
+<h2>get posts query</h2>
+<a href=/app/GetPostList?lat=43.1&lon=-71.1&radius=10000&afterTime=1262304000000&beforeTime=1468422782000&includePosts=all&orderBy=name>/app/GetPostList?lat=43.1&lon=-71.1&radius=10000&afterTime=1262304000000&beforeTime=1468422782000&includePosts=all&orderBy=name</a>
+<pre>
+  // query on location radius in meters (OPTIONAL)
+  lat: 43.1, lon: -71.1, radius: 100,
+
+  // in epoch MS (OPTIONAL)
+  afterTime:  1262304000000,
+  beforeTime: 1468422782000,
+
+  // types of posts to include (OPTIONAL)
+  includePosts: "all",
+  includePosts: "mine",
+  includePosts: "favorites",
+
+  // orderBy support (OPTIONAL)
+  orderBy: "radius",
+  orderBy: "radius desc",
+  orderBy: "install_date",
+  orderBy: "install_date desc",
+  orderBy: "name",
+  orderBy: "name desc"
+</pre>
+
+<h2>get post info</h2>
+<a href=/app/GetPost?postId=563>/app/GetPost?postId=563</a>
+
+<h2>get post info and picturesets for a postId</h2>
+<a href=/app/GetPostAndPictureSets?postId=563>/app/GetPostAndPictureSets?postId=563</a>
+
+<h2>get post picture JPG</h2>
+<a href=/app/GetPostPicture?postPictureId=307&size=thumb>/app/GetPostPicture?postPictureId=307&size=thumb</a>
+<pre>size: thumb,medium,full</pre>
+
+<h2>get picture JPG</h2>
+<a href=/app/GetPicture?pictureSetId=13343&orientation=N&size=thumb>/app/GetPicture?pictureSetId=13343&orientation=N&size=thumb</a>
+<br>
+<a href=/app/GetPicture?pictureId=12726>/app/GetPicture?pictureId=12726</a>
+<pre>
+orientation: N,NE,E,SE,S,SW,W,NW,UP
+size: thumb,medium,full
+</pre>
+
+<h2>get picture sets for a post</h2>
+<a href=/app/GetPictureSetIds?postId=563&orderBy=picture_set_timestamp%20desc>/app/GetPictureSetIds?postId=563&orderBy=picture_set_timestamp%20desc</a>
+<pre>
+orderBy: picture_set_timestamp,record_timestamp  (desc optional)
+</pre>
+
+<h2>get picture set by ID</h2>
+<a href=/app/GetPictureSet?pictureSetId=13343>/app/GetPictureSet?pictureSetId=13343</a>
+
+<h2>get picture metadata (returns XML)</h2>
+<a href=/servlet/GetPictureInfo?pictureId=12726>/servlet/GetPictureInfo?pictureId=12726</a>
+
+<h2>check if phone is tied to an account</h2>
+<a href=/app/IsValidMobilePhone?mobilePhone=0123456789>/app/IsValidMobilePhone?mobilePhone=0123456789</a>
+<pre>
+// if not valid, send user here:
+http://picturepost-preview.sr.unh.edu/mobileapps.jsp
+</pre>
+
+<h2>add a new post</h2>
+<a href=/app/AddPost?mobilePhone=0123456789&name=MyTestPost&description=MyPostDescription&installDate=2016-07-13&lat=43.1&lon=-71.1>/app/AddPost?mobilePhone=0123456789&name=MyTestPost&description=MyPostDescription&installDate=2016-07-13&lat=43.1&lon=-71.1</a>
+<pre>
+returns: {postId: 1021}
+</pre>
+
+<h2>upload a post photo</h2>
+<form method=post target=_blank enctype=multipart/form-data action=/app/AddPostPicture>
+<label>mobilePhone <input name=mobilePhone value=0123456789></label><br>
+<label>postId <input name=postId value=1021></label><br>
+<label>file <input type=file name=data></label><br>
+<button>submit</button>
+</form>
+<pre>
+returns: { "postPictureId":447}
+</pre>
+
+<h2>add a pictureset</h2>
+<a href=/app/AddPictureSet?mobilePhone=0123456789&postId=1021&pictureSetTimestamp=2016-07-13%2013:59:00.0&annotation=OptionalAnnotation>/app/AddPictureSet?mobilePhone=0123456789&postId=1021&pictureSetTimestamp=2016-07-13%2013:59:00.0&annotation=OptionalAnnotation</a>
+});
+<pre>
+returns: {pictureSetId: 13971}
+</pre>
+
+<h2>upload a photo</h2>
+
+<form method=post target=_blank enctype=multipart/form-data action=/app/AddPicture>
+<label>mobilePhone <input type=text name=mobilePhone value=0123456789></label><br>
+<label>pictureSetId <input type=text name=pictureSetId value=13971></label><br>
+<label>autoDeleteExisting <input type=text name=autoDeleteExisting value=1></label><br>
+<label>orientation <input type=text name=orientation value=N></label><br>
+<label>file <input type=file name=data></label><br>
+<button>submit</button>
+</form>
+<pre>
+orientation: N,NE,E,SE,S,SW,W,NW,UP
+format as use multi part file form upload
+returns: { "pictureId":73340 }
+</pre>
+
+<h2>set the reference picture set</h2>
+<a href=/app/SetReferencePictureSetId?mobilePhone=0123456789&postId=1021&pictureSetId=13971>/app/SetReferencePictureSetId?mobilePhone=0123456789&postId=1021&pictureSetId=13971</a>
+<pre>
+returns {status: "OK"}
+</pre>
+
+<h2>Flag a pictureset</h2>
+<a href=/app/FlagPictureSet?pictureSetId=13971>/app/FlagPictureSet?pictureSetId=13971</a>
+<pre>
+returns: {pictureSetId: 13971, reported: true}
+</pre>
+
+
+</body>
+</html>
+
+
