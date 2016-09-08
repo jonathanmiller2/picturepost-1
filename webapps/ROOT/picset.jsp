@@ -301,8 +301,8 @@ class PicSetPage {
       picId = picSW;
     }
     else if ("W".equals(orientation)) {
-      rpicId = rpicS;
-      picId = picS;
+      rpicId = rpicW;
+      picId = picW;
     }
     else if ("NW".equals(orientation)) {
       rpicId = rpicNW;
