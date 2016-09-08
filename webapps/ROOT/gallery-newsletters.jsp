@@ -29,6 +29,10 @@
 
 
 
+
+
+<p align="left" class="h3navy">  <A href="http://hosted.verticalresponse.com/1051743/669e59f1de/519485881/e42887c9be/" target="_blank" title="July 2016 Newsletter"> July 2016</A> - <SPAN class="smallText">Travelogue Part 3: An intrepid Picture Poster makes observations at posts along the New England Coast - the Mill Pond Restoration in Portsmouth NH, Seacoast Science Center in Rye NH, and homeward through Mary Cummings Park in Woburn MA.</SPAN>  </p> 
+
 <p align="left" class="h3navy">  <A href="http://hosted.verticalresponse.com/1051743/2c6fce7376/519485881/e42887c9be/" target="_blank" title="June 2016 Newsletter"> June 2016</A> - <SPAN class="smallText">Travelogue Part 2: An intrepid Picture Poster makes observations at posts along the Maine Coast - we learn that Mile Markers along a walkway make good picture posts, and the post at Schoodic Beaver Pond is the easternmost Picture Post in the USA!</SPAN>  </p> 
 
 <p align="left" class="h3navy">  <A href="http://hosted.verticalresponse.com/1051743/dab2935866/519485881/e42887c9be/" target="_blank" title="May 2016 Newsletter"> May 2016</A> - <SPAN class="smallText">Travelogue Part 1: An intrepid Picture Poster makes observations at posts along the Maine Coast - Wells National Estuarine Reserve, Scarborough Marsh Audubon Center, and more.</SPAN>  </p> 
