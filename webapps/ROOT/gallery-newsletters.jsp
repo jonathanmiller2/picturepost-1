@@ -29,7 +29,7 @@
 
 
 
-
+<p align="left" class="h3navy">  <A href="http://hosted.verticalresponse.com/1051743/0af9d372a1/519485881/e42887c9be/" target="_blank" title="August 2016 Newsletter"> August 2016</A> - <SPAN class="smallText">Hemlock Wooly Adelgid - the Society for the Protection of New Hampshire Forests monitors damage with a Picture Post. View ALL picture sets for a post with the "advanced" feature. </SPAN>  </p> 
 
 <p align="left" class="h3navy">  <A href="http://hosted.verticalresponse.com/1051743/669e59f1de/519485881/e42887c9be/" target="_blank" title="July 2016 Newsletter"> July 2016</A> - <SPAN class="smallText">Travelogue Part 3: An intrepid Picture Poster makes observations at posts along the New England Coast - the Mill Pond Restoration in Portsmouth NH, Seacoast Science Center in Rye NH, and homeward through Mary Cummings Park in Woburn MA.</SPAN>  </p> 
 
@@ -126,9 +126,8 @@
                       <p align="left" class="h3navy"> <A href="http://hosted.verticalresponse.com/1051743/d823ccc661/519485881/e42887c9be/" target="_blank" title="February 2013 Newsletter"> February 2013</A> - <SPAN class="smallText">Students in New Orleans plant and monitor trees in a local park to restore habitat destroyed by Hurricane Katrina.</SPAN> </p> 
                       
                       <p align="left" class="h3navy">  <A href="http://hosted.verticalresponse.com/1051743/e00661daa5/519485881/e42887c9be/" target="_blank" title="January 2013 Newsletter"> January 2013</A> - <SPAN class="smallText">PPost presentations at AGU! Welcome all new members in 2012.</SPAN>  </p> 
-                      <p>&nbsp;</p>
- </div>
-</div>
+                       </div>
+                   </div>
  
  <div class="row">
    <div class="col-md-4">
