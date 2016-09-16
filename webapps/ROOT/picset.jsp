@@ -413,14 +413,14 @@ if (p==null) return;
 
 <div align=center style='max-width:800px; margin: auto;'>
 
-<%=p.getPicWidget("N")%>
-<%=p.getPicWidget("NE")%>
-<%=p.getPicWidget("E")%>
-<%=p.getPicWidget("SE")%>
-<%=p.getPicWidget("S")%>
-<%=p.getPicWidget("SW")%>
-<%=p.getPicWidget("W")%>
-<%=p.getPicWidget("NW")%>
+<%=p.getPicWidget("N")%></br>
+<%=p.getPicWidget("NE")%></br>
+<%=p.getPicWidget("E")%></br>
+<%=p.getPicWidget("SE")%></br>
+<%=p.getPicWidget("S")%></br>
+<%=p.getPicWidget("SW")%></br>
+<%=p.getPicWidget("W")%></br>
+<%=p.getPicWidget("NW")%></br>
 <%=p.getPicWidget("UP")%>
 
 <form method=post style='margin-top:10px;' data-ready="<%=p.ready%>">
