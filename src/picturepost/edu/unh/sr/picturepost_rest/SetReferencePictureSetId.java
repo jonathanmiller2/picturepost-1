@@ -2,8 +2,13 @@ package edu.unh.sr.picturepost_rest;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import java.util.*;
 import java.io.*;
+
 import edu.unh.sr.picturepost.*;
 
 public class SetReferencePictureSetId extends HttpServlet {
@@ -70,7 +75,9 @@ public class SetReferencePictureSetId extends HttpServlet {
 
         // Any errors?
         if (!error.isEmpty()) {
-            out.println("{\"error\":[" + Utils.join_dq(error) + "]}");
+        	JSONObject buf = new JSONObject();
+        	buf.put("error", error);
+            out.println(buf.toString());
             return;
         }
 
