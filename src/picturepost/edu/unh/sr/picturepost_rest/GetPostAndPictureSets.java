@@ -70,7 +70,7 @@ public class GetPostAndPictureSets extends HttpServlet {
         Vector<Integer> pictureSetIds = post.dbGetPictureSetIds();
 
         // Print out the results.
-        JSONObject result = new JSONObject()
+        JSONObject postJSON = new JSONObject()
             .put("postId", post.getPostId())
             .put("name", post.getName())
             .put("lat", post.getLat())
@@ -139,8 +139,8 @@ public class GetPostAndPictureSets extends HttpServlet {
                 .put(pictureId_UP);
             pictureSetJSON.put("pictureIds", pictureIdJSON);
             pictureSetsJSON.put(pictureSetJSON);
-            result.put("pictureSets", pictureSetJSON);
-            out.println(result.toString());
         }
+        postJSON.put("pictureSets", pictureSetsJSON);
+        out.println(postJSON.toString());
     }
 }
