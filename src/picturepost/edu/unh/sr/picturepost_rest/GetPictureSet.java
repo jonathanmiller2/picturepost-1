@@ -5,6 +5,8 @@ import javax.servlet.http.*;
 import java.util.*;
 import java.io.*;
 import edu.unh.sr.picturepost.*;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 public class GetPictureSet extends HttpServlet {
 
@@ -42,7 +44,10 @@ public class GetPictureSet extends HttpServlet {
 
         // Any errors?
         if (!error.isEmpty()) {
-            out.println("{\"error\":[" + Utils.join_dq(error) + "]}");
+            String buf = new JSONObject()
+                .put("error", error)
+                .toString();
+            out.println(buf);
             return;
         }
 
@@ -50,7 +55,11 @@ public class GetPictureSet extends HttpServlet {
         pictureSet = new PictureSet(pictureSetId);
         
         if (pictureSet.getFlagged() == true || pictureSet.getReady() == false) {
-            out.println("{\"error\":[\"not enabled\"]}");
+            error.add("\"not enabled\"");
+            String buf = new JSONObject()
+                .put("error", error)
+                .toString();
+            out.println(buf);
             return;
         }
         
@@ -67,18 +76,18 @@ public class GetPictureSet extends HttpServlet {
         if (PictureSet.pictureRecordExists(pictureRecords, "UP")) orientations.add("\"UP\"");
 
         // Print out the results.
-        out.println("[");
-        out.println("{");
-        out.println("\"pictureSetId\":" + String.valueOf(pictureSet.getPictureSetId()) + ",");
-        out.println("\"postId\":" + String.valueOf(pictureSet.getPostId()) + ",");
-        out.println("\"personId\":" + String.valueOf(pictureSet.getPersonId()) + ",");
-        out.println("\"recordTimestamp\":\"" + pictureSet.getRecordTimestamp() + "\",");
-        out.println("\"pictureSetTimestamp\":\"" + pictureSet.getPictureSetTimestamp() + "\",");
-        out.println("\"ready\":" + String.valueOf(pictureSet.getReady()) + ",");
-        out.println("\"flagged\":" + String.valueOf(pictureSet.getFlagged()) + ",");
-        out.println("\"annotation\":\"" + pictureSet.getAnnotation().replaceAll("\"", java.util.regex.Matcher.quoteReplacement("\\\"")) + "\",");
-        out.println("\"orientations\":[" + Utils.join_dq(orientations) + "]");
-        out.println("}");
-        out.println("]");
+        JSONArray result = new JSONArray();
+        JSONObject pictureSetJSON = new JSONObject()
+            .put("pictureSetId", pictureSet.getPictureSetId())
+            .put("postId", pictureSet.getPostId())
+            .put("personId", pictureSet.getPersonId())
+            .put("recordTimestamp", pictureSet.getRecordTimestamp())
+            .put("pictureSetTimestamp", pictureSet.getPictureSetTimestamp())
+            .put("ready", pictureSet.getReady())
+            .put("flagged", pictureSet.getFlagged())
+            .put("annotation", pictureSet.getAnnotation())
+            .put("orientations", orientations);
+        result.put(pictureSetJSON);
+        out.println(result.toString());
     }
 }

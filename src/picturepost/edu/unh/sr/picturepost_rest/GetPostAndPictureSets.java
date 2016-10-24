@@ -5,6 +5,8 @@ import javax.servlet.http.*;
 import java.util.*;
 import java.io.*;
 import edu.unh.sr.picturepost.*;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 public class GetPostAndPictureSets extends HttpServlet {
 
@@ -42,7 +44,10 @@ public class GetPostAndPictureSets extends HttpServlet {
 
         // Any errors?
         if (!error.isEmpty()) {
-            out.println("{\"error\": [" + Utils.join_dq(error) + "]}");
+            String buf = new JSONObject()
+                .put("error", error)
+                .toString();
+            out.println(buf);
             return;
         }
 
@@ -50,7 +55,11 @@ public class GetPostAndPictureSets extends HttpServlet {
         post = new Post(postId);
         
         if (post.getReady() == false) {
-            out.println("{\"error\":[\"not enabled\"]}");
+            error.add("not enabled");
+            String buf = new JSONObject()
+                .put("error", error)
+                .toString();
+            out.println(buf);
             return;
         }
 
@@ -61,13 +70,14 @@ public class GetPostAndPictureSets extends HttpServlet {
         Vector<Integer> pictureSetIds = post.dbGetPictureSetIds();
 
         // Print out the results.
-        out.println("{");
-        out.println("    \"postId\": " + String.valueOf(post.getPostId()) + ",");
-        out.println("    \"name\": \"" + post.getName().replaceAll("\"", java.util.regex.Matcher.quoteReplacement("\\\"")) + "\",");
-        out.println("    \"lat\": " + String.valueOf(post.getLat()) + ",");
-        out.println("    \"lon\": " + String.valueOf(post.getLon()) + ",");
-        out.println("    \"pictureSets\": [");
-        for (int ps = 0; ps < pictureSetIds.size(); ps++) {
+        JSONObject result = new JSONObject()
+            .put("postId", post.getPostId())
+            .put("name", post.getName())
+            .put("lat", post.getLat())
+            .put("lon", post.getLon());
+        JSONArray pictureSetsJSON = new JSONArray();
+
+        for (int ps = 0; ps < pictureSetIds.size(); ++ps) {
             PictureSet pictureSet = new PictureSet(pictureSetIds.get(ps).intValue());
             
             // skip pictureset if not enabled
@@ -77,55 +87,60 @@ public class GetPostAndPictureSets extends HttpServlet {
             
             Vector<Picture> pictureRecords = pictureSet.dbGetPictureRecords();
             
-            String pictureId_N  = "0";
-            String pictureId_NE = "0";
-            String pictureId_E  = "0";
-            String pictureId_SE = "0";
-            String pictureId_S  = "0";
-            String pictureId_SW = "0";
-            String pictureId_W  = "0";
-            String pictureId_NW = "0";
-            String pictureId_UP = "0";
+            int pictureId_N  = 0;
+            int pictureId_NE = 0;
+            int pictureId_E  = 0;
+            int pictureId_SE = 0;
+            int pictureId_S  = 0;
+            int pictureId_SW = 0;
+            int pictureId_W  = 0;
+            int pictureId_NW = 0;
+            int pictureId_UP = 0;
             if (PictureSet.pictureRecordExists(pictureRecords, "N")) {
-                pictureId_N  = String.valueOf(PictureSet.getPictureRecord(pictureRecords, "N").getPictureId());
+                pictureId_N  = PictureSet.getPictureRecord(pictureRecords, "N").getPictureId();
             }
             if (PictureSet.pictureRecordExists(pictureRecords, "NE")) {
-                pictureId_NE = String.valueOf(PictureSet.getPictureRecord(pictureRecords, "NE").getPictureId());
+                pictureId_NE = PictureSet.getPictureRecord(pictureRecords, "NE").getPictureId();
             }
             if (PictureSet.pictureRecordExists(pictureRecords, "E")) {
-                pictureId_E  = String.valueOf(PictureSet.getPictureRecord(pictureRecords, "E").getPictureId());
+                pictureId_E  = PictureSet.getPictureRecord(pictureRecords, "E").getPictureId();
             }
             if (PictureSet.pictureRecordExists(pictureRecords, "SE")) {
-                pictureId_SE = String.valueOf(PictureSet.getPictureRecord(pictureRecords, "SE").getPictureId());
+                pictureId_SE = PictureSet.getPictureRecord(pictureRecords, "SE").getPictureId();
             }
             if (PictureSet.pictureRecordExists(pictureRecords, "S")) {
-                pictureId_S  = String.valueOf(PictureSet.getPictureRecord(pictureRecords, "S").getPictureId());
+                pictureId_S  = PictureSet.getPictureRecord(pictureRecords, "S").getPictureId();
             }
             if (PictureSet.pictureRecordExists(pictureRecords, "SW")) {
-                pictureId_SW = String.valueOf(PictureSet.getPictureRecord(pictureRecords, "SW").getPictureId());
+                pictureId_SW = PictureSet.getPictureRecord(pictureRecords, "SW").getPictureId();
             }
             if (PictureSet.pictureRecordExists(pictureRecords, "W")) {
-                pictureId_W  = String.valueOf(PictureSet.getPictureRecord(pictureRecords, "W").getPictureId());
+                pictureId_W  = PictureSet.getPictureRecord(pictureRecords, "W").getPictureId();
             }
             if (PictureSet.pictureRecordExists(pictureRecords, "NW")) {
-                pictureId_NW = String.valueOf(PictureSet.getPictureRecord(pictureRecords, "NW").getPictureId());
+                pictureId_NW = PictureSet.getPictureRecord(pictureRecords, "NW").getPictureId();
             }
             if (PictureSet.pictureRecordExists(pictureRecords, "UP")) {
-                pictureId_UP = String.valueOf(PictureSet.getPictureRecord(pictureRecords, "UP").getPictureId());
+                pictureId_UP = PictureSet.getPictureRecord(pictureRecords, "UP").getPictureId();
             }
-
-            out.println("        {");
-            out.println("            \"pictureSetId\": " + String.valueOf(pictureSet.getPictureSetId()) + ",");
-            out.println("            \"pictureSetTimeStamp\": \"" + String.valueOf(pictureSet.getPictureSetTimestamp()) + "\",");
-            out.println("            \"pictureIds\": [" + pictureId_N + ", " + pictureId_NE + ", " + pictureId_E + ", " + pictureId_SE + ", " + pictureId_S + ", " + pictureId_SW + ", " + pictureId_W + ", " + pictureId_NW + ", " + pictureId_UP + "]");
-            if (ps == pictureSetIds.size() - 1) {
-                out.println("        }");
-            }
-            else {
-                out.println("        },");
-            }
+            
+            JSONObject pictureSetJSON = new JSONObject()
+                .put("pictureSetId", pictureSet.getPictureSetId())
+                .put("pictureSetTimestamp", String.valueOf(pictureSet.getPictureSetTimestamp()));
+            JSONArray pictureIdJSON = new JSONArray()
+                .put(pictureId_N)
+                .put(pictureId_NE)
+                .put(pictureId_E)
+                .put(pictureId_SE)
+                .put(pictureId_S)
+                .put(pictureId_SW)
+                .put(pictureId_W)
+                .put(pictureId_NW)
+                .put(pictureId_UP);
+            pictureSetJSON.put("pictureIds", pictureIdJSON);
+            pictureSetsJSON.put(pictureSetJSON);
+            result.put("pictureSets", pictureSetJSON);
+            out.println(result.toString());
         }
-        out.println("    ]");
-        out.println("}");
     }
 }

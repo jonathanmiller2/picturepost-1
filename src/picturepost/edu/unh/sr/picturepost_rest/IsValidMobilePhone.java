@@ -5,6 +5,7 @@ import javax.servlet.http.*;
 import java.util.*;
 import java.io.*;
 import edu.unh.sr.picturepost.*;
+import org.json.JSONObject;
 
 public class IsValidMobilePhone extends HttpServlet {
 
@@ -38,15 +39,19 @@ public class IsValidMobilePhone extends HttpServlet {
 
         // Any errors?
         if (!error.isEmpty()) {
-            out.println("{\"error\":[" + Utils.join_dq(error) + "]}");
+            String buf = new JSONObject()
+                .put("error", error)
+                .toString();
+            out.println(buf)
             return;
         }
 
         String status_str = Person.dbIsValidMobilePhone(mobilePhone) ? "Valid" : "Invalid";
         
         // Print out the result.
-        out.println("{");
-        out.println("\"status\": \"" + status_str + "\"");
-        out.println("}");
+        String buf = new JSONObject()
+            .put("status", status_str)
+            .toString();
+        out.println(buf);
     }
 }

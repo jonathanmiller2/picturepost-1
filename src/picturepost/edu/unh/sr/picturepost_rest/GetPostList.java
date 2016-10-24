@@ -6,6 +6,8 @@ import java.util.*;
 import java.sql.*;
 import java.io.*;
 import edu.unh.sr.picturepost.*;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 public class GetPostList extends HttpServlet {
 
@@ -141,7 +143,10 @@ public class GetPostList extends HttpServlet {
 
         // Any errors?
         if (!error.isEmpty()) {
-            out.println("{\"error\":[" + Utils.join_dq(error) + "]}");
+            String buf = new JSONObject()
+                .put("error", error)
+                .toString();
+            out.println(buf);
             return;
         }
 
@@ -214,9 +219,8 @@ public class GetPostList extends HttpServlet {
         }
 
         // Print out the results.
-        out.println("[");
-        for (int i = 0; i < postRecords.size(); i++) {
-
+        JSONArray results = new JSONArray();
+        for (int i = 0; i < postRecords.size(); ++i) {
             int postId = postRecords.get(i).getPostId();
 
             String sqlText = "";
@@ -243,20 +247,20 @@ public class GetPostList extends HttpServlet {
               DBPool.getInstance().returnConnection(conn);
             }
 
-            out.println("{");
-            out.println("\"postId\":" + String.valueOf(postRecords.get(i).getPostId()) + ",");
-            out.println("\"personId\":" + String.valueOf(postRecords.get(i).getPersonId()) + ",");
-            out.println("\"name\":\"" + postRecords.get(i).getName().replaceAll("\"", java.util.regex.Matcher.quoteReplacement("\\\"")) + "\",");
-            out.println("\"description\":\"" + postRecords.get(i).getDescription().replaceAll("\"", java.util.regex.Matcher.quoteReplacement("\\\"")) + "\",");
-            out.println("\"installDate\":\"" + postRecords.get(i).getInstallDate() + "\",");
-            out.println("\"referencePictureSetId\":" + String.valueOf(postRecords.get(i).getReferencePictureSetId()) + ",");
-            out.println("\"recordTimestamp\":\"" + postRecords.get(i).getRecordTimestamp() + "\",");
-            out.println("\"ready\":" + String.valueOf(postRecords.get(i).getReady()) + ",");
-            out.println("\"lat\":" + String.valueOf(postRecords.get(i).getLat()) + ",");
-            out.println("\"lon\":" + String.valueOf(postRecords.get(i).getLon()) + ",");
-            out.println("\"postPictureId\":" + String.valueOf(postPictureId));
-            out.println("}" + ((i < postRecords.size() - 1) ? "," : ""));
-         }
-         out.println("]");
+            JSONObject postJSON = new JSONObject()
+                .put("postId", postRecords.get(i).getPostId())
+                .put("personId", postRecords.get(i).getPersonId())
+                .put("name", postRecords.get(i).getName())
+                .put("description", postRecords.get(i).getDescription())
+                .put("installDate", postRecords.get(i).getInstallDate())
+                .put("referencePictureSetId", postRecords.get(i).getReferencePictureSetId())
+                .put("recordTimestamp", postRecords.get(i).getRecordTimestamp())
+                .put("ready", postRecords.get(i).getReady())
+                .put("lat", postRecords.get(i).getLat())
+                .put("lon", postRecords.get(i).getLon())
+                .put("postPictureId", postPictureId);
+            results.put(postJSON);
+        }
+        out.println(results.toString());
     }
 }

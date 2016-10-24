@@ -61,7 +61,10 @@ public class AddPictureSet extends HttpServlet {
 
 		// Any errors?
 		if (!error.isEmpty()) {
-			out.println("{\"error\":[" + Utils.join_dq(error) + "]}");
+            String buf = new JSONObject()
+                .put("error", error)
+                .toString();
+            out.println(buf);
 			return;
 		}
 
@@ -86,16 +89,16 @@ public class AddPictureSet extends HttpServlet {
 		// Any errors?
 		if (!error.isEmpty()) {
 			String buf = new JSONObject()
-			.put("error", new JSONArray(error))
-			.toString();
+			    .put("error", new JSONArray(error))
+			    .toString();
 			out.println(buf); 
 			return;
 		}
 
 		// Print out the result.
 		String buf = new JSONObject()
-		.put("pictureSetId", String.valueOf(pictureSet.getPictureSetId()))
-		.toString();
+		    .put("pictureSetId", pictureSet.getPictureSetId())
+		    .toString();
 		out.println(buf);
 	}  
 }

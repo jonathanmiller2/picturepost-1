@@ -133,8 +133,8 @@ public class AddPicture extends HttpServlet {
 		// Any errors?
 		if (!error.isEmpty()) {
 			String buf = new JSONObject()
-			.put("error", new JSONArray(error))
-			.toString();
+			    .put("error", new JSONArray(error))
+			    .toString();
 			out.println(buf);        	
 			return;
 		}
@@ -157,8 +157,8 @@ public class AddPicture extends HttpServlet {
 				error.add(String.valueOf(existingPictureRecord.getPictureId()));
 
 				String buf = new JSONObject()
-				.put("error", new JSONArray(error))
-				.toString();
+				    .put("error", new JSONArray(error))
+				    .toString();
 				out.println(buf);              
 				return;
 			}
@@ -167,8 +167,8 @@ public class AddPicture extends HttpServlet {
 		if (fileUploadItems.size() == 0) {
 			error.add("No files found.");
 			String buf = new JSONObject()
-			.put("error", new JSONArray(error))
-			.toString();
+			    .put("error", new JSONArray(error))
+			    .toString();
 			out.println(buf);    
 			return;
 		}
@@ -198,8 +198,8 @@ public class AddPicture extends HttpServlet {
 			if (imageFileOriginal.equals("")) {
 				error.add("Invalid file name: " + imageFileOriginal);
 				String buf = new JSONObject()
-				.put("error", new JSONArray(error))
-				.toString();
+				    .put("error", new JSONArray(error))
+				    .toString();
 				out.println(buf);    
 				return;
 			}
@@ -208,8 +208,8 @@ public class AddPicture extends HttpServlet {
 			if (fileSize == 0) {
 				error.add("Empty file, " + imageFileOriginal);
 				String buf = new JSONObject()
-				.put("error", new JSONArray(error))
-				.toString();
+				    .put("error", new JSONArray(error))
+				    .toString();
 				out.println(buf);
 				return;
 			}
@@ -218,8 +218,8 @@ public class AddPicture extends HttpServlet {
 			if (fileSize > Integer.parseInt(Config.get("MAX_FILE_UPLOAD_SIZE"))) {
 				error.add(imageFileOriginal + " is too big to upload. Files must be less than " + Config.get("MAX_FILE_UPLOAD_SIZE") + " bytes.");
 				String buf = new JSONObject()
-				.put("error", new JSONArray(error))
-				.toString();
+				    .put("error", new JSONArray(error))
+				    .toString();
 				out.println(buf);
 				return;
 			}
@@ -236,8 +236,8 @@ public class AddPicture extends HttpServlet {
 			else {
 				error.add("Invalid file name, " + imageFileOriginal);
 				String buf = new JSONObject()
-				.put("error", new JSONArray(error))
-				.toString();
+				    .put("error", new JSONArray(error))
+				    .toString();
 				out.println(buf);
 				return;
 			}
@@ -250,8 +250,8 @@ public class AddPicture extends HttpServlet {
 			else {
 				error.add("Unsupported file type, " + imageFileOriginal);
 				String buf = new JSONObject()
-				.put("error", new JSONArray(error))
-				.toString();
+				    .put("error", new JSONArray(error))
+				    .toString();
 				out.println(buf);
 				return;
 			}
@@ -260,8 +260,8 @@ public class AddPicture extends HttpServlet {
 			if (!picture.dbSetPictureId()) {
 				error.add("Could not set pictureId.");
 				String buf = new JSONObject()
-				.put("error", new JSONArray(error))
-				.toString();
+				    .put("error", new JSONArray(error))
+				    .toString();
 				out.println(buf);
 				return;
 			}
@@ -275,8 +275,8 @@ public class AddPicture extends HttpServlet {
 			if (!picture.dbInsert()) {
 				error.add("Could not insert picture record.");
 				String buf = new JSONObject()
-				.put("error", new JSONArray(error))
-				.toString();
+				    .put("error", new JSONArray(error))
+				    .toString();
 				out.println(buf);
 				return;
 			}
@@ -295,8 +295,8 @@ public class AddPicture extends HttpServlet {
 			catch (Exception e) {
 				error.add("Could not write image file to disk, " + e.toString());
 				String buf = new JSONObject()
-				.put("error", new JSONArray(error))
-				.toString();
+				    .put("error", new JSONArray(error))
+				    .toString();
 				out.println(buf);
 				return;
 			}
@@ -312,8 +312,8 @@ public class AddPicture extends HttpServlet {
 						error.add(imageFileOriginal + "  is not really a " + fileType + ".");
 						picture.dbDelete();
 						String buf = new JSONObject()
-						.put("error", new JSONArray(error))
-						.toString();
+						    .put("error", new JSONArray(error))
+						    .toString();
 						out.println(buf);    
 						return;
 					}
@@ -323,8 +323,8 @@ public class AddPicture extends HttpServlet {
 				error.add("Could not determine file type of file " + imageFileOriginal);
 				picture.dbDelete();
 				String buf = new JSONObject()
-				.put("error", new JSONArray(error))
-				.toString();
+				    .put("error", new JSONArray(error))
+				    .toString();
 				out.println(buf);
 				return;
 			}
@@ -337,8 +337,8 @@ public class AddPicture extends HttpServlet {
 			catch (Exception e) {
 				error.add("Could not create thumbnail, " + e.toString());
 				String buf = new JSONObject()
-				.put("error", new JSONArray(error))
-				.toString();
+				    .put("error", new JSONArray(error))
+				    .toString();
 				out.println(buf);
 				return;
 			}
@@ -351,8 +351,8 @@ public class AddPicture extends HttpServlet {
 			catch (Exception e) {
 				error.add("Could not create medium picture, " + e.toString());
 				String buf = new JSONObject()
-				.put("error", new JSONArray(error))
-				.toString();
+				    .put("error", new JSONArray(error))
+				    .toString();
 				out.println(buf);
 				return;
 			}
@@ -391,15 +391,15 @@ public class AddPicture extends HttpServlet {
 
 		if (!error.isEmpty()) {
 			String buf = new JSONObject()
-			.put("error", new JSONArray(error))
-			.toString();
+			    .put("error", new JSONArray(error))
+			    .toString();
 			out.println(buf);
 			return;
 		}
 
 		String buf = new JSONObject()
-		.put("pictureId", String.valueOf(picture.getPictureId()))
-		.toString();
+		    .put("pictureId", picture.getPictureId())
+		    .toString();
 		out.println(buf);
 	}
 }

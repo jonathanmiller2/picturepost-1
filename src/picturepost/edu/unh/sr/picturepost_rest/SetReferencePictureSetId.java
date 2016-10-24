@@ -3,7 +3,6 @@ package edu.unh.sr.picturepost_rest;
 import javax.servlet.*;
 import javax.servlet.http.*;
 
-import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.*;
@@ -58,7 +57,10 @@ public class SetReferencePictureSetId extends HttpServlet {
 
         // Any errors?
         if (!error.isEmpty()) {
-            out.println("{\"error\":[" + Utils.join_dq(error) + "]}");
+            String buf = new JSONObject()
+                .put("error", error)
+                .toString();
+            out.println(buf);
             return;
         }
 
@@ -75,9 +77,10 @@ public class SetReferencePictureSetId extends HttpServlet {
 
         // Any errors?
         if (!error.isEmpty()) {
-        	JSONObject buf = new JSONObject();
-        	buf.put("error", error);
-            out.println(buf.toString());
+            String buf = new JSONObject()
+                .put("error", error)
+                .toString();
+            out.println(buf);
             return;
         }
 
@@ -89,13 +92,17 @@ public class SetReferencePictureSetId extends HttpServlet {
 
         // Any errors?
         if (!error.isEmpty()) {
-            out.println("{\"error\":[" + Utils.join_dq(error) + "]}");
+            String buf = new JSONObject()
+                .put("error", error)
+                .toString();
+            out.println(buf);
             return;
         }
 
         // Print out the result.
-        out.println("{");
-        out.println("\"status\": \"OK\"");
-        out.println("}");
+        String buf = new JSONObject()
+            .put("status", "OK")
+            .toString();
+        out.println(buf);
     }
 }

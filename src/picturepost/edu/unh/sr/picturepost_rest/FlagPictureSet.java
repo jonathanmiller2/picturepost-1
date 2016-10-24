@@ -48,17 +48,17 @@ public class FlagPictureSet extends HttpServlet {
 
 		if (!error.isEmpty()) {
 			String buf = new JSONObject()
-			.put("error", new JSONArray(error))
-			.toString();
+			    .put("error", new JSONArray(error))
+			    .toString();
 			out.println(buf); 
 			return;
 		}
 
 		else {            
 			String buf = new JSONObject()
-			.put("pictureSetId", String.valueOf(pictureSet.getPictureSetId()))
-			.put("reported", true)
-			.toString();
+			    .put("pictureSetId", pictureSet.getPictureSetId())
+			    .put("reported", true)
+			    .toString();
 			out.println(buf); 
 		}
 	}  

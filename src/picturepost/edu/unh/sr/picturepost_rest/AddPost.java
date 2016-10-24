@@ -78,7 +78,10 @@ public class AddPost extends HttpServlet {
 
 		// Any errors?
 		if (!error.isEmpty()) {
-			out.println("{\"error\":[" + Utils.join_dq(error) + "]}");
+            String buf = new JSONObject()
+                .put("error", error).
+                toString();
+			out.println(buf);
 			return;
 		}
 
@@ -101,14 +104,14 @@ public class AddPost extends HttpServlet {
 		// Any errors?
 		if (!error.isEmpty()) {
 			String buf = new JSONObject()
-			.put("error", new JSONArray(error))
-			.toString();
+			    .put("error", new JSONArray(error))
+			    .toString();
 			out.println(buf);
 			return;
 		}
 		String buf = new JSONObject()
-		.put("postId", String.valueOf(post.getPostId()))
-		.toString();
+		    .put("postId", post.getPostId())
+		    .toString();
 		out.println(buf);
 	}
 }

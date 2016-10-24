@@ -5,6 +5,7 @@ import javax.servlet.http.*;
 import java.util.*;
 import java.io.*;
 import edu.unh.sr.picturepost.*;
+import org.json.JSONObject;
 
 public class GetPictureSetIds extends HttpServlet {
 
@@ -49,7 +50,10 @@ public class GetPictureSetIds extends HttpServlet {
 
         // Any errors?
         if (!error.isEmpty()) {
-            out.println("{\"error\":[" + Utils.join_dq(error) + "]}");
+            String buf = new JSONObject()
+                .put("error", error)
+                .toString();
+            out.println(buf);
             return;
         }
 
@@ -57,16 +61,9 @@ public class GetPictureSetIds extends HttpServlet {
         Post post = new Post(postId);
         Vector<Integer> pictureSetIds = post.dbGetViewablePictureSetIds(orderBy);
 
-        // Print out the results.
-        out.println("{ \"pictureSetIds\":");
-        out.println("[");
-        if (pictureSetIds.size() > 0) {
-            out.println(pictureSetIds.get(0).toString());
-            for (int i = 1; i < pictureSetIds.size(); i++) {
-                out.println("," + pictureSetIds.get(i).toString());
-            }
-        }
-        out.println("]");
-        out.println("}");
+        String buf = new JSONObject()
+            .put("pictureSetIds", pictureSetIds)
+            .toString();
+        out.println(buf);
     }
 }
