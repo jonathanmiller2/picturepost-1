@@ -42,7 +42,7 @@ public class IsValidMobilePhone extends HttpServlet {
             String buf = new JSONObject()
                 .put("error", error)
                 .toString();
-            out.println(buf)
+            out.println(buf);
             return;
         }
 
