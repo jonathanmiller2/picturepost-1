@@ -126,7 +126,7 @@ public class GetPostAndPictureSets extends HttpServlet {
             
             JSONObject pictureSetJSON = new JSONObject()
                 .put("pictureSetId", pictureSet.getPictureSetId())
-                .put("pictureSetTimestamp", String.valueOf(pictureSet.getPictureSetTimestamp()));
+                .put("pictureSetTimeStamp", String.valueOf(pictureSet.getPictureSetTimestamp()));
             JSONArray pictureIdJSON = new JSONArray()
                 .put(pictureId_N)
                 .put(pictureId_NE)
