@@ -29,7 +29,7 @@
           <Li><A href="gallery-newsletters.jsp" title="newsletters">Newsletters</A>
          <Li><A href="gallery-media.jsp" title="media archive">Blogs, Popular Articles, Research Articles</A>
         <Li><A href="gallery-downloadables.jsp" title="Materials for Download">Downloadable Picture Post Logos, Promotional Materials, Brochures</A>
-         <li><A href="gallery-posttypes.jsp" title="Types of Picture Posts">Gallery of Post Designs</A>
+         <li><A href="gallery-posttypes.jsp" title="Types of Picture Posts and Informational Signs">Gallery of Post Designs and Informational Signs</A>
           </ul>
  </div>
  

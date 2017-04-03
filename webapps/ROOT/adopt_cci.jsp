@@ -1,6 +1,10 @@
 <%@ include file="/includes/common.jsp" %>
 <%@ include file="/includes/header.jsp" %>
 
+<script src="scripts/prototype.js" language="JavaScript" type="text/javascript"></script>
+<script src="scripts/qtp_poster.js" language="JavaScript" type="text/javascript"></script>
+<link href="stylesheets/qtp_poster.css" rel="StyleSheet" type="text/css" />
+
 <div align=center>
   <h1 style='display:inline-block;'>Adopt a Climate Change Indicator</h1>
 </div>
@@ -31,7 +35,7 @@
    <h4>Greenness Index</H4>
 Researchers developed this greenness index to study the effects of climate change on forested ecosystems. Picture Post now  lets you calculate the index with Picture Post pictures right on the Picture Post website! The index uses the red, green, and blue colors in the image to characterize the relative &ldquo;greenness&rdquo; using this relationship:</p>
      <p><span class="h3navy"><strong>Greenness Index = Green / (Red + Green + Blue)</strong></span></p>
-                      <Br><p>This <a href="/resources/greennesshelpvideoweb/Resources/greennesshelpvideoweb.mov" rel="qtposter">Help Video</a> will walk you through the steps to calculate the index on your post page.</p>
+     
   </div>
                       
 <H3>Tips</STRONG>:</H3>
@@ -58,6 +62,12 @@ Researchers developed this greenness index to study the effects of climate chang
  </div>
  <div class=row></div>         
 </div>     
+
+ <div class=row>
+	     <H3>Watch this Help Video will walk you through the steps to calculate the index on your post page.</h3>
+	                      
+	                     <p><video id="greennesshelpvideoweb" src="resources/greennesshelpvideoweb.mp4" controls></video> </p>
+ </div>
 
 <div class=row>
 <div class=col-lg-8>

@@ -39,7 +39,8 @@
         <ul>
          <Li><A href="buy.jsp" title="Buy or build your post">Purchase recycled plastic post tops</A>
          <Li><A href="build.jsp" title="Buy or build your post">Instructions for building and installing posts</A>
-          <Li><A href="post-signage.jsp" title="Buy or build your post">Make a sign</A>
+         <Li><A href="gallery-posttypes.jsp" title="Gallery of post & sign designs">Gallery of posts and signs - get inspired!</A>
+          <Li><A href="post-signage.jsp" title="Buy or build your post">Make a sign; get our logo</A>
         </ul>
     </div>
 

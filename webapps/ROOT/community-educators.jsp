@@ -14,6 +14,9 @@
 #helppagecontent li + li {
   margin-top: 10px;
 }
+#helppagecontent img {
+  max-width: 100%;
+
 </style>
 
 <div class="container" id=helppagecontent>
@@ -31,6 +34,38 @@
         </ul>
      </div>
 
+    <div class="col-md-4">
+      <h3>NASA eClips - Real World:Citizen Science</h3>
+      <p class=clearfix>
+       <img class='shadow pull-left' src="/images/NASA-eclips-logo.jpg"   style='margin:0 16px 16px 0;' alt="NASA eclips logo"></A>
+<div>What are citizen scientists? Why is their work so important to NASA? Join Dr. Michelle Thaller as she explains how the general public, using scientific protocols, careful observations and accurate measurements, can help NASA make exciting new discoveries. Find out how you can be a citizen scientist today. </div>    
+        <p><a class="btn btn-default" href="https://nasaeclips.arc.nasa.gov/playlists/realworld?v=real-world-citizen-science" target="_blank"  role="button">Take Me There</a></p>
+        </div>
+        
+  <div class="col-md-4">
+      <h3>STEM Digital</h3>
+      <p class=clearfix>
+      <img class='shadow pull-left' src="/images/logoSTEMdigital.png" style='margin:0 16px 16px 0;' alt="STEM Digital at UMass">
+ <div>Materials for using digital photographs in STEM inquiry activities. These use the DEW ADI and Movie Tracker software.</div>     
+        <p class=clearfix><a class="btn btn-default" href="http://k12s.phast.umass.edu/digital/materials/"  target="_blank" title="STEM Digital website" role="button">Take Me There</a></p>
+     </div>
+   </div>     
+ 
+       
+ 
+   <div class="row">
+   <div class="col-md-4">
+      <h3>Cyber-Infrastructure Digital Education & Research (CIDER)</h3>
+      <p class=clearfix>
+      <img class='shadow pull-left' src="/images/apple.jpg"  width="300" style='margin:0 16px 16px 0;' alt="Cyber-Infrastructure Digital Education & Research CIDER">
+<div>Learn more about this project, funded by the National Science Foundation, that works with middle and high school teachers to use mobile technologies in their outdoor classrooms.
+      <h3>CIDER Resources</h3></div>
+      <Li><a href="/resources/Sampling_In_The_Snow.pdf" title="Sampling in the Snow Curriculum PDF download" target="_blank">Sampling in the Snow Curriculum (PDF)</a> 
+      <Li><a href="https://itunes.apple.com/us/book/id1086864270" title="iBook Monitoring Environmental Change with iPads" target="_blank">iBook: Monitoring Environmental Change with iPads</a> 
+      <Li><a href="https://itunes.apple.com/us/app/canopyapp/id926943048?mt=8" title="Canopy App iTunes" target="_blank">Canopy App - iTunes</a> 
+      <Li><a href="https://play.google.com/store/apps/details?id=edu.unh.sr.canopyapp&hl=en" title="Canopy App Google Play" target="_blank">Canopy App - Google Play</a> </br>
+        <p class=clearfix><a class="btn btn-default" href="/cider.jsp" title="CIDER website"  role="button">Show Me More</a></p>
+     </div>
 
     <div class="col-md-4">
       <h3>GLOBE Carbon Cycle</h3>
@@ -39,7 +74,7 @@
 <div>Brings the most cutting edge research and research techniques in the field of terrestrial ecosystem carbon cycling into the classroom. Students can collect data about their school field site through existing GLOBE protocols of phenology, land cover and soils as well as through new protocols focused on biomass and carbon stocks in vegetation. Study plots are perfect for monitoring with a Picture Post! </div>    
         <p><a class="btn btn-default" href="http://globecarboncycle.unh.edu" target="_blank"  role="button">Take Me There</a></p>
         </div>
-        
+
      <div class="col-md-4">
       <h3>Student Climate Data</h3>
       <p class=clearfix>
@@ -47,10 +82,10 @@
 <div>Students can become familiar with Earth observation data and the science of climate change by conducting their own research investigations using NASA Earth observation data and based on their own questions and/or self-designed procedures. Activities include using picture posts! SCD is a project of NASA Innovations in Climate Education (NASA NICE). </div>    
         <p class=clearfix><a class="btn btn-default" href="http://studentclimatedata.unh.edu/index.shtml" target="_blank"  role="button">Take Me There</a></p>
         </div>
-   </div>     
-       
- 
-   <div class="row">
+   </div>
+
+
+  <div class="row">
     <div class="col-md-4">
       <h3>Citizen Science Academy</h3>
       <p class=clearfix>
@@ -65,27 +100,8 @@
                <Li><a href="/resources/Post_9_2015-canopy.zip" title="Post 9 2015 canopy Zip download" target="_blank">Post9 Canopy Pictures for 2015 (24 mbyte Zip file)</a> 
                <Li><a href="/resources/Post_428_2015-trunk.zip" title="Post 428 2015 trunk Zip download" target="_blank">Post428 Tree Trunk Pictures for 2015 (42 mbyte Zip file)</a> 
                <Li><a href="/resources/Post_428_2015-canopy.zip" title="Post 428 2015 canopy Zip download" target="_blank">Post428 Canopy Pictures for 2015 (38 mbyte Zip file)</a> 
+  </div> 
 
-
-      <h3>STEM Digital</h3>
-      <p class=clearfix>
-      <img class='shadow pull-left' src="/images/logoSTEMdigital.png" style='margin:0 16px 16px 0;' alt="STEM Digital at UMass">
- <div>Materials for using digital photographs in STEM inquiry activities. These use the DEW ADI and Movie Tracker software.</div>     
-        <p class=clearfix><a class="btn btn-default" href="http://k12s.phast.umass.edu/digital/materials/"  target="_blank" title="STEM Digital website" role="button">Take Me There</a></p>
-   </div> 
- 
-   <div class="col-md-4">
-      <h3>Cyber-Infrastructure Digital Education & Research (CIDER)</h3>
-      <p class=clearfix>
-      <img class='shadow pull-left' src="/images/apple.jpg"  width="300" style='margin:0 16px 16px 0;' alt="Cyber-Infrastructure Digital Education & Research CIDER">
-<div>Learn more about this project, funded by the National Science Foundation, that works with middle and high school teachers to use mobile technologies in their outdoor classrooms.
-      <h3>CIDER Resources</h3></div>
-      <Li><a href="/resources/Sampling_In_The_Snow.pdf" title="Sampling in the Snow Curriculum PDF download" target="_blank">Sampling in the Snow Curriculum (PDF)</a> 
-      <Li><a href="https://itunes.apple.com/us/book/id1086864270" title="iBook Monitoring Environmental Change with iPads" target="_blank">iBook: Monitoring Environmental Change with iPads</a> 
-      <Li><a href="https://itunes.apple.com/us/app/canopyapp/id926943048?mt=8" title="Canopy App iTunes" target="_blank">Canopy App - iTunes</a> 
-      <Li><a href="https://play.google.com/store/apps/details?id=edu.unh.sr.canopyapp&hl=en" title="Canopy App Google Play" target="_blank">Canopy App - Google Play</a> </br>
-        <p class=clearfix><a class="btn btn-default" href="/cider.jsp" title="CIDER website"  role="button">Show Me More</a></p>
-     </div>
 
    <div class="col-md-4">
       <h3>Forest Watch</h3>

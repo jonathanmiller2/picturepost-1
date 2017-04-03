@@ -37,7 +37,7 @@ Your pictures contain a wealth of information. DEW has created software to help 
           <LI><A href="http://picturepost.unh.edu/news.jsp" title="news">View pictures to observe change.</a></LI> 
           <li><a href="gallery-newsletters.jsp" title="newsletters">Read about picture post projects in our Newsletters.</a></li>
           <li><a href="http://panopicturepost.tumblr.com" title="tumblr blog of panoramas">Follow us on Tumblr.</a></li>
-          <li><a href="https://itunes.apple.com/us/app/id849676550" target="_blank">iPhone Users - Get the iPhone app!</a></li>  
+          <li><a href="https://picturepost.unh.edu/mobileapps.jsp" target="_blank">iPhone Users - Get the iPhone app! (You will be asked to add your mobile number to your Profile).</a></li>  
 
 
              <h2>Citizen Science Academy</h2>
@@ -60,7 +60,7 @@ Your pictures contain a wealth of information. DEW has created software to help 
 
                     <p class=clearfix>  Plan and take repeated photographs for citizen science projects. Capture events, monitor a local park, a wetland, a riverbank, or even plants in the backyard!</p>
                       <UL STYLE="margin-top: 0px; margin-bottom: 0px;">
-                        <LI><A href="adopt_leaf.jsp" title="Adopt a Leaf">Adopt a Leaf </A> - Record the opening of leaves or flowers in the spring.
+                        <LI><A href="adopt_leaf.jsp" title="Adopt a Leaf">Adopt a Leaf </A> - Record the opening of leaves or flowers in the spring: use dormant twigs to learn more about phenology.
                         <LI><A href="adopt_treeDBH.jsp" title="Adopt a Tree Diameter (DBH)">Adopt a Tree Diameter (DBH) </A> - Measure the changing diameter of one or more trees. 
                         
                         <LI><A href="adopt_canopy.jsp" title="Adopt a Canopy">Adopt a Canopy </A> - Capture the seasonal changes in percent leaf cover in a forest canopy. 

@@ -21,13 +21,21 @@
   <div class="row">
 
      <div class="col-md-4">
- <h3 align="left" class="h3navy"><a href="/newslettersignup.jsp" target="_self">Sign up for our Monthly Newsletter!</a></h3>
+ <h3 align="left" class="h3navy"><a href="/newslettersignup.jsp" target="_self">Sign up here for our Monthly Newsletter!</a></h3>
    
+<h3><strong>2017</h3>
+<p align="left" class="h3navy">  <A href="http://hosted.verticalresponse.com/1051743/3314d851ec/519485881/e42887c9be/" target="_blank" title="February 2017 Newsletter"> February 2017</A> - <SPAN class="smallText">Planning for the future. Spring brings BIG snowstorms to the Northeast USA - a simple method to measure snow.</SPAN>  </p> 
+
+
+<p align="left" class="h3navy">  <A href="http://hosted.verticalresponse.com/1051743/b342deb412/519485881/e42887c9be/" target="_blank" title="January 2017 Newsletter"> January 2017</A> - <SPAN class="smallText">Picture Posts ring in a turbulent new year. Review of 2016. Welcome new members and new posts! </SPAN>  </p> 
 
 
 <h3><strong>2016</h3>
+<p align="left" class="h3navy">  <A href="http://hosted.verticalresponse.com/1051743/dbb57231b7/519485881/e42887c9be/" target="_blank" title="November 2016 Newsletter"> November 2016</A> - <SPAN class="smallText">Picture Posts for monitoring lakes and phenology - presentations for the North American Lakes Management Society and North East Regional Phenology Network conferences. </SPAN>  </p> 
 
+<p align="left" class="h3navy">  <A href="http://hosted.verticalresponse.com/1051743/cb38e4457c/519485881/e42887c9be/" target="_blank" title="October 2016 Newsletter"> October 2016</A> - <SPAN class="smallText">Colorado Mountain College builds citizen science into campus with Picture Post. </SPAN>  </p> 
 
+<p align="left" class="h3navy">  <A href="http://hosted.verticalresponse.com/1051743/d2fb5d8f32/519485881/e42887c9be/" target="_blank" title="September 2016 Newsletter"> September 2016</A> - <SPAN class="smallText">Tanoma Wetlands Outdoor Classroom - a picture post helps monitor abandoned mine drainage (AMD) in Western Pennsylvania. </SPAN>  </p> 
 
 <p align="left" class="h3navy">  <A href="http://hosted.verticalresponse.com/1051743/0af9d372a1/519485881/e42887c9be/" target="_blank" title="August 2016 Newsletter"> August 2016</A> - <SPAN class="smallText">Hemlock Wooly Adelgid - the Society for the Protection of New Hampshire Forests monitors damage with a Picture Post. View ALL picture sets for a post with the "advanced" feature. </SPAN>  </p> 
 
@@ -44,10 +52,10 @@
 <p align="left" class="h3navy">  <A href="http://hosted.verticalresponse.com/1051743/203c6b8c19/519485881/e42887c9be/" target="_blank" title="February 2016 Newsletter"> February 2016</A> - <SPAN class="smallText">Clouds and NASA satellite images - what you can see at a Picture Post.</SPAN>  </p> 
 
 <p align="left" class="h3navy">  <A href="http://hosted.verticalresponse.com/1051743/23bdbdd216/519485881/e42887c9be/" target="_blank" title="January 2016 Newsletter"> January 2016</A> - <SPAN class="smallText">Review of 2015. Our new mobile website launches with many thanks to the US National Park Service!</SPAN>  </p> 
+</div>
 
 
-
-
+     <div class="col-md-4">
 <h3><strong>2015</h3>
 
 <p align="left" class="h3navy">  <A href="http://hosted.verticalresponse.com/1051743/96eb0dfac1/519485881/e42887c9be/" target="_blank" title="November 2015 Newsletter"> November 2015</A> - <SPAN class="smallText">Picture Post documents a rainy month in Oregon.</SPAN>  </p> 
@@ -100,6 +108,8 @@
                       <p align="left" class="h3navy">  <A href="http://hosted.verticalresponse.com/1051743/63daf9e74f/519485881/e42887c9be/" target="_blank" title="January 2014 Newsletter"> January 2014</A> - <SPAN class="smallText">The Picture Post as art - the <em>Phenology Phencepost</em>. Summary of 2013. Welcome all new members!</SPAN>  </p> 
 </div> 
 
+
+ <div class="row">
  <div class="col-md-4">
   <h3>2013</h3>
 <p align="left" class="h3navy"> <A href="http://hosted.verticalresponse.com/1051743/4bf34db514/519485881/14c7276266/" target="_blank" title="November 2013 Newsletter"> November 2013</A> - <SPAN class="smallText">Check out sand movement around the post at Crane's Beach in MA! Join the conversation in our Forums about environmental monitoring and stewardship.</SPAN> </p>
@@ -129,7 +139,7 @@
                        </div>
                    </div>
  
- <div class="row">
+
    <div class="col-md-4">
 <h3>2012</h3>
 
