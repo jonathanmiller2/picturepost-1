@@ -693,10 +693,8 @@ Comments: $comment_count
     eval {
       $DBH->do("DELETE FROM post WHERE person_id=?", undef, $$person_rec{person_id});
       $DBH->do("DELETE FROM favorite_post WHERE person_id=?", undef, $$person_rec{person_id});
-      $DBH->do("DELETE FROM map_parms WHERE person_id=?", undef, $$person_rec{person_id});
       $DBH->do("DELETE FROM picture_set WHERE person_id=?", undef, $$person_rec{person_id});
       $DBH->do("DELETE FROM picture_comment WHERE person_id=?", undef, $$person_rec{person_id});
-      $DBH->do("DELETE FROM remember_me WHERE person_id=?", undef, $$person_rec{person_id});
       $DBH->do("DELETE FROM story WHERE author_person_id=?", undef, $$person_rec{person_id});
       $DBH->do("DELETE FROM person WHERE person_id=?", undef, $$person_rec{person_id});
     }; if ($@) {
@@ -840,7 +838,7 @@ sub act_clear_all_data {
   eval {
     $DBH->begin_work();
     $DBH->do("SET search_path=picturepost,public"); 
-    my $sql = "TRUNCATE favorite_post,map_parms,picture_comment,picture_md,picture_set,post_picture,remember_me,picture,post,person RESTART IDENTITY CASCADE";
+    my $sql = "TRUNCATE favorite_post,picture_comment,picture_md,picture_set,post_picture,picture,post,person RESTART IDENTITY CASCADE";
     print "$sql\n";
     $DBH->do($sql);
     $DBH->commit();
