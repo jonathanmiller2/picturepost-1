@@ -52,6 +52,7 @@ if ("submit".equals(wu.param("act"))) {
   sessionuser.setEmail(wu.param("email"));
   sessionuser.setUsername(wu.param("username"));
   sessionuser.setFirstName(wu.param("fname"));
+  sessionuser.setMobilePhone(wu.param("mobileph"));
   sessionuser.setLastName(wu.param("lname"));
   sessionuser.setSignupTimestamp(Utils.getCurrentTimestamp());
   String passwordSalt = Utils.generateSalt();
@@ -116,6 +117,12 @@ if ("submit".equals(wu.param("act"))) {
     <label>* Username
       <input type=text class="form-control" name=username required value='<%=wu.esc(wu.param("username"))%>'>
     </label>
+
+    <p>
+    <label>Mobile Phone Number
+      <input type=number step=1 min=0 max=9999999999999999 class="form-control" name=mobileph value='<%=wu.esc(wu.param("mobileph"))%>'>
+    </label>
+    <small style='display:inline-block;'>required if using the mobile app</small>
 
     <p>
     <label>* Password
