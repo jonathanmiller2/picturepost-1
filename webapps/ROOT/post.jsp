@@ -341,7 +341,7 @@ if (p == null) return;
     </blockquote>
     <hr style='clear:both;border-color: #ddd;'>
     <p>
-      <a style='margin:10px;' class="desktoponly pull-right btn btn-default" title="analyze and view additional data at this post" href="analyze/post.jsp?postId=<%=p.postId%>">advanced</a>
+      <a style='margin:10px;' class="desktoponly pull-right btn btn-default" title="analyze and view additional data at this post" href="analyze/post.jsp?postId=<%=p.postId%>">see all pics here & more</a>
 
       <a style='margin:10px;' class="pull-right btn btn-default" title="view location on map" href="http://maps.google.com/?q=<%=p.lat%>,<%=p.lon%>">map</a>
 

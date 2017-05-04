@@ -2,13 +2,13 @@
 <%@ include file="/includes/header.jsp" %>
 
 <div align=center>
-  <h1 style='display:inline-block;'>Gallery of Posts</h1>
+  <h1 style='display:inline-block;'>Gallery of Posts and Informational Signs</h1>
 </div>
 
 <%=wu.popNotifications()%>
 
 <div class=well>
-Send us your post design to add to the gallery!
+We get asked often about posts and post signs. We created this gallery to give you inspiration and practical ideas for both from our very creative Picture Post users. Please feel free to use any designs shown here and send us yours to add to the gallery! Sample text for the sign and a link to a full-resolution version of our logo to place on your sign are on our <a href="https://picturepost.unh.edu/post-signage.jsp" title="link to signage help page">Help</a> page.
 </div>
 
 
@@ -28,12 +28,35 @@ Send us your post design to add to the gallery!
 <div class="container" id=helppagecontent>
 
   <div class="row">
+        <div class="col-md-4">
+    <h3>Signs Signs Signs!</a></h3>
+ <img src="/images/signs-composite.jpg" width="205" height="174" alt="signs composite picture">
+  
+          <P>We have put together a PDF file of signs created by our Picture Post volunteers and contributors to give you ideas for making a sign for your project.</P>
+                     <a class="btn btn-default" href="/resources/PicturePost-Signs.pdf" role="button">View and download the PDF file</a>
+    </div>                   
+   <div class="col-md-4">
+      <h3><a href="http://picturepost.unh.edu/post.jsp?postId=554"  name="Phenology Phencepost ">Phenology Phencepost Kansas City MO</a></h3> 
+     <img src="/images/post-phenophence.jpg" width="205" height="174" alt="picture post painted">
+
+      <P>This artistic post was made from scrap wood and hand-painted by children. It was installed by Krista Kovach-Hindsley on her backyard fence in Kansas City, MO.</P>
+     </div>
+  <div class="col-md-4">
+       <h3><a href="http://picturepost.unh.edu/post.jsp?postId=269"  name="Lake Merced">Lake Merced</a></h3>
+       <img src="/images/vlad-ppost205.jpg" width="205" height="174" alt="handmade at Lake Merced">                                     
+                                   </ul>
+                  <P>This is a portable post top created by DIY specialist and Picture Post volunteer Vladimir Sanchez to monitor Lake Merced in San Francisco, CA. The device can be attached and taken down using velcro. </P>
+                  <a class="btn btn-default" href="/build_mobile2.jsp"  name="build" role="button">Instructions</a>
+                  
+ </div>
+</div>
+  <div class="row">
     <div class="col-md-4">
     <h3><a href="http://picturepost.unh.edu/post.jsp?postId=5"  name="Menotomy Rocks Post 1">Menotomy Rocks Post 1</a></h3>
  <img src="/images/post-orig.png" width="205" height="174" alt="original post design">
   
           <P>This is one of the original picture posts built by John Pickle. Located in Menotomy Rock Park in Arlington, MA, it was built using plywood and varnished to withstand weathering. But even so, John has replaced these with the plastic lumber tops.</P>
-                     <li><a href="/build_perm1.jsp" name="build">Instructions</a>
+          <a class="btn btn-default" href="/build_perm1.jsp" name="build" role="button">Instructions</a>
  </div>                   
    <div class="col-md-4">                   
      <h3><a href="http://picturepost.unh.edu/post.jsp?postId=17"  name="Mackworth Island ">Mackworth Island Falmouth, ME</a></h3> 
@@ -48,7 +71,8 @@ Send us your post design to add to the gallery!
                                        
                     <P>This is a portable picture post built by Paul Alaback. It was meant for an area where a structure is not permitted and Paul uses it to monitor  two sites. </P>
    <li><a href="http://picturepost.unh.edu/post.jsp?postId=139"  name="Devil's Backbone2">Devil's Backbone 2</a>
-   <li><a href="/build_mobile1.jsp" name ="instructions for building a mobile post">Instructions</a>
+
+<a class="btn btn-default" href="/build_mobile1.jsp" name ="instructions for building a mobile post" role="button">Instructions</a>
 </div>
 </div>                    
                     
@@ -66,13 +90,7 @@ Send us your post design to add to the gallery!
          <li><a href="http://picturepost.unh.edu/post.jsp?postId=428" name="Annettes Yard Post 2">Annette's Yard Post 2</a></P>
 
 </div>
-
-  <div class="col-md-4">
-       <h3><a href="http://picturepost.unh.edu/post.jsp?postId=269"  name="Lake Merced">Lake Merced</a></h3>
-       <img src="/images/vlad-ppost205.jpg" width="205" height="174" alt="handmade at Lake Merced">                                     
-                                   </ul>
-                  <P>This is a portable post top created by DIY specialist and Picture Post volunteer Vladimir Sanchez to monitor Lake Merced in San Francisco, CA. The device can be attached and taken down using velcro. </P>
-                  <li><a href="/build_mobile2.jsp"  name="build">Instructions</a>
+</div>
  
 </DIV> <!-- end container -->
 

@@ -33,9 +33,10 @@
                         <LI>Signs should be laminated and attached securely to the post to resist being lost or damaged by weather and becoming unreadable. 
                         <LI>Include the Picture Post logo on your signs -- the more Picture Posts that pop up around the world, the more visible is the network, and the more information that is collected.                                                
                         <LI>Once you have added your post to the website, it will be assigned a post number and a permanent URL. You can include the post URL in the signs for people to easily find your post on the website.
-                        <LI>Click <a href="/images/picturepostlogo-fullres.jpeg" title="Picture Post logo" target="_blank">here</a> to get a full-resolution picture post logo as a jpeg file for your sign!             
-       </UL>
- </div>      
+                        <LI>Click <a href="/images/picturepostlogo-fullres.jpeg" title="Picture Post logo" target="_blank">here</a> to get a full-resolution picture post logo (as shown here) as a jpeg file for your sign! <img src="/images/picturepostlogo_200.png" width="100" alt="small logo"> 
+           </UL>
+                               
+      </div>      
                       
     <div class="col-md-4">
      <H3 align="center">Sample sign information</H3>

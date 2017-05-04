@@ -32,6 +32,8 @@
 Leaves and flowers have a dynamic life &ndash; if you have time to watch. Taking photographs over a period of time and making a movie is one way to begin to appreciate the stages leaves and flowers pass through. </BR>This movie was made using QuickTime Pro, which is the $30 extended version of the freely available Applie QuickTime. New software products are being developed all of the time, and a quick web search will show what is available!</div> 
 
   <div class="row">
+    <div class="col-md-4">
+ <iframe width="260" src="https://www.youtube.com/embed/6csIxekNoKU" frameborder="0" allowfullscreen></iframe>   
       <H2>Tips</H2>
         <UL>
           <LI>Put a blank, possibly white or light gray piece of cardboard, behind the leaf to make it easier to see the leaf.
@@ -42,37 +44,17 @@ Leaves and flowers have a dynamic life &ndash; if you have time to watch. Taking
           <LI>Place an object of known size in the picture to use as a scale.
          </UL>
 
-</div> 
-
-<!--    <script type="text/javascript"><!--
-    QT_WritePoster_XHTML('images/SilverMapleMoviestart.jpg',
-               '216', '200', '',
-        'controller', 'true',
-        'autoplay', 'true',
-        'bgcolor', 'black',
-        'scale', 'aspect');
-
-</script>
-<noscript>
-
-                      
-                      <object classid="clsid:02BF25D5-8C17-4B23-BC80-D3488ABDDC6B" codebase="http://www.apple.com/qtactivex/qtplugin.cab" name="Movie of budburst on a branch" width="216" height="200" align="right">        
-                     <param name="src" value="images/SilverMapleMoviestart.jpg" />        
-                     <param name="target" value="myself" />
-                     <param name="qtsrc" value="rtsp://realmedia.uic.edu/itl/ecampb5/demo_broad.mov" />        
-                     <param name="autoplay" value="true" />        
-                     <param name="scale" value="aspect" />
-                     <param name="loop" value="true" />        
-                     <param name="controller" value="true" />
-                     <embed src="images/SilverMapleBudBurst.mov" width="216" height="200" loop="True" align="right" pluginspage="http://www.apple.com/quicktime/download/" controller="true" autoplay="true" name="budburst" target="myself" scale="aspect" type="video/quicktime"></embed>   </object>
-      </noscript>
-
-//-->
-
-<script language="javascript">
-    QT_WriteOBJECT('images/SilverMapleBudBurst.mov' , '216', '200' , '');
-</script>
-
+</div>
+    
+   <div class="col-md-4">
+     <H2>Study Phenology at Home or in the Lab with Dormant Twigs</h2>
+         <p>Dr. Richard Primack, a professor at Boston University, and his students, have developed a simple and fun method to study phenology using dormant twigs.  It's easy to bring the twigs indoors and observe how changing the environmental conditions such as light and temperature can alter when the leaves come out.</p>
+          <img class='shadow pull-left' src=/images/primack-twigpic.jpg style='margin:0 16px 16px 0;' alt="dormant twigs">
+          <a href="/resources/PrimackTwigs2015.pdf" title="Primack 2015 twig article" target="_blank">View the method (PDF)</a> 
+ </div>
+ 
+ 
+  <div class="col-md-4">
  <H2>What else can I view?</h2>
                     <UL>
                         <LI>Forsythia
@@ -81,6 +63,14 @@ Leaves and flowers have a dynamic life &ndash; if you have time to watch. Taking
                         <LI>Vegetables
                         <LI>You choose!
                     </UL>
+</div>
+</div> 
+
+
+<script language="javascript">
+    QT_WriteOBJECT('images/SilverMapleBudBurst.mov' , '216', '200' , '');
+</script>
+
 
 </DIV> <!-- end container -->
 

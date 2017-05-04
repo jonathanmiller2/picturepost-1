@@ -144,7 +144,7 @@ h2 {
     <dt>Email:</dt>
     <dd><%= wu.esc(sessionuser.getEmail()) %></dd>
     <% } if (! "".equals(WebUtil.str(sessionuser.getMobilePhone()))) { %>
-    <dt>Mobile Phone:</dt>
+    <dt>Mobile Phone to use app:</dt>
     <dd><%= wu.esc(sessionuser.getMobilePhone()) %> <a class="btn btn-default" href=mobileapps.jsp>update</a></dd>
     <% } if (! "".equals(WebUtil.str(sessionuser.getUsername()))) { %>
     <dt>Username:</dt>
