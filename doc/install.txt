@@ -4,7 +4,7 @@ System Setup
 # Instructions for RHEL 7/Scientific Linux 7
 
 # install OS dependancies
-yum install http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-6.noarch.rpm #mdl changed from 7.5 to 7.6 2015/05/10
+yum install -y epel-release
 yum install http://yum.postgresql.org/9.4/redhat/rhel-7-x86_64/pgdg-redhat94-9.4-1.noarch.rpm
 sudo yum -y groupinstall "PostgreSQL Database Server 9.4 PGDG"
 sudo yum -y install git httpd ant tomcat-webapps postgresql-jdbc perl-DBD-Pg perl-Digest-SHA perl-CGI postgis2_94 postgis2_94-client postgis2_94-utils ImageMagick pgbouncer
