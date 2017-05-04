@@ -78,6 +78,11 @@
 	</servlet>
 
 	<servlet>
+		<servlet-name>FavoritePost</servlet-name>
+		<servlet-class>edu.unh.sr.picturepost_rest.FavoritePost</servlet-class>
+	</servlet>
+
+	<servlet>
 		<servlet-name>GetPostAndPictureSets</servlet-name>
 		<servlet-class>edu.unh.sr.picturepost_rest.GetPostAndPictureSets</servlet-class>
 	</servlet>
@@ -111,6 +116,11 @@
 	<servlet-mapping>
 		<servlet-name>AddPost</servlet-name>
 		<url-pattern>/app/AddPost</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>FavoritePost</servlet-name>
+		<url-pattern>/app/FavoritePost</url-pattern>
 	</servlet-mapping>
 
 

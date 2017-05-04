@@ -1,0 +1,62 @@
+Picturepost web services API
+==============================
+
+Picturepost web services API allows developers to create clients (such as iOS and Android native apps) which can interact with the picturepost database. The web services API is available over HTTP. Output is generally formatted as JSON. The services do not follow strict RESTful conventions eventhough the term "REST" is used.
+
+Example Picturepost web services API Usage
+------------------------------------------
+These examples can be executed using web developer tools in a web browser which has loaded the site.
+
+// simple http utility
+function http(method,url,data) {
+  var xhr = new XMLHttpRequest();
+  if (typeof data == 'object') {
+    var args=Object.keys(data).map(function(k){return k+'='+escape(data[k])}).join('&');
+    if (method=='GET') {
+      url+='?'+args; 
+      data=null;
+    }
+    else {
+      data=args;  
+    }
+  }
+  xhr.open(method, url);
+  if (method=='POST') {
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+  }
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState==4) {
+      console.log(xhr.status, "\n"+xhr.responseText);
+    }
+  };
+  xhr.send(data);
+};
+
+// user must configure account with mobile phone access on web site first
+var userMobilePhone = '603-123-1234';
+
+// add a post
+http('GET','/app/AddPost', {
+  name: 'Name of new Post',
+  description: 'a description of the post',
+  installDate: '2017-01-01',
+  lat: 43.1939,
+  lon: 71.5724,
+  mobilePhone: userMobilePhone
+});
+// returns: {"postId":1179}
+
+// set/unset favorite post
+http('POST', '/app/FavoritePost', { postId: 1179, mobilePhone: userMobilePhone, status:1 });
+http('POST', '/app/FavoritePost', { postId: 1179, mobilePhone: userMobilePhone, status:0 });
+// returns: {"status":"OK"}
+
+// get list picture posts
+// arg filters: lat, lon, radius, afterTime, beforeTime,
+//   orderBy: "radius"|"radius desc"|"install_date"|"install_date desc"|"name"|"name desc"
+//   includePosts: "all"|"mine"|"favorites"
+http('GET', '/app/GetPostList', { mobilePhone: userMobilePhone, orderBy:"name", includePosts:"favorites" });
+// returns: [{"installDate":"2017-01-01","postPictureId":-1,"referencePictureSetId":0,"ready":true,"name":"Name of new Post","description":"a description of the post","personId":605,"lon":71.5724,"postId":1179,"recordTimestamp":"2017-05-04 10:37:49.43502","lat":43.1939}]
+
+
+Developers can view the full list of exposed service endpoints by inspecting file: webapps/ROOT/WEB-INF/web.xml. The source code for the services is at: src/picturepost/edu/unh/sr/picturepost_rest.
