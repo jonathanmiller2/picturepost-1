@@ -599,6 +599,81 @@ sub upgrade_4 {
   globalvar('version', 5);
 }
 
+sub upgrade_5 {
+  $DBH->do("
+-- the news query
+CREATE OR REPLACE VIEW news AS
+SELECT
+  'story' rectype,
+  story.author_person_id author_id,
+  COALESCE(person.username,person.first_name||' '||person.last_name,person.email) author,
+  story.story_id id1,
+  NULL id2,
+  story.publish_dt dt,
+  story.title title,
+  story.html content1,
+  '' content2,
+  story.txtsearch
+FROM story
+JOIN person ON (story.author_person_id=person.person_id)
+UNION ALL
+SELECT
+  'picset' rectype,
+  picture_set.person_id author_id,
+  COALESCE(person.username,person.first_name||' '||person.last_name,person.email) author,
+  picture_set.post_id id1,
+  picture_set.picture_set_id id2,
+  picture_set.picture_set_timestamp dt,
+  post.name title,
+  picture_set.annotation content1,
+  pics.val content2,
+  picture_set.txtsearch
+FROM picture_set
+JOIN post ON (picture_set.post_id=post.post_id)
+JOIN person ON (picture_set.person_id=person.person_id)
+JOIN (
+  SELECT picture_set_id,
+    MAX((CASE WHEN orientation='N'  THEN picture_id ELSE 0 END)) ||','||
+    MAX((CASE WHEN orientation='NE' THEN picture_id ELSE 0 END)) ||','||
+    MAX((CASE WHEN orientation='E'  THEN picture_id ELSE 0 END)) ||','||
+    MAX((CASE WHEN orientation='SE' THEN picture_id ELSE 0 END)) ||','||
+    MAX((CASE WHEN orientation='S'  THEN picture_id ELSE 0 END)) ||','||
+    MAX((CASE WHEN orientation='SW' THEN picture_id ELSE 0 END)) ||','||
+    MAX((CASE WHEN orientation='W'  THEN picture_id ELSE 0 END)) ||','||
+    MAX((CASE WHEN orientation='NW' THEN picture_id ELSE 0 END)) ||','||
+    MAX((CASE WHEN orientation='UP' THEN picture_id ELSE 0 END)) val
+  FROM picture
+  GROUP BY picture_set_id
+) pics ON (picture_set.picture_set_id=pics.picture_set_id)
+WHERE post.ready=true
+AND picture_set.ready=true
+AND picture_set.flagged=false
+UNION ALL
+SELECT
+  'post' rectype,
+  post.person_id author_id,
+  COALESCE(person.username,person.first_name||' '||person.last_name,person.email) author,
+  post.post_id id1,
+  postpic.post_picture_id id2,
+  post.record_timestamp dt,
+  post.name title,
+  post.description content1,
+  '' content2,
+  post.txtsearch
+FROM post
+JOIN person ON (post.person_id=person.person_id)
+LEFT JOIN (
+  SELECT DISTINCT post_id,
+    FIRST_VALUE(post_picture_id) OVER w AS post_picture_id
+  FROM post_picture
+  WHERE active=true
+  WINDOW w as (PARTITION BY post_id ORDER BY seq_nbr)
+) postpic ON (post.post_id=postpic.post_id)
+WHERE post.ready=true");
+  
+  globalvar('version', 6);
+}
+
 sub act_usage {
   print "
 Usage:

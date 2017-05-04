@@ -162,7 +162,9 @@ if (! wu.param("q").equals("")) {
     <% } else if ("post".equals(ni.rectype)) { %>
       <blockquote class=newspost>
         <a href='post.jsp?postId=<%=ni.id1%>'>
-        <img class=pull-left style='margin: 0 10px;' alt="post picture" src="/images/pictures/post_<%=ni.id1%>/post_picture_<%=ni.id2%>_thumb.jpg">
+          <% if (ni.id2 > 0) { %>
+            <img class=pull-left style='margin: 0 10px;' alt="post picture" src="/images/pictures/post_<%=ni.id1%>/post_picture_<%=ni.id2%>_thumb.jpg">
+          <% } %>
         <h2>New Post - <%=ni.title%></h2>
         <div class=postcontent><%=ni.content1%></div>
         </a>
