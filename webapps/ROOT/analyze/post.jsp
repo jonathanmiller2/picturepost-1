@@ -157,7 +157,7 @@ var curPictureId="<%=String.valueOf(curPictureId)%>";
 
   <DIV STYLE="height: 0px; clear: both;"></DIV>
 
-  <DIV ID="pictureDiv" STYLE="width: 404px; height: 300px; float: left; margin-top: 35px;">
+  <DIV ID="pictureDiv" STYLE="width: 404px; height: 300px; float: left; margin-top: 35px;" title = "Click to view and download full-res image">
   	<TABLE BORDER="0" WIDTH="100%" HEIGHT="100%">
   		<TR>
   			<TD ALIGN="center" VALIGN="middle">please wait...</TD>

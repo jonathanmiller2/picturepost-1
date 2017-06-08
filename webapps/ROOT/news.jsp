@@ -60,7 +60,7 @@ if (! wu.param("q").equals("")) {
 } else {
   searchTitle = "<label for=SearchBox><strong>showing:</strong> latest articles, new posts and picture sets</label>";
 }
-%>
+%> 
 <%@ include file="/includes/header.jsp" %>
 
 <style>
@@ -110,6 +110,7 @@ if (! wu.param("q").equals("")) {
 <% if (showNews == true) { 
   // LATEST NEWS HTML HERE %>
 <div id=picpostnewscustom>
+ <H3>603 Challenge - Your Gift up to $150 to DEW Picture Post starting June 3 may be doubled with matching funds.  <a href = "http://hosted.verticalresponse.com/1051743/f11d446eb8/519485881/e42887c9be/" target="_blank" title="603 challenge">Learn more here.</H3>
  <li><a href="gallery-newsletters.jsp" title="newsletters">Newsletters</a></li>
           <li><a href="http://panopicturepost.tumblr.com" target="_blank" title="tumblr blog of panoramas">Follow us on Tumblr</a></li>
           <br>

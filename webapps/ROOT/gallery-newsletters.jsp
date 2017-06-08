@@ -24,6 +24,12 @@
  <h3 align="left" class="h3navy"><a href="/newslettersignup.jsp" target="_self">Sign up here for our Monthly Newsletter!</a></h3>
    
 <h3><strong>2017</h3>
+<p align="left" class="h3navy">  <A href="http://hosted.verticalresponse.com/1051743/9ed54faaf5/519485881/e42887c9be/" target="_blank" title="May 2017 Newsletter"> May 2017</A> - <SPAN class="smallText">How To Gain Visibility and New Recruits for Your Picture Post Project.</SPAN>  </p> 
+
+<p align="left" class="h3navy">  <A href="http://hosted.verticalresponse.com/1051743/b5bd10f442/519485881/e42887c9be/" target="_blank" title="April 2017 Newsletter"> April 2017</A> - <SPAN class="smallText">Is this spring different? Visual ways to compare years using the Sugar Maple tree in my own backyard!</SPAN>  </p> 
+
+<p align="left" class="h3navy">  <A href="http://hosted.verticalresponse.com/1051743/984c17ba23/519485881/e42887c9be/" target="_blank" title="March 2017 Newsletter"> March 2017</A> - <SPAN class="smallText">Hurricane Matthew and the Sapelo Island National Estuarine Research Reserve. Earth Day #hashtags!</SPAN>  </p> 
+
 <p align="left" class="h3navy">  <A href="http://hosted.verticalresponse.com/1051743/3314d851ec/519485881/e42887c9be/" target="_blank" title="February 2017 Newsletter"> February 2017</A> - <SPAN class="smallText">Planning for the future. Spring brings BIG snowstorms to the Northeast USA - a simple method to measure snow.</SPAN>  </p> 
 
 

@@ -34,6 +34,7 @@ We get asked often about posts and post signs. We created this gallery to give y
   
           <P>We have put together a PDF file of signs created by our Picture Post volunteers and contributors to give you ideas for making a sign for your project.</P>
                      <a class="btn btn-default" href="/resources/PicturePost-Signs.pdf" role="button">View and download the PDF file</a>
+                     <a class="btn btn-default" href="/resources/PostSignageTemplate-2017.pdf" role="button">View and download our editable sign template (PDF)</a>
     </div>                   
    <div class="col-md-4">
       <h3><a href="http://picturepost.unh.edu/post.jsp?postId=554"  name="Phenology Phencepost ">Phenology Phencepost Kansas City MO</a></h3> 

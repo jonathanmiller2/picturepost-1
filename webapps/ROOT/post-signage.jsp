@@ -40,22 +40,31 @@
                       
     <div class="col-md-4">
      <H3 align="center">Sample sign information</H3>
-                      <p align="center"><strong>Picture Post #1</strong><br>
-                        <strong>Menotomy Rocks Park</strong><br>
-                        Latitude:  42&deg; 24.637'N <br>
-                        Longitude:  71&deg; 9.899'W</p>
-                      <p><strong>The project: </strong>&nbsp;We are studying the health of plants and the status of invasive species in this area of Menotomy Rocks Park while having fun watching nature change with the seasons.<br>
-                        <strong>We need digital pictures</strong> to create a time-lapse sequence of photos that will document the growth of plants 360&deg; around this picture post throughout the year, and hopefully years to come.<br>
-                        <strong>You can help</strong> by taking a set of pictures from this post.&nbsp; Here&rsquo;s how: </p>
+                   <p><a href="resources/PostSignageTemplate-2017.pdf">View & download the PDF file with complete information, icons, and QR code examples!</a></p>  
+                   <img  style='margin:0 16px 16px 0;' src="/images/PostSignageTemplate-2017.jpg" width="400"  alt="sign template"   >
+                                
+                    <H3 align="center">Text to cut & paste</H3>
+                    <p align="center">Calling All Citizen Scientists!<br>
+                    <p align="center">Lincoln Akerman School and UNH need pictures to evaluate change in this salt marsh throughout the seasons and years to come.<br>
+You can help!<br>
                       <ul>
-                        <li>Take a digital picture of these instructions to indicate the location of the post. <u>Include your watch in the picture</u>, if possible, since this will be used as an accurate check of the time and date of the photos.</li>
-                        <li>Place the bottom of the digital camera flat on the disc, with the back against the side of the octagon that faces North and is marked &ldquo;N.&rdquo;&nbsp; Align the middle of the back of your camera with the edge of the octagon. Point the lens away from the post.</li>
-                        <li>Use widest angle lens setting and take a picture.&nbsp; Repeat for the other 7 <strong><em>clockwise</em></strong> locations on the octagon.</li>
-                        <li>With the camera pointing skyward and the bottom along the north edge of octagon, take a picture of the sky and/or leaf canopy cover overhead.</li>
-                        <li>Submit your photos and view others&rsquo; at<strong> http://picturepost.unh.edu</strong></li>
-                        <li>This post is: <strong>http://picturepost.unh.edu/post.jsp?postId=5</strong>
+                        <li>Take a photo of this sign. Include your watch in the picture to note the time and date.
+</li>
+                        <li>Place your phone/camera against the side of the platform to face North, marked <q>N</q>.
+</li>
+                        <li>Take a photo pointing away from the post.
+</li>
+                        <li>Repeat for the other 7 sides of the platform, going clockwise.
+</li>
+                        <li>Roll your camera on its back along the north edge to take the UP picture.
+</li>
+                        <li>Submit photos to the website below. If you have a mobile device and there is a signal, you can upload photos now.
+</li>
+                        
+                        <li>This post is: This post is: Depot Road Marsh Hampton Falls, NH<br>
+                         <strong>https://picturepost.unh.edu/post.jsp?postId=1277</strong>
                       </ul>
-                      <P>If you have nothing to write this information down, take a photograph of this card and reread on your computer screen. </P>
+                      
                       <P><IMG src="images/picturepostlogo_200.png" width="200" height="48" alt="logo"></P>
                       <P align="left">&nbsp;</P>
                       <P align="left">&nbsp;</P>

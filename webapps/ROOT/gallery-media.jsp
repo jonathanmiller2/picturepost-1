@@ -3,6 +3,7 @@
 
 <div align=center>
   <h1 style='display:inline-block;'>Media and Research</h1>
+  <p></p>
 </div>
 
 <%=wu.popNotifications()%>
@@ -28,7 +29,32 @@
 <div class="container" id=helppagecontent>
   <div class="row">
     <div class="col-md-4">
-    
+      <div align="center">
+      <a href="https://seagrant.unh.edu/picture-post-monitoring"  target="_blank"><img src="/images/Seagrant-banner.jpg" width="210" height="60"  alt="Seagrant banner"  border="1px"></a>
+                        </div>
+                        <p><strong class="h3plum">NH Coastal Volunteers Partner with Picture Post</strong> 
+                        <SPAN class="smallText">Community volunteers, as part of NH Sea Grant, are helping to monitor salt marsh health in two marshes in coastal NH. The project connects researchers, volunteers, and middle-school students in gaining understanding and appreciation of salt marsh ecosystems. </p>
+      </div> 
+    <div class="col-md-4">
+      <div align="center">
+      <a href=" http://www.brattleboro.org/index.asp?SEC=9CC5F3CC-5C4D-4493-A96E-E3FF5D0FC0BE&Type=B_BASIC"  target="_blank"><img src="/images/Brattleboro-banner.jpg" width="210" height="60"  alt="Brattleboro banner"  border="1px"></a>
+                        </div>
+                        <p><strong class="h3plum">Citizen Science Workshop in Brattleboro VT</strong> 
+                        <SPAN class="smallText">With the help of US Environmental Protection Agency's (EPA's) Making a Visible Difference in Communities Initiative and their Technical Assistance Services for Communities program, several non-profit environmental organizations, Town of Brattleboro, and Vermont Watershed Management Division came together to sponsor a Citizen Science Workshop in April 2016. </p>
+                                                <ul>
+                        <li><a href="http://hosted.verticalresponse.com/1051743/67b92ffcd4/519485881/e42887c9be/" target="_blank"> See our newsletter article by Jeri Weiss, EPA drinking water specialist.</a></li>                       
+                       </ul><br>
+      </div>                       
+    <div class="col-md-4">        
+                      <div align="center"><a href="http://panopicturepost.tumblr.com" title="Panopicturepost on Tumblr" target="_blank"> <img src="/images/post_783panosmall.jpg" width="210" height="40" alt="Sample Panorama"  border="1px"></a>
+                      
+                      </div>
+                      <p><strong class="h3plum">See Your Pictures as Panoramas on Tumblr</strong>
+                      <SPAN class="smallText">Each week we will be posting panoramas from our picture post sites on Tumblr.</SPAN></p> 
+</div>
+ </div>                     
+  <div class="row">
+    <div class="col-md-4">
       <div align="center">
       <a href="https://www.nalms.org"  target="_blank"><img src="/images/NALMSbanner.jpg" width="210" height="60"  alt="NALMS banner"  border="1px"></a>
                         </div>
@@ -39,7 +65,8 @@
                         <li><a href="/resources/Nalms-2panels-1116-2.pdf" target="_blank">Poster - examples of using the DEW Analyzing Digital Images software (ADI) to detect change (PDF).</a></SPAN></li>
                         </ul><br>
                         
- </div>                       
+ </div>
+
    <div class="col-md-4">
                        
                      <div align="center"><A href="http://toyrus.ngrok.io/~ted/picturepost201411/" target="_blank" title="Rail Trail article"><img src="/images/railtrailbanner.jpg"  alt="Rail Trail banner"  border="1px"></a>
@@ -49,17 +76,7 @@
                         <SPAN class="smallText">This article describes the devastation and new wonders recorded by a local citizen as a forest recovers from tornado damage - in words and stunning pictures!</SPAN></p>
                         
  </div>                       
-   <div class="col-md-4">
-                      <div align="center"><a href="http://panopicturepost.tumblr.com" title="Panopicturepost on Tumblr" target="_blank"> <img src="/images/post_783panosmall.jpg" width="210" height="40" alt="Sample Panorama"  border="1px"></a>
-                      
-                      </div>
-                      <p><strong class="h3plum">See Your Pictures as Panoramas on Tumblr</strong>
-                      <SPAN class="smallText">Each week we will be posting panoramas from our picture post sites on Tumblr.</SPAN></p> 
-</div>
-</div>
-
-  <div class="row">
-    <div class="col-md-4">
+     <div class="col-md-4">
                       <div align="center"><A href="http://sites.psu.edu/picturepost/" target="_blank" title="Brandywine Blog"><img src="/images/upenn-brandywinebanner.jpg"  width=" 130" height="50" alt="PennState-Brandywine banner"  border="1px"><img src="/images/upenn-kimmiebowen.jpg"  height="50" alt="PennState-Brandywine banner2"  border="1px"></a> 
                       </div>
                         <p><strong class="h3plum">Penn State Brandywine Picture Post Project </strong> 
@@ -67,6 +84,9 @@
                          <SPAN class="smallerText"><a href="http://news.psu.edu/story/320053/2014/07/03/research/sophomore%E2%80%99s-field-research-looks-environmental-change" target="_blank" title="Meet the Student">Meet our student!</a></SPAN></p><br>
                         
 </div>
+ </div>
+
+   <div class="row">
  <div class="col-md-4">
                         
                      <div align="center"><A href="http://www.bear-paw.org/uploads/5/6/7/5/56750649/_bear-paw_print_spring_2014.pdf" target="_blank" title="Bear-Paw article"><img src="/images/bear-paw-logo.png" width="210" height="50" alt="Bear-Paw banner"  border="1px"></a>
@@ -77,8 +97,6 @@
                         
  </div>
  <div class="col-md-4">
-
-
                      <div align="center"><A href=" http://stewardsofthenorthwoods.blogspot.com/2014/04/a-picture-post-is-worth-thousands-of.html" target="_blank" title="Discovery Center workshop blog"><img src="/images/DiscoveryCenter-logo.png" width="210"  alt="iscovery Center Logo"  border="1px"></a>
                         
                         </div>
@@ -87,10 +105,7 @@
                         <SPAN class="smallText">This blog  describes a Picture Post workshop at the North Lakeland Discovery Center to draw awareness to our citizen science project. Sixteen participants learned ways to monitor change in their own backyard!</SPAN></p>
                         
  </div>
- </div>
-
-   <div class="row">
-    <div class="col-md-4">
+     <div class="col-md-4">
                      <div align="center"><A href="http://www.earthzine.org/2010/08/02/one-picture-post-is-worth-a-thousand-pictures-or-how-can-outdoor-digital-photographers-become-citizen-scientists-who-participate-in-environmental-monitoring/" target="_blank" title="Earthzine article"><img src="/images/earthzine-logo.png" width="210"  alt="Earthzine banner"  border="1px"></a>
                         
                         </div>
@@ -98,7 +113,9 @@
                         <SPAN class="smallText">This article in Earthzine has a nice overview of Picture Post, examples, and photographs in the field.</SPAN></p>
                         <p>&nbsp;</p>
  </div>
+</div>
 
+   <div class="row">
     <div class="col-md-4">
                        <div align="center"><A href=" http://www.eos.unh.edu/Spheres_0312/smartphone.shtml" target="_blank" title="Spheres article"><img src="/images/spheres-logo.png" width="210"  alt="Spheres Logo"  border="1px"></a>
                         

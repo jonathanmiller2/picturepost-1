@@ -21,9 +21,10 @@
 <P>Picture post tops are available for<strong> $35 </strong>each. Please add <strong>$5</strong> for every 2 tops for handling and postage in the United States. (Add $5 for 1 or 2 tops; $10 for 3 or 4 tops, and so on.) International orders will have additional postage, to be determined per order.
                       <BR>
                       <H5><em>Your purchase helps support storage and backup costs for the picture post network.</em> Thank-you!</h5>
-                     <H3>To inquire and place an order for tops, 
+ <!--                    <H3>To inquire and place an order for tops, 
                       please <A HREF="/mail.jsp?returnPage=/buy.jsp">email</A> us.  </h3>
-                     
+ -->                   
+ <h3>We are sorry, but these tops are temporarily out of stock. Check our <a href="/build.jsp" title=build>instructions</a> on building a post top from scratch for ideas.</h3>
 
 <h2 align=left>Tips</h2>
                       <UL>
