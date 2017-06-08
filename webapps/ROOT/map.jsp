@@ -7,6 +7,7 @@ String postsJSON = WebUtil.dbJsonArray(rs).toString();
 %>
 <%@ include file="/includes/header.jsp" %>
 <script src="//maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+<script src=js/markercluster.js></script>
 <script>
 var posts = <%=postsJSON%>;
 
@@ -38,23 +39,23 @@ $(function(){
     
   var infowindow = new google.maps.InfoWindow();
 
-  $.each(posts, function() {
-    var post = this;
+  var markers = posts.map(function(post) {
     var post_id = post[0];
     var lat = post[1];
     var lon = post[2];
     var name = post[3];
     var marker = new google.maps.Marker({
       position: new google.maps.LatLng(lat, lon),
-      title: name,
-      map: map
+      title: name
     });
     google.maps.event.addListener(marker, 'click', function() {
       infowindow.setContent("<strong>view post:</strong> <a href=/post.jsp?postId="+post_id+">" + escape_html(name) + "</a>");
       infowindow.open(map, marker);
     });
+    return marker; 
   });
 
+  var markerCluster = new MarkerClusterer(map, markers);
 });
 </script>
 <style>
