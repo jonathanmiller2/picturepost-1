@@ -14,6 +14,15 @@ if (sessionuser.getAdmin() && wu.param_int("id",0) > 0) {
 
 // save record?
 if ("save".equals(wu.param("act"))) {
+
+  if ("".equals(wu.param("first_name")) ||
+      "".equals(wu.param("last_name")) ||
+      "".equals(wu.param("email")) ||
+      "".equals(wu.param("username"))) {
+    wu.reload("Please complete all fields.");
+    return;
+  }
+
   edituser.setFirstName(wu.param("first_name")); 
   edituser.setLastName(wu.param("last_name")); 
   edituser.setEmail(wu.param("email")); 
