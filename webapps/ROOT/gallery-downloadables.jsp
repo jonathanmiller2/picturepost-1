@@ -1,7 +1,7 @@
 <%@ include file="/includes/common.jsp" %>
 <%@ include file="/includes/header.jsp" %>
 
-<div align=center>
+<div align=center class="well">
   <h1 style='display:inline-block;'>Downloadables</h1>
 </div>
 
@@ -49,6 +49,34 @@
 
   <div class="row">
   <div class="col-md-4">
+  </div>
+  <div class="col-md-4">
+    <h3>How to Take Pictures - Mobile Devices (PDF)</h3>
+     <p class=clearfix>
+     <div align="center">
+     <img class='shadow pull-left'  src="/images/PPost-PicTakingTips2017.jpg" width="200" style='margin:0 16px 16px 0;' alt="tip sheet in PDF"  border="1px">
+     </div>
+   <p class=clearfix><A href="/resources/TakingPicsmobile-flyerHalfpage.pdf" target="_blank" title="pdf instructions on taking pictures">Quick guide on taking pictures with a mobile device.</a> </p>
+</div> 
+
+  <div class="col-md-4">
+    <h3>How to Take Pictures - Cameras (PDF)</h3>
+     <p class=clearfix>
+     <div align="center">
+     <img class='shadow pull-left'  src="/images/PPost-PicTakingTips2017Camera.jpg" width="200" style='margin:0 16px 16px 0;' alt="tip sheet in PDF"  border="1px">
+     </div>
+   <p class=clearfix><A href="/resources/TakingPicscamera-flyerHalfpage.pdf" target="_blank" title="pdf instructions on taking pictures">Quick guide on taking pictures with a camera.</a> </p>
+ </div>                        
+</div>
+
+
+
+  <div class="row">
+  <hr>
+    <div class="col-md-4">
+    </div>
+
+  <div class="col-md-4">
     <h3>4-sided Brochure</h3>
      <p class=clearfix>
      <div align="center">
@@ -65,8 +93,13 @@
       </div>
       <p class=clearfix><A href="/resources/Booklet2013-viewer.pdf" target="_blank" title="View the Booklet">View our booklet.</a> Please <a href=contact.jsp>contact us</a> and we'll send you some!</SPAN></p>
 </div>
+</div>
 
+  <div class="row">
   <div class="col-md-4">
+  </div>
+
+    <div class="col-md-4">
     <h3>Earth Day Poster Collection</h3>
      <p class=clearfix>
      <div align="center">

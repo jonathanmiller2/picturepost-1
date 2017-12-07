@@ -89,8 +89,12 @@ String picsJSON = WebUtil.dbJsonArray(rs).toString();
         </a>
          <a href=/help.jsp>Plan</a> a Picture Post project.
 <a href=/buy.jsp>Buy</a> or <a href=/build.jsp>build</a> your own picture post. After the picture post is installed, <a href=/help_addpost.jsp>register</a> your post so the picture post community can visit and upload picture sets at your post.    </div>
-  </div>
+<div align=center>
+  <h4>We host 100,000 pictures and counting.</h4><p>Help us keep our photo archive freely available to everyone!</p>
+  <a class="btn btn-primary" href=https://picturepost.unh.edu/community-donate.jsp>Give</a>
+</div>
 
+  </div>
 </div>
 
 

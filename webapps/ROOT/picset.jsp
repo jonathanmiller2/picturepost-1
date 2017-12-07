@@ -395,9 +395,11 @@ if (p==null) return;
 }
 </style>
 <div class=clearfix id=topbar>
+<!--
   <button type=button id=UploadZipBut style='display:none;' class="btn btn-default pull-right"><span class="glyphicon glyphicon-cloud-upload" aria-hidden="true"></span> upload zip</button> 
   <a href="post.jsp?postId=<%=p.postId%>" class="btn btn-default pull-left"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
  post</a>
+ -->
   <h1>Upload picture set</h1>
   <br><p align="center"><a class="btn btn-default" href="/taking_photos.jsp" title="how to take and upload pictures" role="button">Show Me</a></p>
   <h3 align=center>If the connection is slow, you can take all of your pictures and upload them later.</h3>

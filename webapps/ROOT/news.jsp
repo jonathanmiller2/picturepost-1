@@ -110,9 +110,9 @@ if (! wu.param("q").equals("")) {
 <% if (showNews == true) { 
   // LATEST NEWS HTML HERE %>
 <div id=picpostnewscustom>
- <H3>603 Challenge - Your Gift up to $150 to DEW Picture Post starting June 3 may be doubled with matching funds.  <a href = "http://hosted.verticalresponse.com/1051743/f11d446eb8/519485881/e42887c9be/" target="_blank" title="603 challenge">Learn more here.</H3>
  <li><a href="gallery-newsletters.jsp" title="newsletters">Newsletters</a></li>
-          <li><a href="http://panopicturepost.tumblr.com" target="_blank" title="tumblr blog of panoramas">Follow us on Tumblr</a></li>
+          <li><a href="https://www.instagram.com/dewpicpost/" target="_blank" title="instagram blog of panoramas"><img src="/images/InstaG_Glyph_Filllogo.png" width="60"  alt="Instagram glyph"></a>&nbsp&nbsp
+          <a href="https://twitter.com/dewpicpost" target="_blank" title="twitter link"><img src="/images/twitterlogo.png" width="60"  alt="Twitter logo"></a>&nbsp&nbsp Follow us on social media! <strong></br>@dewpicpost #dewpicpost</strong></li>
           <br>
 </div>
 <%

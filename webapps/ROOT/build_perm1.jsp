@@ -84,6 +84,7 @@
                         <LI>Choose a location best suited for your interests (e.g. your garden, wooded area, meadow, favorite tree, pond, etc.).
                            
                             <Li>Take some test pictures to help you in choosing a location and post height.
+                            <Li>Look around to make sure that no vegetation will grow up and obscure the view!
                             <LI>Consider accessibility by others.&nbsp;<BR />
                             <LI>If public, make laminated instructions to post. (See Step 7 for ideas for a permanent sign.)
 </ul>

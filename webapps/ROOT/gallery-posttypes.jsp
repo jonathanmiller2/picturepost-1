@@ -53,12 +53,11 @@ We get asked often about posts and post signs. We created this gallery to give y
 </div>
   <div class="row">
     <div class="col-md-4">
-    <h3><a href="http://picturepost.unh.edu/post.jsp?postId=5"  name="Menotomy Rocks Post 1">Menotomy Rocks Post 1</a></h3>
- <img src="/images/post-orig.png" width="205" height="174" alt="original post design">
+    <h3><a href="https://picturepost.unh.edu/post.jsp?postId=1310"  name="The Nature Conservancy Post Top">Manchester Cedar Swamp</a></h3>
+ <img src="/images/post-TNCtop_bot.png" width="205" height="174" alt="modified post top with start and stop lines">
   
-          <P>This is one of the original picture posts built by John Pickle. Located in Menotomy Rock Park in Arlington, MA, it was built using plywood and varnished to withstand weathering. But even so, John has replaced these with the plastic lumber tops.</P>
-          <a class="btn btn-default" href="/build_perm1.jsp" name="build" role="button">Instructions</a>
- </div>                   
+          <P>The Nature Conservancy (TNC) is installing Picture Posts on important conservation lands. To help people who happen upon the post take pictures in the correct order, TNC marks the start (1) and stop (8) points on the octagon with red and green duct tape. Instructional signs walk users through the process.</P>
+  </div>                   
    <div class="col-md-4">                   
      <h3><a href="http://picturepost.unh.edu/post.jsp?postId=17"  name="Mackworth Island ">Mackworth Island Falmouth, ME</a></h3> 
      <img src="/images/post-plasticall.png" width="205" height="174" alt="picture post built from plastic lumber">
@@ -78,6 +77,13 @@ We get asked often about posts and post signs. We created this gallery to give y
 </div>                    
                     
   <div class="row">
+    <div class="col-md-4">
+   <h3><a href="http://picturepost.unh.edu/post.jsp?postId=5"  name="Menotomy Rocks Post 1">Menotomy Rocks Post 1</a></h3>
+ <img src="/images/post-orig.png" width="205" height="174" alt="original post design">
+  
+          <P>This is one of the original picture posts built by John Pickle. Located in Menotomy Rock Park in Arlington, MA, it was built using plywood and varnished to withstand weathering. But even so, John has replaced these with the plastic lumber tops.</P>
+          <a class="btn btn-default" href="/build_perm1.jsp" name="build" role="button">Instructions</a>
+  </div>
     <div class="col-md-4">
       <h3> <a href="http://picturepost.unh.edu/post.jsp?postId=1"  name="Seacoast Science Center">Seacoast Science Center</a></h3>
       <img src="/images/post-ssctop.png" width="205" height="174" alt="post top on existing sign at Seacoast Science Center">

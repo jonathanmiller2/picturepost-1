@@ -31,7 +31,7 @@
       <LI>Your Picture Post pictures will always be taken from the same spot, so you will only need to add an object in one picture: as the tree grows and the DBH expands, you can easily measure the change between pictures.
 </ul>
 
-<p class=clearfix></p><a href="/resources/Measuring_Tree_Growth-Trunk_Diameter.pdf" title="PDF file of instructions">Step-by-Step instructions</a> </strong>for measuring tree diameter (PDF) using your Picture Post <br>and the <a href="http://www.globalsystemsscience.org/software/download" title="link to list of software" target="_blank">Analyzing Digital Images (ADI) software.</a></p>
+<p class=clearfix></p><a href="/resources/Measuring_Tree_Growth-Trunk_Diameter.pdf" title="PDF file of instructions">Step-by-Step instructions</a> </strong>for measuring tree diameter (PDF) using your Picture Post <br>and the <a href="http://dew.globalsystemsscience.org/software" title="link to list of software" target="_blank">Analyzing Digital Images (ADI) software.</a></p>
 
  <div class="row">
   <div class="col-md-4">

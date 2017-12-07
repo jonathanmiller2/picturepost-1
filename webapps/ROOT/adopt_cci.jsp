@@ -66,8 +66,10 @@ Researchers developed this greenness index to study the effects of climate chang
  <div class=row>
 	     <H3>Watch this Help Video will walk you through the steps to calculate the index on your post page.</h3>
 	                      
-	                     <p><video id="greennesshelpvideoweb" src="resources/greennesshelpvideoweb.mp4" controls></video> </p>
- </div>
+<!--	                     <p><video id="greennesshelpvideoweb" src="resources/greennesshelpvideoweb.mp4" controls></video> </p>
+-->
+         <p><a href="https://youtu.be/RJ1ZImdx9-c" title="Youtube greenness index help video link"><img src="/images/movie_player.png"  alt="movie player icon"  border="1px"></a></p>
+</div>
 
 <div class=row>
 <div class=col-lg-8>
@@ -89,9 +91,11 @@ Researchers developed this greenness index to study the effects of climate chang
 <div class=col-lg-8>
 <h4>References</h4>
 <p class=clearfix>
+Toomey, M., et al., 2015. Greenness indices from digital cameras predict the timing and seasonal dynamics of canopy-scale photosynthesis. Ecological Applications, 25:99-115, <a href="http://harvardforest.fas.harvard.edu/sites/harvardforest.fas.harvard.edu/files/publications/pdfs/Toomey_EcoApps_2015.pdf">PDF</a>
+<br><br>
 Sonnentag, O., K. Hufkens, C. Teshera-Sterne, A.M. Young, M. Friedl, B.H. Braswell, T. Milliman, J. O'Keefe, and A.D. Richardson. 2012. Digital repeat photography for phenological research in forest ecosystems. Agricultural and Forest Meteorology, 152: 159-177, <a href="/resources/Sonnentagetal2012.pdf" target="_blank">PDF</a>
 <br><br>
-Richardson, A.D., J.P. Jenkins, B.H. Braswell, D.Y. Hollinger, S.V. Ollinger, and M.-L. Smith. Use of digital webcam images to track spring green-up in a deciduous broadleaf forest. Oecologia, doi10.1007/s00442-006-0657-z, 2007. <a href="http://phenocam.sr.unh.edu/pdf/Richardson_2007_Oecologia.pdf" title="PDF file" target="_blank">PDF</a> </p>
+Richardson, A.D., J.P. Jenkins, B.H. Braswell, D.Y. Hollinger, S.V. Ollinger, and M.-L. Smith. 2007. Use of digital webcam images to track spring green-up in a deciduous broadleaf forest. Oecologia, doi10.1007/s00442-006-0657-z.  <a href="http://phenocam.sr.unh.edu/pdf/Richardson_2007_Oecologia.pdf" title="PDF file" target="_blank">PDF</a> </p>
 </div>
 </div>
 

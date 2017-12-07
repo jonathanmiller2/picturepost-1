@@ -13,7 +13,7 @@
   <div id=footerlinks>
     <a href="/about.jsp">About</a> |
     <a href="/termsofservice.jsp">Terms of Service</a> |
-    <a target='_new' href="http://www.unh.edu/about/ada.html" target="blank">ADA Disclaimer</a> |
+    <a target='_new' href="http://www.unh.edu/about/ada.html" >ADA Disclaimer</a> |
     <a target='_new' href="http://www.usnh.edu/legal/privacy.shtml">Privacy Policy</a> |
     <a href="/contact.jsp">Contact</a>
   </div>

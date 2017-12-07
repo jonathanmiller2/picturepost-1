@@ -23,7 +23,27 @@
      <div class="col-md-4">
  <h3 align="left" class="h3navy"><a href="/newslettersignup.jsp" target="_self">Sign up here for our Monthly Newsletter!</a></h3>
    
+
+
 <h3><strong>2017</h3>
+
+<p align="left" class="h3navy">  <A href="http://hosted.verticalresponse.com/1051743/a75b3f5e38/520036245/3dd9b419fc/" target="_blank" title="November 2017 Supplement"> Supplement 2017</A> - <SPAN class="smallText">A Picture Post Gallery to let the World Know About Your Good Work!</SPAN>  </p> 
+
+
+
+<p align="left" class="h3navy">  <A href="http://hosted.verticalresponse.com/1051743/41596c25bb/519485881/e42887c9be/" target="_blank" title="November 2017 Newsletter"> November 2017</A> - <SPAN class="smallText">A Year in Pictures at Blue Hill Observatory: Winter.</SPAN>  </p> 
+
+
+<p align="left" class="h3navy">  <A href="http://hosted.verticalresponse.com/1051743/8c9b0ce041/520036245/e42887c9be/" target="_blank" title="October 2017 Newsletter"> October 2017</A> - <SPAN class="smallText">Picture Post Helps the National Park Service Assess Fire Damage and Recovery in Great Smoky Mountains National Park.</SPAN>  </p> 
+
+<p align="left" class="h3navy">  <A href="http://hosted.verticalresponse.com/1051743/325311a5da/519485881/e42887c9be/" target="_blank" title="September 2017 Newsletter"> September 2017</A> - <SPAN class="smallText">Picture Post and me! - Co-founder John Pickle recounts the beginning and how Picture Posts help shape his view of environmental change.</SPAN>  </p> 
+
+<p align="left" class="h3navy">  <A href="http://hosted.verticalresponse.com/1051743/ee13092879/519485881/e42887c9be/" target="_blank" title="August 2017 Newsletter"> August 2017</A> - <SPAN class="smallText">Volunteer profile - Kate Wilcox from New Hampshire turns volunteering into an adventure. Picture Post is delighted she found us!</SPAN>  </p> 
+
+<p align="left" class="h3navy">  <A href="http://hosted.verticalresponse.com/1051743/31e18f9684/519485881/e42887c9be/" target="_blank" title="July 2017 Newsletter"> July 2017</A> - <SPAN class="smallText">There's a lot of info in them there pictures! Winkel Chestnut Farm examples using our DEW Analyzing Digital Images (ADI) software, Part 2.</SPAN>  </p> 
+
+<p align="left" class="h3navy">  <A href="http://hosted.verticalresponse.com/1051743/4acde9f8fe/519485881/e42887c9be/" target="_blank" title="June 2017 Newsletter"> June 2017</A> - <SPAN class="smallText">There's a lot of info in them there pictures! Winkel Chestnut Farm examples, Part 1.</SPAN>  </p> 
+
 <p align="left" class="h3navy">  <A href="http://hosted.verticalresponse.com/1051743/9ed54faaf5/519485881/e42887c9be/" target="_blank" title="May 2017 Newsletter"> May 2017</A> - <SPAN class="smallText">How To Gain Visibility and New Recruits for Your Picture Post Project.</SPAN>  </p> 
 
 <p align="left" class="h3navy">  <A href="http://hosted.verticalresponse.com/1051743/b5bd10f442/519485881/e42887c9be/" target="_blank" title="April 2017 Newsletter"> April 2017</A> - <SPAN class="smallText">Is this spring different? Visual ways to compare years using the Sugar Maple tree in my own backyard!</SPAN>  </p> 
@@ -32,10 +52,10 @@
 
 <p align="left" class="h3navy">  <A href="http://hosted.verticalresponse.com/1051743/3314d851ec/519485881/e42887c9be/" target="_blank" title="February 2017 Newsletter"> February 2017</A> - <SPAN class="smallText">Planning for the future. Spring brings BIG snowstorms to the Northeast USA - a simple method to measure snow.</SPAN>  </p> 
 
-
 <p align="left" class="h3navy">  <A href="http://hosted.verticalresponse.com/1051743/b342deb412/519485881/e42887c9be/" target="_blank" title="January 2017 Newsletter"> January 2017</A> - <SPAN class="smallText">Picture Posts ring in a turbulent new year. Review of 2016. Welcome new members and new posts! </SPAN>  </p> 
+</div>
 
-
+     <div class="col-md-4">
 <h3><strong>2016</h3>
 <p align="left" class="h3navy">  <A href="http://hosted.verticalresponse.com/1051743/dbb57231b7/519485881/e42887c9be/" target="_blank" title="November 2016 Newsletter"> November 2016</A> - <SPAN class="smallText">Picture Posts for monitoring lakes and phenology - presentations for the North American Lakes Management Society and North East Regional Phenology Network conferences. </SPAN>  </p> 
 
@@ -86,7 +106,9 @@
 
 <p align="left" class="h3navy">  <A href="http://hosted.verticalresponse.com/1051743/a967e726ab/519485881/e42887c9be/" target="_blank" title="January 2015 Newsletter"> January 2015</A> - <SPAN class="smallText">Summary of 2014. We had a great year! Welcome all new members and new posts.</SPAN>  </p> 
  </div>
-
+ </div>
+ 
+    <div class="row">
   <div class="col-md-4">
 <h3>2014</h3>
 
@@ -114,8 +136,6 @@
                       <p align="left" class="h3navy">  <A href="http://hosted.verticalresponse.com/1051743/63daf9e74f/519485881/e42887c9be/" target="_blank" title="January 2014 Newsletter"> January 2014</A> - <SPAN class="smallText">The Picture Post as art - the <em>Phenology Phencepost</em>. Summary of 2013. Welcome all new members!</SPAN>  </p> 
 </div> 
 
-
- <div class="row">
  <div class="col-md-4">
   <h3>2013</h3>
 <p align="left" class="h3navy"> <A href="http://hosted.verticalresponse.com/1051743/4bf34db514/519485881/14c7276266/" target="_blank" title="November 2013 Newsletter"> November 2013</A> - <SPAN class="smallText">Check out sand movement around the post at Crane's Beach in MA! Join the conversation in our Forums about environmental monitoring and stewardship.</SPAN> </p>
@@ -143,13 +163,9 @@
                       
                       <p align="left" class="h3navy">  <A href="http://hosted.verticalresponse.com/1051743/e00661daa5/519485881/e42887c9be/" target="_blank" title="January 2013 Newsletter"> January 2013</A> - <SPAN class="smallText">PPost presentations at AGU! Welcome all new members in 2012.</SPAN>  </p> 
                        </div>
-                   </div>
  
-
    <div class="col-md-4">
 <h3>2012</h3>
-
-<p class="bigText" align="left"><strong>2012</strong></p>
                     <p align="left" class="h3navy"><A href="http://hosted.verticalresponse.com/1051743/5f220b9ce9/519485881/e42887c9be/" target="_blank" title="November 2012 Newsletter"> November 2012</A> - <SPAN class="smallText">University of Idaho students connect Picture Post with phenology and the National Phenology Network.</SPAN>    </p> 
                      <p align="left" class="h3navy"><A href="http://hosted.verticalresponse.com/1051743/a6998c4ffe/519485881/e42887c9be/" target="_blank" title="October 2012 Newsletter"> October 2012</A> - <SPAN class="smallText">A special nature trail in Maine. Do you have historical photos of your site?</SPAN>    </p>
                       <p align="left" class="h3navy"><A href="http://hosted.verticalresponse.com/1051743/fef0505687/519485881/e42887c9be/" target="_blank" title="September 2012 Newsletter"> September 2012</A> - <SPAN class="smallText">Take your fall pictures! Can you compare this year with past years? Students, volunteers, and visitors monitor Ponte Vedra Beach in Florida with multiple picture posts!</SPAN>    </p> 

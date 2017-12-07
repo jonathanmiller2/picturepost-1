@@ -71,7 +71,8 @@
             <li><a href="/build.jsp">Build</a>
             <li><a href="/community.jsp">Community</a>
             <li><a href="/help.jsp">Help!</a></li>
-          </ul>
+        </ul>
+       <li><a href="/community-donate.jsp" style="color:#D76229" title='Give'>Give</a></li>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
