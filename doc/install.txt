@@ -44,11 +44,8 @@ cd /opt
 # If you are an UNH RCC employee run this command
 git clone git@code.sr.unh.edu:picturepost
 
-# OR
-# If are external to UNH RCC run this command
-# If this command gives you trouble, itis likely that you
-# need to send us your public ssh key to picturepost-dev@sr.unh.edu
-git clone picturepost-dev@code.sr.unh.edu
+# OR if you are external to RCC, clone the github repo
+git clone https://github.com/collinsp/picturepost.git
 
 # set up new tomcat virtual host
 vi /usr/share/tomcat/conf/server.xml 
