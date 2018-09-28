@@ -63,7 +63,7 @@
       <Li><a href="/resources/Sampling_In_The_Snow.pdf" title="Sampling in the Snow Curriculum PDF download" target="_blank">Sampling in the Snow Curriculum (PDF)</a> 
       <Li><a href="https://itunes.apple.com/us/book/id1086864270" title="iBook Monitoring Environmental Change with iPads" target="_blank">iBook: Monitoring Environmental Change with iPads</a> 
       <Li><a href="https://itunes.apple.com/us/app/canopyapp/id926943048?mt=8" title="Canopy App iTunes" target="_blank">Canopy App - iTunes</a> 
-      <Li><a href="https://play.google.com/store/apps/details?id=edu.unh.sr.canopyapp&hl=en" title="Canopy App Google Play" target="_blank">Canopy App - Google Play</a> </br>
+      <Li><a href="https://play.google.com/store/apps/details?id=edu.unh.mobile.canopyapp&hl=en" title="Canopy App Google Play" target="_blank">Canopy App - Google Play</a> </br>
         <p class=clearfix><a class="btn btn-default" href="/cider.jsp" title="CIDER website"  role="button">Show Me More</a></p>
      </div>
 

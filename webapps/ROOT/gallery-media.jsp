@@ -65,7 +65,7 @@
                         <p>
                         <SPAN class="smallText">Picture Post teamed up with UNH undergraduate technology students at the NASA hackathon in April 2017 to brainstorm a prototype interactive Picture Post using cutting edge technologies. We won the local "People's Choice" award - congrats to us!</p>
                        <ul>
-                        <li><a href="https://2017.spaceappschallenge.org/challenges/our-ecological-neighborhood/trace-invaders/teams/foresttrackers/project" target="_blank"> Watch our video and learn more about our proposal.</a></li>                       
+                        <li><a href="/resources/ForestTrackers-NASA-Space-Apps2017.pdf" target="_blank"> See our proposal presentation here.</a></li>                       
                        </ul><hr></br>   
 
 

@@ -77,8 +77,8 @@ String picsJSON = WebUtil.dbJsonArray(rs).toString();
         <a href='/news.jsp'>
          <img class='shadow pull-left' src=/images/panoramic.jpg style='margin:0 16px 16px 0;' alt="aligning the camera">
         </a>
-        View the latest articles, uploaded picture sets, and new post installations. Search the picturepost digital archives by keyword. <a href=/newslettersignup.jsp>Sign up for the monthly newsletter.</a> <a href=http://panopicturepost.tumblr.com/ target=_blank>Follow us on Tumblr.</a>
-      <p><a class="btn btn-default" href="/news.jsp" role="button">View details</a></p> 
+        View the latest articles, uploaded picture sets, and new post installations. Search the Picture Post digital archives by keyword. <a href=/newslettersignup.jsp>Sign up for the monthly newsletter.</a> <a href=https://www.instagram.com/dewpicpost/ target=_blank>Follow us on Instagram.</a>
+      <p><a class="btn btn-default" href="/news.jsp" role="button">View PictureSets</a></p> 
     </div>
 
     <div class="col-md-4">

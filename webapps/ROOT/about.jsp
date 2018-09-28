@@ -13,11 +13,18 @@ The Digital Earth Watch (DEW) empowers citizens to observe, measure, and share t
 It is our vision that digital cameras and smartphones are routinely used as scientific tools, particularly at Picture Posts sites that enhance community efforts to conserve, promote, and sustain their open spaces and natural areas, both large and small.</div>
 
 <div align=center>
+  <h1 style='display:inline-block;'>Citation</h1>
+</div>
+
+<div class=well>
+Picture Post is part of Digital Earth Watch (DEW) and was developed with support from NASA. Picture Post is a program at the University of New Hampshire. <Br/>
+</div>
+<div align=center>
   <h1 style='display:inline-block;'>Collaborating Institutions</h1>
 </div>
 
 <div class=well>
-Picture Post is part of Digital Earth Watch (DEW). DEW was developed through a partnership of institutions with support from NASA. Picture Post was created for DEW as a tool for non-scientists to monitor their environment and share their observations and discoveries. <Br/>
+DEW was developed through a partnership of institutions. Picture Post was created for DEW as a tool for non-scientists to monitor their environment and share their observations and discoveries. <Br/>
 Click on the images to visit our partner sites.</div>
 <style>
 #helppagecontent ul {
