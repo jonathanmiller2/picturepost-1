@@ -5,11 +5,11 @@ System Setup
 
 # install OS dependancies
 yum install -y epel-release
-yum install http://yum.postgresql.org/9.4/redhat/rhel-7-x86_64/pgdg-redhat94-9.4-1.noarch.rpm
-sudo yum -y groupinstall "PostgreSQL Database Server 9.4 PGDG"
-sudo yum -y install git httpd ant tomcat-webapps postgresql-jdbc perl-DBD-Pg perl-Digest-SHA perl-CGI postgis2_94 postgis2_94-client postgis2_94-utils ImageMagick pgbouncer
+sudo yum -y install git httpd ant tomcat-webapps postgresql-jdbc perl-DBD-Pg perl-Digest-SHA postgis2_94 postgis2_94-client postgis2_94-utils ImageMagick pgbouncer
+
 
 # initialize postgres database
+# (paths differs depending on postgres version)
 sudo /usr/pgsql-9.4/bin/postgresql94-setup initdb
 
 # Enable postgres user/password auth
@@ -32,8 +32,7 @@ sudo systemctl restart postgresql-9.4.service
 # set a password for postgres user
 sudo -u postgres psql -c "ALTER USER postgres WITH PASSWORD 'postgres';" postgres
 
-# if using SELinux, run the following commands
-# note: httpd_use_nfs=true because satellite imagery is on NFS mount
+# note: httpd_use_nfs=true because photos and satellite imagery may be on NFS mount
 sudo setsebool -P httpd_builtin_scripting=true httpd_can_network_connect=true httpd_can_network_connect_db=true httpd_can_sendmail=true httpd_enable_cgi=true httpd_use_nfs=true
 
 
@@ -63,7 +62,7 @@ vi /usr/share/tomcat/conf/server.xml
 cd /opt/picturepost
 
 # execute setup and follow instructions to create a config file
-# ignore error regarding failed database connection
+#    **** IGNORE ERROR REGARDING FAILED DATABASE CONNECTION
 sudo bin/picpost setup
 
 # set up new apache virtual host

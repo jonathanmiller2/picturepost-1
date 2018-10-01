@@ -1,6 +1,58 @@
 <%@ include file="/includes/common.jsp" %>
 
 <%
+Person sessionUser = Person.getInstance(session);
+
+// simple service to update orientation of pics
+if (wu.param("act").equals("switchpics")) {
+  String rv = "";
+  try {
+    int pic1Id = wu.param_int("pic1Id",0);
+    int pic2Id = wu.param_int("pic2Id",0);
+    String pic1orientation = wu.param("pic1orientation");
+    String pic2orientation = wu.param("pic2orientation");
+
+    Picture p1 = new Picture(pic1Id);
+    if (p1==null) throw new Exception("could not find pic");
+    Picture p2 = (pic2Id > 0) ? new Picture(pic2Id) : null;
+
+    if (p2!=null && p1.getPictureSetId() != p2.getPictureSetId()) {
+      throw new Exception("pictureset mismatch - cannot update pictures from different picturesets!");
+    }
+    
+    PictureSet ps = new PictureSet(p1.getPictureSetId());
+    Post post = new Post(ps.getPostId());
+
+    boolean canManage = ps.getPersonId() == sessionUser.getPersonId() || post.getPersonId() == sessionUser.getPersonId() || sessionUser.getAdmin() == true;
+    if (! canManage) {
+      throw new Exception("invalid privileges, cannot update this pictureset");
+    }
+
+    if (p2 != null) {
+      p2.setOrientation("-");
+      if (! p2.dbUpdate()) throw new Exception("could not temp set orientation of pic2 to -");
+    }
+
+    if (p1 != null && p1.getOrientation() != pic1orientation) {
+      p1.setOrientation(pic1orientation);
+      if (! p1.dbUpdate()) throw new Exception("could not update picture 1 orientation");
+    }
+
+    if (p2 != null && p2.getOrientation() != pic2orientation) {
+      p2.setOrientation(pic2orientation);
+      if (! p2.dbUpdate()) throw new Exception("could not insert picture 2");
+    }
+    rv = "OK";
+  }
+  catch (Exception e) {
+    Log.writeLog("could not upload picture: " + e.getMessage());
+    rv = "ERROR - could not update pictures";
+  }
+  response.setContentType("text/plain");
+  response.getWriter().write(rv);
+  return;
+}
+  
 String[] orientations = {"N", "NE", "E", "SE", "S", "SW", "W", "NW", "UP" };
 NumberFormat nf = NumberFormat.getInstance();
 nf.setMinimumFractionDigits(6);
@@ -236,10 +288,13 @@ var curPictureId="<%=String.valueOf(curPictureId)%>";
 
 <%
 for (int ps = 0; ps < pictureSetRecords.size(); ps++) {
-    Vector<Picture> pictureRecords = pictureSetRecords.get(ps).dbGetPictureRecords();
+    PictureSet picSet = pictureSetRecords.get(ps);
+    Vector<Picture> pictureRecords = picSet.dbGetPictureRecords();
+    int picSetId = picSet.getPictureSetId();
+    boolean canManage = picSet.getPersonId() == sessionUser.getPersonId() || post.getPersonId() == sessionUser.getPersonId() || sessionUser.getAdmin() == true;
 %>
 
-      <TR>
+      <TR data-picSetId="<%=picSetId%>" data-canManage="<%= canManage?'1':'0' %>">
 
 <%
     for (int i = 0; i < orientations.length; i++) {
@@ -247,7 +302,7 @@ for (int ps = 0; ps < pictureSetRecords.size(); ps++) {
             int pictureId = PictureSet.getPictureRecord(pictureRecords, orientations[i]).getPictureId();
 %>
 
-        <TD WIDTH="80"><IMG ID="picture_<%=String.valueOf(pictureId)%>" SRC="/cgi-bin/colorMod.pl?image=<%=post.getPostDir()+ "/" + PictureSet.getPictureRecord(pictureRecords, orientations[i]).getImageFileThumb()%>&algorithm=<%=algorithm%>" ALT="<%=Utils.htmlEscape(post.getName())%>, <%=pictureSetRecords.get(ps).getPictureSetTimestamp()%>, <%=orientations[i]%>" CLASS="thumbnail-default orientation-<%=orientations[i]%>-" onClick="viewPicture(<%=String.valueOf(pictureId)%>)"></TD>
+        <TD WIDTH="80"><IMG class=pic data-picid="<%=String.valueOf(pictureId)%>" ID="picture_<%=String.valueOf(pictureId)%>" SRC="/cgi-bin/colorMod.pl?image=<%=post.getPostDir()+ "/" + PictureSet.getPictureRecord(pictureRecords, orientations[i]).getImageFileThumb()%>&algorithm=<%=algorithm%>" ALT="<%=Utils.htmlEscape(post.getName())%>, <%=picSet.getPictureSetTimestamp()%>, <%=orientations[i]%>" CLASS="thumbnail-default orientation-<%=orientations[i]%>-" onClick="viewPicture(<%=String.valueOf(pictureId)%>)"></TD>
 
 <%
         }
@@ -262,10 +317,10 @@ for (int ps = 0; ps < pictureSetRecords.size(); ps++) {
 %>
 
         <TD class=info>
-          <%=pictureSetRecords.get(ps).getPictureSetTimestamp().toString().substring(0, 16)%>
-          <% if (pictureSetRecords.get(ps).getPersonId() == Person.getInstance(session).getPersonId() || post.getPersonId() == Person.getInstance(session).getPersonId() || Person.getInstance(session).getAdmin() == true) { %>
+          <%=picSet.getPictureSetTimestamp().toString().substring(0, 16)%>
+          <% if (canManage) { %>
             <br>
-            <a href="/picset.jsp?id=<%=pictureSetRecords.get(ps).getPictureSetId()%>">manage</a>
+            <a href="/picset.jsp?id=<%=picSetId%>">manage</a>
           <% } %>
         </TD>
       </TR>

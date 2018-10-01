@@ -626,3 +626,61 @@ $(function() {
     BrowserDetect.init();
     viewPicture(curPictureId);
 });
+
+// enable drag and drop images
+$(function(){
+  var orientationIdx = ['N','NE','E','SE','S','SW','W','NW','UP'];
+  var pic1Id, pic1orientation, pic2Id, pic2orientation;
+  var allowDragOver = function(e){ e.preventDefault(); };
+  var inProgress = false;
+  var dragstart = function() {
+    if (inProgress) return;
+    inProgress = true;
+    var $img1 = $(this), $td1=$img1.closest('td')
+    pic1Id=$img1.attr('data-picid')
+    pic2orientation=orientationIdx[$td1.prevAll().length];
+    $td1.siblings().addClass('allowdrop').on('dragover',allowDragOver).on('dragenter',allowDragOver).on('drop', function(e) {
+      $(".allowdrop").removeClass("allowdrop").off('dragover').off('dragenter').off('drop');
+      e.preventDefault();
+      var $td2=$(this), $img2=$td2.find('img');
+      pic1orientation = orientationIdx[$td2.prevAll().length];
+      if (pic1orientation) {
+        pic2Id = $img2.attr('data-picid');
+        var shouldMove = confirm("Are you sure you want to move the picture? Click 'OK' to move the picture.");
+        if (shouldMove) {
+          $td1.empty();
+          $td2.empty();
+          $img1.appendTo($td2);
+          $img2.appendTo($td1);
+          var onError = function() {
+            alert("could not move pictures; reload the page and try again");
+            inProgress=false;
+          };
+          $.ajax({
+            method: 'post',
+            data: {
+              act: 'switchpics',
+              pic1Id: pic1Id, pic1orientation: pic1orientation,
+              pic2Id: pic2Id, pic2orientation: pic2orientation
+            },
+            error: onError,
+            success: function(d) {
+              if (! /OK/.test(d)) return onError();
+              inProgress=false;
+            }
+          });
+        } else {
+          inProgress=false;
+        }
+      }
+      pic1Id=pic1orientation=pic2Id=pic2orientation=undefined;
+      $img1.on('dragstart', dragstart);
+    });
+  };
+  $("#pictureSet").on("mousedown", "img", function(){
+    if ($(this).closest("tr[data-canmanage=1]").length > 0) {
+      this.draggable = true; 
+      this.ondragstart = dragstart;
+    }
+  });
+});
