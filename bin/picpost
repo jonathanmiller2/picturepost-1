@@ -675,7 +675,7 @@ WHERE post.ready=true");
 }
 
 sub upgrade_6 {
-  $DBH->do("alter table picture alter column orientation drop not null");
+  $DBH->do("alter table picture DROP CONSTRAINT picture_orientation_check");
   $DBH->do("alter table picture ADD CONSTRAINT picture_orientation_check CHECK (orientation IN ('-','N','S','E','W','NW','NE','SW','SE','UP'))");
   globalvar('version', 7);
 }
