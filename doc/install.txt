@@ -26,6 +26,13 @@ sudo systemctl enable tomcat.service
 sudo systemctl enable httpd.service
 sudo systemctl enable pgbouncer.service
 
+# open firewall for httpd and tomcat
+sudo firewall-cmd --zone=public --add-port=80/tcp --permanent
+sudo firewall-cmd --zone=public --add-port=8080/tcp --permanent
+sudo firewall-cmd --reload
+
+
+
 # start postgres
 sudo systemctl restart postgresql-9.4.service
 
@@ -110,7 +117,6 @@ psql -h 127.0.0.1 -p 6432 -U dbuser picturepost
 # run setup again to complete the setup process
 # this will also build java files, restart tomcat, restart apache
 /opt/picturepost/bin/picpost setup
-
 
 
 
