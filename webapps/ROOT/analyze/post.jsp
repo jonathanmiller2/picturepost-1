@@ -302,7 +302,7 @@ for (int ps = 0; ps < pictureSetRecords.size(); ps++) {
             int pictureId = PictureSet.getPictureRecord(pictureRecords, orientations[i]).getPictureId();
 %>
 
-        <TD WIDTH="80"><IMG class=pic data-picid="<%=String.valueOf(pictureId)%>" ID="picture_<%=String.valueOf(pictureId)%>" SRC="/cgi-bin/colorMod.pl?image=<%=post.getPostDir()+ "/" + PictureSet.getPictureRecord(pictureRecords, orientations[i]).getImageFileThumb()%>&algorithm=<%=algorithm%>" ALT="<%=Utils.htmlEscape(post.getName())%>, <%=picSet.getPictureSetTimestamp()%>, <%=orientations[i]%>" CLASS="thumbnail-default orientation-<%=orientations[i]%>-" onClick="viewPicture(<%=String.valueOf(pictureId)%>)"></TD>
+        <TD WIDTH="80"><IMG data-picid="<%=String.valueOf(pictureId)%>" ID="picture_<%=String.valueOf(pictureId)%>" SRC="/cgi-bin/colorMod.pl?image=<%=post.getPostDir()+ "/" + PictureSet.getPictureRecord(pictureRecords, orientations[i]).getImageFileThumb()%>&algorithm=<%=algorithm%>" ALT="<%=Utils.htmlEscape(post.getName())%>, <%=picSet.getPictureSetTimestamp()%>, <%=orientations[i]%>" CLASS="thumbnail-default orientation-<%=orientations[i]%>-" onClick="viewPicture(<%=String.valueOf(pictureId)%>)"></TD>
 
 <%
         }
