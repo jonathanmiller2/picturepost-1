@@ -271,6 +271,10 @@ var curPictureId="<%=String.valueOf(curPictureId)%>";
 <% } %>
 
 
+    <div id=MsgAboutMovingPics class='alert alert-info' style='display:none; max-width: 900px;margin:20px auto 20px 0;'>
+      <strong>Tip:</strong> Pictures not in the right order?
+      Drag and drop photos within picturesets you can manage.
+    </div>
   
 
     <TABLE ID="pictureSet">
@@ -293,6 +297,7 @@ for (int ps = 0; ps < pictureSetRecords.size(); ps++) {
     int picSetId = picSet.getPictureSetId();
     boolean canManage = picSet.getPersonId() == sessionUser.getPersonId() || post.getPersonId() == sessionUser.getPersonId() || sessionUser.getAdmin() == true;
 %>
+
 
       <TR data-picSetId="<%=picSetId%>" data-canManage="<%= canManage?'1':'0' %>">
 

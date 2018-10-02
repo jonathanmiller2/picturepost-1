@@ -629,6 +629,9 @@ $(function() {
 
 // enable drag and drop images
 $(function(){
+  // nothing to manage then return
+  if ($("tr[data-canmanage=1]:first").length==0) return;
+  $('#MsgAboutMovingPics').show();
   var orientationIdx = ['N','NE','E','SE','S','SW','W','NW','UP'];
   var pic1Id, pic1orientation, pic2Id, pic2orientation;
   var allowDragOver = function(e){ e.preventDefault(); };
@@ -646,7 +649,7 @@ $(function(){
       pic1orientation = orientationIdx[$td2.prevAll().length];
       if (pic1orientation) {
         pic2Id = $img2.attr('data-picid');
-        var shouldMove = confirm("Are you sure you want to move the picture? Click 'OK' to move the picture.");
+        var shouldMove = confirm("Are you sure you want to move the picture?\nClick 'OK' to move the picture.");
         if (shouldMove) {
           $td1.empty();
           $td2.empty();
