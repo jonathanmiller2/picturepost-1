@@ -171,7 +171,7 @@ var postName="<%=post.getName()%>";
 var pictureSetIdString="<%=pictureSetIdString%>";
 var curPictureId="<%=String.valueOf(curPictureId)%>";
 </script>
-<script src=post.js></script>
+<script src=post.js?1></script>
 <script src="USMscripts/src/scripts/GreennessAnalysis.js"></script>
 <script src="USMscripts/src/scripts/PlottingFunction.js"></script>
 <script src="USMscripts/src/scripts/PopupScript.js"></script>
