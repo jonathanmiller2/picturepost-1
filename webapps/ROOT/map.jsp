@@ -4,11 +4,15 @@ String sql = "SELECT post_id, ST_Y(location) lat, ST_X(location), name lon FROM 
 PreparedStatement stmt = wu.dbh().prepareStatement(sql);
 ResultSet rs = stmt.executeQuery();
 String postsJSON = WebUtil.dbJsonArray(rs).toString();
+
+String GMAPS_API_KEY = Config.get("GOOGLE_MAPS_KEY");
 %>
 <%@ include file="/includes/header.jsp" %>
-<script src="//maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=<%=GMAPS_API_KEY%>&callback=initMap" type="text/javascript"></script>
 <script src=js/markercluster.js></script>
 <script>
+function initMap() {
 var posts = <%=postsJSON%>;
 
 $(window).resize(function(){
@@ -57,6 +61,7 @@ $(function(){
 
   var markerCluster = new MarkerClusterer(map, markers);
 });
+}
 </script>
 <style>
 body {
