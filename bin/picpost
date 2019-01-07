@@ -147,7 +147,11 @@ sub get_example_conf {
 SUPPORT_EMAIL	$ENV{USER}\@$hostname
 SUPPORT_PHONE	603-862-7038
 EMAIL_COMMAND	/usr/sbin/sendmail -oi -t
-GOOGLE_MAPS_KEY	ABQIAAAAXLtB9cZEiOZ_WJC3vUyI2RQG0VXM1isChuPqZL77qjLf3s1C-hSFtmTt8t6XLAWqQA-40gXr1h4CJg
+
+# get your key here:
+# https://developers.google.com/maps/documentation/javascript/get-api-key
+GOOGLE_MAPS_KEY
+
 RECAPTCHA_PRIVATE_KEY	nokey	# If devel site, reCaptcha is optional 
 RECAPTCHA_PUBLIC_KEY	nokey
 CONVERT			/usr/bin/convert
