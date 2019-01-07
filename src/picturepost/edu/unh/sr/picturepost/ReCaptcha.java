@@ -13,10 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 public class ReCaptcha {
 
 	public static String URL = "https://www.google.com/recaptcha/api/siteverify";
-	public static String SITE_KEY = "6LegJA4TAAAAAHNZlCJ9ReKObcdifaZ62Oe2C0ua";
-	public static String SECRET_KEY = "6LegJA4TAAAAALJADBFu4v9ypnGY8Eq_fN3MkT4d";
-	
-	
+
 	private static String escape_uri(String s) {
 		String rv=null;
 		try {
@@ -28,7 +25,8 @@ public class ReCaptcha {
 	}
 
 	public static void verify(HttpServletRequest request) throws Exception {
-	
+        String SITE_KEY = Config.get("GOOGLE_RECAPTCHA_SITE_KEY");
+        String SECRET_KEY = Config.get("GOOGLE_RECAPTCHA_SECRET_KEY");
 		if (SITE_KEY==null || "".equals(SITE_KEY)) {
 			return;
 		}
@@ -65,6 +63,7 @@ public class ReCaptcha {
 	}
 	
 	public static String getWidgetHtml() {
+        String SITE_KEY = Config.get("GOOGLE_RECAPTCHA_SITE_KEY");
 		return "<script src='https://www.google.com/recaptcha/api.js'></script><div class='g-recaptcha' data-sitekey='" + SITE_KEY + "'></div>";
 	}
 
