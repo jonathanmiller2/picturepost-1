@@ -72,10 +72,6 @@ cd /opt/picturepost
 #    **** IGNORE ERROR REGARDING FAILED DATABASE CONNECTION
 sudo bin/picpost setup
 
-# set up new apache virtual host
-cd /etc/httpd/conf.d
-ln -s /opt/picturepost/conf/apache/apache.conf picturepost.conf
-
 # You will need to install data and a database
 # If you want to develop on a fresh database with no data, use the starter database
 cd /opt/picturepost
@@ -118,7 +114,9 @@ psql -h 127.0.0.1 -p 6432 -U dbuser picturepost
 # this will also build java files, restart tomcat, restart apache
 /opt/picturepost/bin/picpost setup
 
-
+# set up new apache virtual host
+cd /etc/httpd/conf.d
+ln -s /opt/picturepost/conf/apache/apache.conf picturepost.conf
 
 
 Build colorMod
