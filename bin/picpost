@@ -152,8 +152,11 @@ EMAIL_COMMAND	/usr/sbin/sendmail -oi -t
 # https://developers.google.com/maps/documentation/javascript/get-api-key
 GOOGLE_MAPS_KEY
 
-RECAPTCHA_PRIVATE_KEY	nokey	# If devel site, reCaptcha is optional 
-RECAPTCHA_PUBLIC_KEY	nokey
+# get your recaptch key here: (reCAPTCHA v2 supported)
+# https://www.google.com/recaptcha/
+GOOGLE_RECAPTCHA_SITE_KEY
+GOOGLE_RECAPTCHA_SECRET_KEY
+
 CONVERT			/usr/bin/convert
 MAX_FILE_UPLOAD_SIZE 10485760   # 10 * 1024 * 1024  (10 MB)
 OS_OWNER        $ENV{USER}
