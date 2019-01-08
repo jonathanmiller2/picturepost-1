@@ -255,6 +255,12 @@ sub fix_file_permissions {
   system("setfacl -R --modify u:tomcat:r-X,d:u:tomcat:r-X conf lib webapps");
   system("setfacl -R --modify u:apache:rwX,d:u:apache:rwX logs data tmp");
   system("setfacl -R --modify u:tomcat:rwX,d:u:tomcat:rwX logs data tmp");
+
+  # special acl for picturepost-ou for Oklahoma University picturepost transfer
+  if (-d "/home/picturepost-ou") {
+    system("setfacl -R --modify u:picturepost-ou:rX,d:u:picturepost-ou:rX data");
+  }
+
   system("chmod -R ug+x cgi-bin bin");
 
   if (`sestatus` =~ /SELinux status\:\s+enabled/s) {
