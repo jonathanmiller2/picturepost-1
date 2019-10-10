@@ -88,13 +88,13 @@ if (wu.param("act").equals("savecomment")) {
   response.getWriter().write(rv);
   return;
 }
-    
+
 class PostPage {
     WebUtil wu = null;
     Connection dbh = null;
     int postId = 0;
     int user_id = 0;
- 
+
     String logohtml = "";
     String post_name = "";
     String post_description = "";
@@ -104,18 +104,18 @@ class PostPage {
     int postmaster_person_id = 0;
     String postmaster_name = "";
     int reference_picture_set_id=0;
- 
+
     boolean isFavorite = false;
- 
+
     public PostPage() {
     }
-    
+
     public PostPage(WebUtil wu, int postId, int user_id) throws Exception {
       this.wu = wu;
       this.dbh = wu.dbh();
       this.postId = postId;
       this.user_id = user_id;
-      if (postId !=0) { 
+      if (postId !=0) {
         this.loadPostInfo();
         this.loadPostPics();
         this.loadPicSets();
@@ -123,7 +123,7 @@ class PostPage {
         this.loadIsFavorite();
       }
     }
-    
+
     private void loadIsFavorite() throws Exception {
       String sql = "SELECT '1' FROM favorite_post WHERE person_id=? AND post_id=? LIMIT 1";
       PreparedStatement stmt = dbh.prepareStatement(sql);
@@ -135,7 +135,7 @@ class PostPage {
       }
     }
 
-  	  	
+
 	private void loadPostInfo() throws Exception {
 		String sql =
 "SELECT post.name, " +
@@ -167,7 +167,7 @@ class PostPage {
 			throw new Exception("post not found");
 		}
 	}
-	
+
     String picsets = "[]";
 	private void loadPicSets() throws Exception {
 		String sql =
@@ -203,7 +203,7 @@ class PostPage {
 		JSONArray ar = WebUtil.dbJsonArray(rs);
 		picsets = ar.toString();
 	}
- 
+
     List<Integer> postPicIds = new ArrayList<Integer>();
     private void loadPostPics() throws Exception {
         Q q = wu.q().append("SELECT post_picture_id FROM post_picture WHERE active=true AND post_id=? ORDER BY seq_nbr LIMIT 100").bind(postId);
@@ -211,7 +211,7 @@ class PostPage {
           postPicIds.add(q.getInt());
         }
     }
-    
+
     class PicComment {
       int commentId;
       int pictureId;
@@ -261,7 +261,7 @@ class PostPage {
     }
 }
 
-PostPage p = null; 
+PostPage p = null;
 try {
     int pic_id = wu.param_int("pic",0);
     int postId = 0;
@@ -299,6 +299,8 @@ if (p == null) return;
 %>
 <%@ include file="/includes/header.jsp" %>
 <link rel="stylesheet" type="text/css" href="css/post.css">
+<link rel="stylesheet" type="text/css" media="all" href="ou-global-header.css" />
+<link rel="stylesheet" type="text/css" media="all" href="ou-header.css" />
 
 <div id=topbar class=clearfix>
   <% if ("".equals(WebUtil.str(p.logohtml))) { %>
@@ -359,7 +361,7 @@ if (p == null) return;
 
   <h2>Picture&nbsp;Sets</h2>
   <div class=panel-body>
-  <div id=orientationCtrl title="Click on an orientation or press Shift-Left/Shift-Right hotkeys." align=center> 
+  <div id=orientationCtrl title="Click on an orientation or press Shift-Left/Shift-Right hotkeys." align=center>
     <h4 style='display: inline-block;'>look at</h4>
     <div style='display: inline-block; margin-left:6px;' id=picpostdir>
       <a id=ppdirN href=# class='btn btn-default' title="look north">N</a>
@@ -377,7 +379,7 @@ if (p == null) return;
   <img class=shadow id=ppimg alt='picturepost photo showing selected orientation'>
 
   <div id=picsetcaptionhtml></div>
-        
+
   <div id=picsetCtrl class=justify style="clear: both;">
     <div>
       <button id=PrevBut type=button title='show older pictureset (swipe/press Left)' class="btn btn-primary">older</button>
@@ -437,7 +439,7 @@ if (p == null) return;
 
   <blockquote id="postcommentform" style='display:none;'>
     <img alt='selected picture to comment on' id=PostCommentPic style='vertical-align:top;'>
-    <textarea id=newcomment class="form-control" style="display:inline;width:calc(100% - 100px); height:6em;" placeholder="share your comment.."></textarea> 
+    <textarea id=newcomment class="form-control" style="display:inline;width:calc(100% - 100px); height:6em;" placeholder="share your comment.."></textarea>
     <div class=justify>
       <div><button id=CancelPostCommentBut type=button class="btn btn-default">cancel</button></div>
       <div><button id=DeletePostCommentBut type=button class="btn btn-danger">delete</button></div>

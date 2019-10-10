@@ -17,7 +17,7 @@ It is our vision that digital cameras and smartphones are routinely used as scie
 </div>
 
 <div class=well>
-Picture Post is part of Digital Earth Watch (DEW) and was developed with support from NASA. Picture Post is a program at the University of New Hampshire. <Br/>
+Picture Post is part of Digital Earth Watch (DEW) and was developed with support from NASA. Picture Post was a program at the University of New Hampshire and is now hosted by the University of Oklahoma. <Br/>
 </div>
 <div align=center>
   <h1 style='display:inline-block;'>Collaborating Institutions</h1>

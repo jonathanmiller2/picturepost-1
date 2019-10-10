@@ -8,7 +8,7 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 <meta name="description" content="<%= WebUtil.esc(og_description) %>">
 <meta name="author" content="Philip.Collins@unh.edu">
 <meta property="og:url" content="<%= WebUtil.esc(og_url) %>" />
@@ -27,11 +27,32 @@
   var FACEBOOK_APP_ID="<%=FACEBOOK_APP_ID%>";
 </script>
 <script src=/js/system.js></script>
+
+<link rel="stylesheet" type="text/css" media="all" href="ou-global-header.css" />
 </head>
 <body>
 
 <nav class="navbar navbar-default navbar-fixed-top">
+  <div class="globalheader">
+   <div class="globalheader-wrapper">
+      <ul>
+          <li><a class="tip home" href="http://www.ou.edu/web.html" alt="OU Home link"><span>OU Homepage</span></a></li>
+          <li><a class="tip search" href="http://www.ou.edu/content/ousearch.html" alt="OU Search link"><span>Search OU</span></a></li>
+          <li><a class="tip social" href="http://www.ou.edu/web/socialmediadirectory.html" alt="OU Social Media link"><span>OU Social Media</span></a></li>
+          <li class="wordmark">The University of Oklahoma</li>
+      </ul>
+      <div style="clear:both;"></div>
+   </div>
+  </div>
+
+  <div class="ou-header">
+    <a href='/'>
+      <img id="logo" src=/includes/ou-emof-logo.png alt="OU EMOF Logo">
+    </a>
+  </div>
+
   <div class="container">
+
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
         <span class="sr-only">Toggle navigation</span>
@@ -85,14 +106,14 @@
         <% } %>
         </li>
       </ul>
-    
+
       <div class="input-group hidden-xs" style="padding: 8px;" title="search news, post names, location, photographer, keywords, ..">
         <input type="text" id=SearchBox class="form-control" placeholder="search news, post names, location, photographer, keywords, .." aria-label="...">
         <div class="input-group-btn">
           <button type="button" class="btn btn-default" onclick='$("#SearchBox").change();'><span class="glyphicon glyphicon-search"></span></button>
         </div>
       </div>
-   
+
 
     </div><!--#navbar-->
 

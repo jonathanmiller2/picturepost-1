@@ -2,25 +2,49 @@
 
 <!-- start footer -->
 <div id="footer">
-<hr>
- 
+  <hr>
   <div id=footerattribution>
-    Picture Post &copy;
-    <%= new java.text.SimpleDateFormat("yyyy").format(new java.util.Date()) %>
-      University of New Hampshire, Durham, NH 03824
+    <ul>
+    <li>Picture Post &copy;
+    <%= new java.text.SimpleDateFormat("yyyy").format(new java.util.Date()) %></li>
+    <li>The University of Oklahoma</li>
+    <li><a href="/about.jsp">About</a></li>
+    <li><a href="/contact.jsp">Contact</a></li>
+    </ul>
+    <div id=footersupport>
+      We thank our supporters!
+        NASA <a href="http://www.nasa.gov"><img src="/images/nasalogosm.png" alt="NASA logo" width="40" height="40"></a> The National Park Service <a href="http://www.nps.gov"><img src="/images/nps.svg" alt="NPS logo" height="40"></a>
+    </div>
   </div>
- 
-  <div id=footerlinks>
-    <a href="/about.jsp">About</a> |
-    <a href="/termsofservice.jsp">Terms of Service</a> |
-    <a target='_new' href="http://www.unh.edu/about/ada.html" >ADA Disclaimer</a> |
-    <a target='_new' href="http://www.usnh.edu/legal/privacy.shtml">Privacy Policy</a> |
-    <a href="/contact.jsp">Contact</a>
-  </div>
-
-  <div id=footersupport>
-    We thank our supporters! 
-      NASA <a href="http://www.nasa.gov"><img src="/images/nasalogosm.png" alt="NASA logo" width="40" height="40"></a> The National Park Service <a href="http://www.nps.gov"><img src="/images/nps.svg" alt="NPS logo" height="40"></a>
+</div>
+<div id="ou-footer">
+  <div class="columns">
+    <div class="footer-column1">
+      <div class="footer-logo">
+        <img src="/includes/footerlogo.png" alt="OU Logo">
+      </div>
+      <div class="dept-address">
+        <p>Earth Observation &amp; <br> Modeling Facility<br>
+        Stephenson Research &amp; Technology Center<br>
+        101 David L. Boren Blvd<br> Norman, OK 73019</p>
+      </div>
+    </div>
+    <div class="footer-column2">
+      <ul>
+        <li><a target='_new' href="http://www.ou.edu/publicaffairs/webpolicies/accessstatement">Accessibility</a></li>
+        <li><a target='_new' href="http://www.ou.edu/sustainability">Sustainability</a></li>
+        <li><a target='_new' href="http://ouhsc.edu/hipaa/">HIPAA</a></li>
+        <li><a target='_new' href="http://hr.ou.edu/jobs/">OU Job Search</a></li>
+      </ul>
+    </div>
+    <div class="footer-column3">
+      <ul>
+        <li><a target='_new' href="http://www.ou.edu/web/landing/policy">Policies</a></li>
+        <li><a target='_new' href="http://www.ou.edu/web/landing/legalnotices">Legal Notices</a></li>
+        <li><a target='_new' href="http://www.ou.edu/publicaffairs/WebPolicies/copyright">Copyright</a></li>
+        <li><a target='_new' href="http://www.ou.edu/web/resources_offices">Resources &amp; Offices</a></li>
+      </ul>
+    </div>
   </div>
 </div>
 

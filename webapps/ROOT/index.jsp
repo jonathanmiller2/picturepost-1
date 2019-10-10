@@ -15,7 +15,7 @@ String picsJSON = WebUtil.dbJsonArray(rs).toString();
     <div class="row">
       <div class="col-lg-7">
         <h1 id=aboutheader><img src=images/logo.png alt="picture post logo"><span>picture post</span></h1>
-        <p>Picture Posts are installed at forests, parks, and schools - even your backyard. Each post guides visitors to photograph a location in nine orientations. Photos are dated, geotagged, uploaded, and shared on this site. Picture Post is a part of the <a href=about.jsp>Digital Earth Watch (DEW) network</a>. DEW supports environmental monitoring by everyone!
+        <p>Picture Posts are installed at forests, parks, and schools - even your backyard. Each post guides visitors to photograph a location in nine orientations. Photos are dated, geotagged, uploaded, and shared on this site. Picture Post is a part of the <a href=http://dew.globalsystemsscience.org/>Digital Earth Watch (DEW) network</a>. DEW supports environmental monitoring by everyone!
       </div>
       <div class="col-lg-5">
         <div id=piccontainer style='text-align:center; height:300px; overflow:hidden;'></div>

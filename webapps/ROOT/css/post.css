@@ -1,7 +1,7 @@
 
 /* this is needed so the scrollintoview picset works because the scrollable vertical space does not exist before all images load */
 #maincontent {
-  margin-bottom: 300px;
+  margin-bottom: 100px;
 }
 h2 {
   text-align:center;
@@ -164,7 +164,7 @@ a.piclink {
   }
 
   #picdt {
-    font-size: 11px; 
+    font-size: 11px;
     width: 3em;
   }
 }
