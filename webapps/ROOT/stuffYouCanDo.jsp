@@ -28,20 +28,21 @@ Your pictures contain a wealth of information. DEW has created software to help 
            <div class="col-md-4">
        <h2>Where to Begin?</h2>
 
-          <LI><A href="http://picturepost.unh.edu/map.jsp" title="map of posts">
+          <li><A href="http://picturepost.ou.edu/taking_photos.jsp" title="take and upload pictures">Take and upload pictures.</a></li>
+          <li><A href="http://picturepost.ou.edu/map.jsp" title="map of posts">
                        Find posts on the map and add posts to my favorites list.</li>
-          <Li><A href="http://picturepost.unh.edu/nearme.jsp" title="nearby posts">Visit nearby Picture Posts.</a></LI>
-          <LI><A href="http://picturepost.unh.edu/help.jsp" title="start a new post">Start my own Picture Post.</a></LI> 
-          <li><A href="http://picturepost.unh.edu/taking_photos.jsp" title="take and upload pictures">Take and upload pictures.</a></LI> 
-          <LI>Make comments.</LI>
-          <LI><A href="http://picturepost.unh.edu/news.jsp" title="news">View pictures to observe change.</a></LI> 
-          <li><a href="gallery-newsletters.jsp" title="newsletters">Read about picture post projects in our Newsletters.</a></li>
-          <li><a href="http://panopicturepost.tumblr.com" title="tumblr blog of panoramas">Follow us on Tumblr.</a></li>
-          <li><a href="https://picturepost.unh.edu/mobileapps.jsp" target="_blank">iPhone Users - Get the iPhone app! (You will be asked to add your mobile number to your Profile).</a></li>  
+          <li><A href="http://picturepost.ou.edu/nearme.jsp" title="nearby posts">Visit nearby Picture Posts.</a></li>
+          <li><A href="http://picturepost.ou.edu/help.jsp" title="start a new post">Start my own Picture Post.</a></li> 
+           
+          <!-- <LI>Make comments.</LI> -->
+          <li><A href="http://picturepost.ou.edu/news.jsp" title="news">View pictures to observe change.</a></li> 
+          <!--<li><a href="gallery-newsletters.jsp" title="newsletters">Read about picture post projects in our Newsletters.</a></li> -->
+          <!--<li><a href="http://panopicturepost.tumblr.com" title="tumblr blog of panoramas">Follow us on Tumblr.</a></li> -->
+          <!--<li><a href="https://picturepost.ou.edu/mobileapps.jsp" target="_blank">iPhone Users - Get the iPhone app! (You will be asked to add your mobile number to your Profile).</a></li>-->
 
 
             </h2><h2>Citizen Science Academy</h2>
-             <img class='shadow pull-left' style='margin:0 16px 16px 0;' src="/images/CSA-CBG-logo.png" width="300"  alt="CSA Academy"  border="1px"> 
+             <img class='shadow pull-left' style='margin:0 30px 16px 0;' src="/images/CSA-CBG-logo.png" width="300"  alt="CSA Academy"  border="1px"> 
         <p class=clearfix>Learn about using Picture Posts and related citizen science programs in educational settings. Low-cost online courses are offered several times a year by the Chicago Botanical Garden.</p>
          <p align="center"></p><a class="btn btn-default" href="https://www.chicagobotanic.org/education/citizen_science_academy" title="Chicago Botanical Garden Citizen science academy" target="_blank" role="button">See More</a></p> 
          

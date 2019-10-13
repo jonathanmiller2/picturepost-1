@@ -52,7 +52,7 @@
                       </UL>
                       
                       <H2>Ready?</H2>
-                      	<UL><LI><a href= "http://picturepost.unh.edu/help.jsp" target="_blank">Get Started Here!</a></LI></UL>
+                      	<UL><LI><a href= "http://picturepost.ou.edu/help.jsp" target="_blank">Get Started Here!</a></LI></UL>
 
  </div>
    <div class="col-md-4">

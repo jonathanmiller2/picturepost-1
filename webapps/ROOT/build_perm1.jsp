@@ -70,8 +70,8 @@
                             <LI>Cut 5-inch octagon
                             <LI>Center and glue 5&quot; octagon to 9&quot; disc
                             <LI>Polyurethane with several coats
-                            <LI>DIY Post Top Templates <a href="http://picturepost.unh.edu/resources/pictureposttemplate9in.pdf" target="_blank" name="template simple">Simple</a> and
-                          <a href="http://picturepost.unh.edu/resources/Posttop-multi-instructions.pdf" target="_blank" name="template multi">Multiple Picture Angles</a>
+                            <LI>DIY Post Top Templates <a href="http://picturepost.ou.edu/resources/pictureposttemplate9in.pdf" target="_blank" name="template simple">Simple</a> and
+                          <a href="http://picturepost.ou.edu/resources/Posttop-multi-instructions.pdf" target="_blank" name="template multi">Multiple Picture Angles</a>
 </ul></p>
 
 </div>
@@ -136,7 +136,7 @@
 
               <p class=clearfix>Clear and easy-to-follow instructions are a key to a successful Picture Post. We have put together a collection of signs for you to review. Choose the best one for your post.</p>
              <p class=clearfix><img class='shadow pull-left'  src="images/signs-composite.jpg" alt="medley of signs"></P>
-              <p><a class="btn btn-default" href="https://picturepost.unh.edu/gallery-posttypes.jsp" role="button">Show me!</a></p>
+              <p><a class="btn btn-default" href="https://picturepost.ou.edu/gallery-posttypes.jsp" role="button">Show me!</a></p>
  </p>
              <H3>Now, PHOTOGRAPH AWAY!!</H3>                     
 </div> 

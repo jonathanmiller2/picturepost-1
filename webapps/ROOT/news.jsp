@@ -112,7 +112,7 @@ if (! wu.param("q").equals("")) {
 <div id=picpostnewscustom>
  <li><a href="gallery-newsletters.jsp" title="newsletters">Newsletters</a></li>
           <li><a href="https://www.instagram.com/dewpicpost/" target="_blank" title="instagram blog of panoramas"><img src="/images/InstaG_Glyph_Filllogo.png" width="60"  alt="Instagram glyph"></a>&nbsp&nbsp
-          <a href="https://twitter.com/dewpicpost" target="_blank" title="twitter link"><img src="/images/twitterlogo.png" width="60"  alt="Twitter logo"></a>&nbsp&nbsp Follow us on social media! <strong></br>@dewpicpost #dewpicpost</strong></li>
+          <!-- <a href="https://twitter.com/dewpicpost" target="_blank" title="twitter link"><img src="/images/twitterlogo.png" width="60"  alt="Twitter logo"></a>&nbsp&nbsp Follow us on social media! <strong></br>@dewpicpost #dewpicpost</strong></li> -->
           <br>
 </div>
 <%
