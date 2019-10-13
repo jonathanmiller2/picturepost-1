@@ -11,8 +11,10 @@
 
 <BODY>
 <%@ include file="/includes/header.jsp" %>
-
-<DIV id="container" style="padding-left:10px; padding-right:10px"> <!-- start container -->
+<% String redirectURL = "http://www.ou.edu/publicaffairs/webpolicies/termsofuse"; 
+response.sendRedirect(redirectURL);
+%>
+<!-- <DIV id="container" style="padding-left:10px; padding-right:10px"> 
 
 <P><font size="5"><b>Web Site Terms and Conditions of Use</b></font><br>
   Welcome to picturepost.unh.edu. This site includes access to information and web-based resources related to Digital Earth Watch and Picture Post. The Site is developed and maintained by the University System of New Hampshire. </P>
@@ -104,7 +106,7 @@
 <P>&nbsp;</P>
 <P>&nbsp;</P>
 
-</DIV> <!-- end container -->
+</DIV> -->
 
 <%@ include file="/includes/footer.jsp" %>
 </BODY>
