@@ -21,7 +21,7 @@
   <div class="row">
 
      <div class="col-md-4">
- <h3 align="left" class="h3navy"><a href="/newslettersignup.jsp" target="_self">Sign up here for our Monthly Newsletter!</a></h3>
+ <!--<h3 align="left" class="h3navy"><a href="/newslettersignup.jsp" target="_self">Sign up here for our Monthly Newsletter!</a></h3>-->
    
 
 
