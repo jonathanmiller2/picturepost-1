@@ -28,14 +28,14 @@
         <ul>
           <li><a href="https://www.instagram.com/dewpicpost/" title="instagram blog of panoramas">Instagram - we share your pics here!</a></li>
           <Li><A href="gallery-newsletters.jsp" title="newsletters">Newsletters</A>
-         <Li><A href="gallery-media.jsp" title="media archive">Blogs, Popular Articles, Research Articles</A>
+         <!--<Li><A href="gallery-media.jsp" title="media archive">Blogs, Popular Articles, Research Articles</A> -->
         <Li><A href="gallery-downloadables.jsp" title="Materials for Download">Downloadable Picture Post Logos, Promotional Materials, Brochures</A>
+        <li><A href="gallery-posttypes.jsp" title="Types of Picture Posts and Informational Signs">Gallery of Post Designs and Informational Signs</A>
          </ul> 
 </div> 
     <div class="col-md-6" style="font-size:small">
  
          <ul>
-         <li><A href="gallery-posttypes.jsp" title="Types of Picture Posts and Informational Signs">Gallery of Post Designs and Informational Signs</A>
            <Li><A href="stuffYouCanDo.jsp" title="stuffyoucando">Stuff I Can Do</A>
          <Li><A href="community-educators.jsp" title="educators">Projects for Educators</A>
          <Li><A href="help.jsp" title="help">Help!</A>

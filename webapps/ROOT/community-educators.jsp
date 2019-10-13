@@ -64,7 +64,7 @@
       <Li><a href="https://itunes.apple.com/us/book/id1086864270" title="iBook Monitoring Environmental Change with iPads" target="_blank">iBook: Monitoring Environmental Change with iPads</a> 
       <Li><a href="https://itunes.apple.com/us/app/canopyapp/id926943048?mt=8" title="Canopy App iTunes" target="_blank">Canopy App - iTunes</a> 
       <Li><a href="https://play.google.com/store/apps/details?id=edu.unh.mobile.canopyapp&hl=en" title="Canopy App Google Play" target="_blank">Canopy App - Google Play</a> </br>
-        <p class=clearfix><a class="btn btn-default" href="/cider.jsp" title="CIDER website"  role="button">Show Me More</a></p>
+        <!-- <p class=clearfix><a class="btn btn-default" href="/cider.jsp" title="CIDER website"  role="button">Show Me More</a></p> -->
      </div>
 
     <div class="col-md-4">
@@ -93,13 +93,13 @@
  <div>Using Citizen Science Data in the Classroom (CSA 521) - downloadable files of pictures to use in a <strong>Case Study</strong> on measuring trees using Picture Post data and the DEW ADI software. 
          <p class=clearfix><a class="btn btn-default" href="http://citizenscienceacademy.org"  target="_blank" title="CSA website" role="button">Learn More About Citizen Science Academy</a></p>
 </div> 
-         <H4>Get the Files</H4>
+         <!-- <H4>Get the Files</H4>
                <Li><a href="/resources/Post_9_2009-trunk.zip" title="Post 9 2009 trunk Zip download" target="_blank">Post9 Tree Trunk Pictures for 2009 (65 mbyte Zip file)</a> 
                <Li><a href="/resources/Post_9_2009-canopy.zip" title="Post 9 2009 canopy Zip download" target="_blank">Post9 Canopy Pictures for 2009 (70 mbyte Zip file)</a>
                <Li><a href="/resources/Post_9-2015-trunk.zip" title="Post 9 2015 trunk Zip download" target="_blank">Post9 Tree Trunk Pictures for 2015 (33 mbyte Zip file)</a> 
                <Li><a href="/resources/Post_9_2015-canopy.zip" title="Post 9 2015 canopy Zip download" target="_blank">Post9 Canopy Pictures for 2015 (24 mbyte Zip file)</a> 
                <Li><a href="/resources/Post_428_2015-trunk.zip" title="Post 428 2015 trunk Zip download" target="_blank">Post428 Tree Trunk Pictures for 2015 (42 mbyte Zip file)</a> 
-               <Li><a href="/resources/Post_428_2015-canopy.zip" title="Post 428 2015 canopy Zip download" target="_blank">Post428 Canopy Pictures for 2015 (38 mbyte Zip file)</a> 
+               <Li><a href="/resources/Post_428_2015-canopy.zip" title="Post 428 2015 canopy Zip download" target="_blank">Post428 Canopy Pictures for 2015 (38 mbyte Zip file)</a> -->
   </div> 
 
 

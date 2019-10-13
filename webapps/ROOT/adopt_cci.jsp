@@ -63,13 +63,13 @@ Researchers developed this greenness index to study the effects of climate chang
  <div class=row></div>         
 </div>     
 
- <div class=row>
+ <!--<div class=row>
 	     <H3>Watch this Help Video will walk you through the steps to calculate the index on your post page.</h3>
 	                      
-<!--	                     <p><video id="greennesshelpvideoweb" src="resources/greennesshelpvideoweb.mp4" controls></video> </p>
--->
+	                     <p><video id="greennesshelpvideoweb" src="resources/greennesshelpvideoweb.mp4" controls></video> </p>
+
          <p><a href="https://youtu.be/RJ1ZImdx9-c" title="Youtube greenness index help video link"><img src="/images/movie_player.png"  alt="movie player icon"  border="1px"></a></p>
-</div>
+</div> -->
 
 <div class=row>
 <div class=col-lg-8>
