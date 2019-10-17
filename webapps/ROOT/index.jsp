@@ -77,7 +77,7 @@ String picsJSON = WebUtil.dbJsonArray(rs).toString();
         <a href='/news.jsp'>
          <img class='shadow pull-left' src=/images/panoramic.jpg style='margin:0 16px 16px 0;' alt="aligning the camera">
         </a>
-        View the latest articles, uploaded picture sets, and new post installations. Search the Picture Post digital archives by keyword. <a href=/newslettersignup.jsp>Sign up for the monthly newsletter.</a> <a href=https://www.instagram.com/dewpicpost/ target=_blank>Follow us on Instagram.</a>
+        View the latest articles, uploaded picture sets, and new post installations. Search the Picture Post digital archives by keyword. <!-- <a href=/newslettersignup.jsp>Sign up for the monthly newsletter.</a> --> <a href=https://www.instagram.com/dewpicpost/ target=_blank>Follow on Instagram.</a>
       <p><a class="btn btn-default" href="/news.jsp" role="button">View PictureSets</a></p> 
     </div>
 
@@ -89,10 +89,10 @@ String picsJSON = WebUtil.dbJsonArray(rs).toString();
         </a>
          <a href=/help.jsp>Plan</a> a Picture Post project.
 <a href=/buy.jsp>Buy</a> or <a href=/build.jsp>build</a> your own picture post. After the picture post is installed, <a href=/help_addpost.jsp>register</a> your post so the picture post community can visit and upload picture sets at your post.    </div>
-<div align=center>
+<!--<div align=center>
   <h4>We host 100,000 pictures and counting.</h4><p>Help us keep our photo archive freely available to everyone!</p>
   <a class="btn btn-primary" href=https://picturepost.unh.edu/community-donate.jsp>Give</a>
-</div>
+</div> -->
 
   </div>
 </div>
