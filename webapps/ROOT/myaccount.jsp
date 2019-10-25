@@ -155,7 +155,7 @@ h2 {
     <div class='pull-left' id=myprofilecmds>
       <a class="btn btn-default" href=/myprofile.jsp>edit my profile</a>
       <a class="btn btn-default" href=/changepassword.jsp>change password</a>
-      <a class="btn btn-default" href=/newslettersignup.jsp>newsletter signup</a>
+      <!-- <a class="btn btn-default" href=/newslettersignup.jsp>newsletter signup</a> -->
       <a class="btn btn-default" id=MobileAppDownloadLink href=/mobileapps.jsp>download mobile app</a>
       <a class="btn btn-default" href=/login.jsp>logout</a>
     </div>
