@@ -1,8 +1,14 @@
 <html>
 <head>
 <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+
+<!--
 <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-<script src="//maps.google.com/maps/api/js?sensor=false"></script>
+<script src="//maps.gogle.com/maps/api/js?sensor=false"></script>
+-->
+
+<script src="//code.jquTESTery.com/jquery-1.11.3.min.js"></script>
+<script src="//maps.gooTESTgle.com/maps/api/js?sensor=false&key=<%=GMAPS_API_KEY%>"></script>
 <script>
 
 $(window).resize(function(){
@@ -61,7 +67,7 @@ function initialize() {
   });
   var marker = new google.maps.Marker({
     position: latLng,
-    title: 'Point A',
+    title: 'Point A TEST TEST TEST',
     map: map,
     draggable: true
   });
@@ -128,14 +134,14 @@ body {
 
 <div id=dialoganchor>
   <div id="infoPanel">
-    <strong>Drag map marker to location.</strong>
+    <strong>Drag map marker to location. TEST TEST TEST</strong>
     <div id="address"></div>
     <div id="info">
       <span id=lat></span>, <span id=lon></span>
     </div>
     <p>
-    <button id=Cancelbut>cancel</button>
-    <button id=OKbut>ok</button>
+    <button id=Cancelbut>Cancel</button>
+    <button id=OKbut>Ok</button>
   </div>
 </div>
 </body>

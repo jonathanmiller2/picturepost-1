@@ -205,47 +205,47 @@ label {
   <input type=hidden name=postId value='<%=wu.eparam("postId")%>'>
 
   <p>
-  <label>post name
+  <label>Post Name
     <input class=form-control type=text name=name maxlength=255 required value='<%=wu.eparam("name")%>'>
   </label>
 
   <p>
-  <label>description 
+  <label>Description 
     <textarea rows=5 class=form-control name=descr maxlength=4096 required><%=wu.eparam("descr")%></textarea>
   </label>
 
   <p>
-  <label>install date
+  <label>Install Date
     <input class=form-control type=date name=installdt required value='<%=wu.eparam("installdt")%>'>
   </label>
 
   <p>
-  <label>owner email
+  <label>Owner's Email
     <input class=form-control type=email name=owneremail required value='<%=wu.eparam("owneremail")%>'>
   </label>
 
   <fieldset>
-    <legend>location</legend>
+    <legend>Location</legend>
     <div style='width:10em;display:inline-block;'>
-      <label>latitude<input type=text class=form-control name=lat id=lat required value='<%=wu.eparam("lat")%>'></label>
-      <label>longitude<input type=text class=form-control name=lon required value='<%=wu.eparam("lon")%>'></label>
+      <label>Latitude<input type=text class=form-control name=lat id=lat required value='<%=wu.eparam("lat")%>'></label>
+      <label>Longitude<input type=text class=form-control name=lon required value='<%=wu.eparam("lon")%>'></label>
     </div>
-    <button style='position:relative;top:-2em;'type=button class="btn btn-default SelectLocationWidget">find</button>
+    <button style='position:relative;top:-2em;'type=button class="btn btn-default SelectLocationWidget">Find</button>
   </fieldset>
 
   <fieldset>
-    <legend>post photos</legend>
+    <legend>Post Photos</legend>
     <div id=postphotos style='max-height:200px; overflow:auto;'>
       <% for (int id : postpics) { %>
         <img data-id="<%=id%>" src="/images/pictures/post_<%=p.getPostId()%>/post_picture_<%=id%>_thumb.jpg">
       <% } %>
     </div>
     <div class=formfileuploadbut>
-      <button type=button class="btn btn-default">upload</button>
+      <button type=button class="btn btn-default">Upload</button>
       <input id=postphotoupload type=file accept='image/jpeg'>
     </div>
     <span id=photoops style='visibility:hidden;'>
-      <button id=DeletePhotoBut type=button class="btn btn-danger">delete photo</button>
+      <button id=DeletePhotoBut type=button class="btn btn-danger">Delete Photo</button>
     </span>
   </fieldset>
 
@@ -262,9 +262,9 @@ label {
   <% } %>
 
   <hr>
-  <a href="post.jsp?postId=<%=p.getPostId()%>" class="btn btn-default">cancel</a>
-  <button id=DeletePostBut class="btn btn-danger" type=button value=delete>delete post</button>
-  <button class="btn btn-primary" type=submit name=act value=save>save</button>
+  <a href="post.jsp?postId=<%=p.getPostId()%>" class="btn btn-default">Cancel</a>
+  <button id=DeletePostBut class="btn btn-danger" type=button value=delete>Delete Post</button>
+  <button class="btn btn-primary" type=submit name=act value=save>Save</button>
 
 </form>
 </div>
