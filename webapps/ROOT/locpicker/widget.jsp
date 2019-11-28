@@ -1,20 +1,16 @@
+<%@ include file="/includes/common.jsp" %>
+<%
+String GMAPS_API_KEY = Config.get("GOOGLE_MAPS_KEY");
+%>
 <html>
 <head>
 <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 
-<!--
 <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-<script src="//maps.gogle.com/maps/api/js?sensor=false"></script>
--->
-
-<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-
-<!-- The Google API key is duplicated from the main configuration file here-->
-<!-- This is horrible and I hate it but I haven't figured out how to fix it yet-->
-<script src="//maps.google.com/maps/api/js?key=AIzaSyCtE7b-E7rObaPmmNhF2MPBkz4EjzVB48U"></script>
-
+<script src="//maps.google.com/maps/api/js?key=<%=GMAPS_API_KEY%>"></script>
 
 <script>
+
 $(window).resize(function(){
   $("#mapCanvas").css({ height: $(window).height(), width: $(window).width() });
 });
