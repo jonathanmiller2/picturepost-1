@@ -55,7 +55,7 @@
       <a href=" http://acmi.tv/videos/million-dollar-gift-open-space-committee-part-2/"  target="_blank"><img src="/images/arlingtonvideo2017.jpg" width="210"   alt="Arlington Video Start"  border="1px"><p><strong class="h3plum">Million Dollar Gift - Arlington MA Open Space Committee Video, Aug 2017 </strong> </p></a>
                         </div>
                         <p>
-                        <SPAN class="smallText">John Pickle, the founder of Picture Post, is also a member of the Arlington MA Open Space Committee. He explains the project, where citizens can take pictures at designated locations in town. <i>Million Dollar Gift is a series which celebrates and quantifies the contribution of volunteers on Arlington’s committees and their impact on the community.</i></p><hr></br>
+                        <SPAN class="smallText">John Pickle, the founder of Picture Post, is also a member of the Arlington MA Open Space Committee. He explains the project, where citizens can take pictures at designated locations in town. <i>Million Dollar Gift is a series which celebrates and quantifies the contribution of volunteers on Arlingtonï¿½s committees and their impact on the community.</i></p><hr></br>
 
           <div align="center">
           <img src="/images/nasaspaceappslogobot.png" width="210" height="60"  alt="NASA Space Apps Banner"  border="1px">
@@ -149,7 +149,7 @@
                         <SPAN class="smallText">This blog describes a plan at Penn State University to monitor the campus landscape along with ongoing campus development projects.</SPAN><BR>
                          <SPAN class="smallerText"><a href="http://news.psu.edu/story/320053/2014/07/03/research/sophomore%E2%80%99s-field-research-looks-environmental-change" target="_blank" title="Meet the Student">Meet our student!</a></SPAN></p><hr></br>
                          
-      <div align="center"><A href="http://babelniche.wordpress.com/2011/01/24/crowd-sourced-ecology-the-picture-post/" title="Blog and video on Menotomy Rocks Park posts" target="_blank"><img src="/images/menotomy-articlepic.jpeg" width="210"  alt="Menotomy blogr"  border="1px"><p><strong class="h3plum">Crowd-sourced Ecology – the Picture Post</strong></p></A>
+      <div align="center"><A href="http://babelniche.wordpress.com/2011/01/24/crowd-sourced-ecology-the-picture-post/" title="Blog and video on Menotomy Rocks Park posts" target="_blank"><img src="/images/menotomy-articlepic.jpeg" width="210"  alt="Menotomy blogr"  border="1px"><p><strong class="h3plum">Crowd-sourced Ecology ï¿½ the Picture Post</strong></p></A>
       </div>
       <p>
      <SPAN class="smallText">Read the blog and view a video of pictures (with music!) from the first picture post at Menotomy Rocks Park, still going strong.</span></p><hr></br>
@@ -169,7 +169,7 @@
                         <ul>
                         <li><a href="https://www.instagram.com/dewpicpost/" target="_blank"> Follow us on Instagram</a></li>
                         <li><a href="http://panopicturepost.tumblr.com" target="_blank">We also post panoramas on Tumblr</a></li>
-                        <li><a href="https://picturepost.unh.edu/gallery-newsletters.jsp" target="_blank">Read and Share our Newsletter!</a></li>
+                        <li><a href="https://picturepost.ou.edu/gallery-newsletters.jsp" target="_blank">Read and Share our Newsletter!</a></li>
                         </ul></SPAN><hr></br>
                         
                         <H4>CIDER Teacher Resources and Student Posters</H4>

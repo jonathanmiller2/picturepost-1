@@ -150,7 +150,7 @@ if (!pictureOptions.equals("metadata") && !pictureOptions.equals("satelliteTrueC
     pictureOptions = "satelliteTrueColor";
 }
 %>
-<%@ include file="/includes/header.jsp" %>
+<%@ include file="../includes/header.jsp" %>
 <link rel="stylesheet" type="text/css" href="USMscripts/src/plugins/dist/jquery.jqplot.css">
 <link rel="stylesheet" type="text/css" href="USMscripts/src/stylesheets/PopupStyle.css">
 <link rel="stylesheet" type="text/css" href="USMscripts/src/stylesheets/SelectionBox.css">

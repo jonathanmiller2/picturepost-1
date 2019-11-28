@@ -41,7 +41,7 @@ Click on the images to visit our partner sites.</div>
  
      <div class="row">
            <div class="col-md-4">
-           <A href="http://www.usm.maine.edu/cehd/"><img class='shadow pull-left' style='margin:0 16px 16px 0;' src="images/logo_usm.png" alt="University of Southern Maine logo" width="78" border="1px" /></A>
+           <img class='shadow pull-left' style='margin:0 16px 16px 0;' src="images/logo_usm.png" alt="University of Southern Maine logo" width="78" border="1px" />
                         <p class=clearfix align="center">College of Education and <BR />
                        Human Development<BR />
                        University of Southern Maine<BR />
@@ -49,7 +49,7 @@ Click on the images to visit our partner sites.</div>
 </div>
 
       <div class="col-md-4">
-<A href="http://www.lhs.berkeley.edu/"><img class='shadow pull-left' style='margin:0 16px 16px 0;' src="images/logo_gss.gif" alt="Lawrence Hall of Science logo" width="155" border="1px" /></A>
+        <img class='shadow pull-left' style='margin:0 16px 16px 0;' src="images/logo_gss.gif" alt="Lawrence Hall of Science logo" width="155" border="1px" />
                         <P class=clearfix align="center">Lawrence Hall of Science<BR />
                          University of California, Berkeley<BR />
                          Berkeley, CA </P>

@@ -334,24 +334,24 @@
     },1);
   });
 
-
+  
   // Facebook share
-  $(".shareActivePicsetOnFacebook").click(function(e){
-    e.preventDefault();
-    var sharelink = location.href.replace(/\?.*/,'') + '?pic=' + currentPicId;
-
-    // open facebook share dialog
-    FB.ui({
-      method: 'share_open_graph',
-      action_type: 'og.likes',
-      action_properties: JSON.stringify({
-        object: sharelink
-      })
-    }, function(response){
-      // Debug response (optional)
-      //console.log(response);
-    });
-  });
+  // $(".shareActivePicsetOnFacebook").click(function(e){
+  //  e.preventDefault();
+  //  var sharelink = location.href.replace(/\?.*/,'') + '?pic=' + currentPicId;
+  //
+  //  // open facebook share dialog
+  //  FB.ui({
+  //    method: 'share_open_graph',
+  //    action_type: 'og.likes',
+  //    action_properties: JSON.stringify({
+  //      object: sharelink
+  //    })
+  //  }, function(response){
+  //    // Debug response (optional)
+  //    //console.log(response);
+  //  });
+  //});
 
   ///////////////////
   // Comment system

@@ -28,7 +28,7 @@
 </script>
 <script src=/js/system.js></script>
 
-<link rel="stylesheet" type="text/css" media="all" href="ou-global-header.css" />
+<link rel="stylesheet" type="text/css" media="all" href="/ou-global-header.css" />
 </head>
 <body>
 

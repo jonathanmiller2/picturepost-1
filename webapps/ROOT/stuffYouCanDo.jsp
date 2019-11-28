@@ -63,7 +63,7 @@ Your pictures contain a wealth of information. DEW has created software to help 
                         <LI><A href="adopt_treeDBH.jsp" title="Adopt a Tree Diameter (DBH)">Adopt a Tree Diameter (DBH) </A> - Measure the changing diameter of one or more trees. 
                         
                         <LI><A href="adopt_canopy.jsp" title="Adopt a Canopy">Adopt a Canopy </A> - Capture the seasonal changes in percent leaf cover in a forest canopy. 
-                         <LI><A href="adopt_cci.jsp" title="Adopt a climate change indicator">Adopt a Climate Change Indicator </A> - Track the timing of seasonal changes in greenness in existing pictures. 
+                         <!-- <LI><A href="adopt_cci.jsp" title="Adopt a climate change indicator">Adopt a Climate Change Indicator </A> - Track the timing of seasonal changes in greenness in existing pictures. -->
                         <LI><A href="adopt_season.jsp" title="Adopt a Season">Adopt a Season </A> - Record the changing fall colors in deciduous trees. 
                          <LI><A href="https://www.usanpn.org/nn/groups/phenology-trail" target="_blank" title="USANPN phenology trail resources">Set up a Phenology Walk </A> - Set up a site to highlight seasonal changes, aka - phenology, in plants.                       
                       </UL>

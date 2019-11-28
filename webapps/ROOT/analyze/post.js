@@ -346,8 +346,9 @@ function updatePictureInfo() {
         var lat0 = parseFloat(postLat) - 1.3;
         var lat1 = parseFloat(postLat) + 1.3;
         var extent = lon0+','+lat0+','+lon1+','+lat1;
-        var mapurl = "https://earthdata.nasa.gov/labs/worldview/?t=" + ymd + "&v=" + extent;
-        var imgsrc = "http://map2.vis.earthdata.nasa.gov/image-download?TIME="+ymd+"&extent="+extent+"&epsg=4326&layers=MODIS_Terra_CorrectedReflectance_TrueColor,Coastlines&opacities=1,1&worldfile=false&format=image/jpeg&width=430&height=300"; 
+        var mapurl = "https://worldview.earthdata.nasa.gov/?t=" + ymd + "&v=" + extent;
+        var extent = lat0+','+lon0+','+lat1+','+lon1;   //These URL's handle lat/long in a different order
+        var imgsrc = "https://wvs.earthdata.nasa.gov/api/v1/snapshot?REQUEST=GetSnapshot&TIME="+ymd+"&BBOX="+extent+"&epsg=4326&layers=MODIS_Terra_CorrectedReflectance_TrueColor,Coastlines&opacities=1,1&worldfile=false&format=image/jpeg&width=430&height=300"; 
         $("#pictureInfoDiv").html("<a target=_blank id=SatImg href='"+mapurl+"' title='click to open interactive map courtesy of NASA Worldview'><img onload='handleSatImgLoad();' onerror='handleSatImgError();' src='"+imgsrc+"'></a><div id=SatImgMsg>Loading satellite imagery ...</div>");
       } else {
         $("#pictureInfoDiv").html("");

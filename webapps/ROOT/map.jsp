@@ -9,7 +9,7 @@ String GMAPS_API_KEY = Config.get("GOOGLE_MAPS_KEY");
 %>
 <%@ include file="/includes/header.jsp" %>
 
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=<%=GMAPS_API_KEY%>&callback=initMap" type="text/javascript"></script>
+
 <script src=js/markercluster.js></script>
 <script>
 function initMap() {
@@ -63,6 +63,9 @@ $(function(){
 });
 }
 </script>
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=<%=GMAPS_API_KEY%>&callback=initMap" type="text/javascript"></script>
+
 <style>
 body {
   margin: 0;

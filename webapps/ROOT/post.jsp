@@ -418,7 +418,7 @@ if (p == null) return;
 
   <hr style='border-color: #ddd;'>
   <div id=picsetcmds style='text-align:right;'>
-    <a href=# class="btn btn-default btn-facebook shareActivePicsetOnFacebook" title="Share picture set on facebook"><img src=../images/facebookicon.png> share</a>
+    <!-- <a href=# class="btn btn-default btn-facebook shareActivePicsetOnFacebook" title="Share picture set on facebook"><img src=../images/facebookicon.png> share</a>-->
 
     <% if (sessionuser.getAdmin() || sessionuser.getPersonId()==p.postmaster_person_id){ %>
     <a class="btn btn-default" id=picsetEditBut href=#>edit</a>

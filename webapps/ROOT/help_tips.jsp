@@ -80,7 +80,7 @@
 
                         <H2>Need Help Planning Your Project? - Look Here:</H2>
                         <UL>
-                        <LI><a href="https://crowdsourcing-toolkit.sites.usa.gov/howto/" target="_blank">The Citizen Science Toolkit</a> is a great resource for planning projects.
+                        
 						<LI><a href="http://scistarter.com/index.html" target="_blank">SciStarter</a> features many projects and member blogs.
                         </UL> 
 </div>
