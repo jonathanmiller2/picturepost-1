@@ -76,23 +76,23 @@
     <div class="col-md-4">
     </div>
 
-  <div class="col-md-4">
+  <!-- <div class="col-md-4">
     <h3>4-sided Brochure</h3>
      <p class=clearfix>
      <div align="center">
      <img class='shadow pull-left'  src="/images/brochure1.jpg" width="200" style='margin:0 16px 16px 0;' alt="AlyssiaN brochure 2009"  border="1px">
      </div>
    <p class=clearfix><A href="/resources/brochure2009-optimized.pdf" target="_blank" title="4 page brochure 2009">View our brochure.</a> Please <a href=contact.jsp>contact us</a> and we'll send you some!</p>
-</div>                        
+</div> -->                       
 
-  <div class="col-md-4">
+  <!-- <div class="col-md-4">
     <h3>8-Page Promotional Booklet</h3>
      <p class=clearfix>
       <div align="center">
       <img class='shadow pull-left'  src="/images/ppostflyerpic.jpg" width="200"   style='margin:0 16px 16px 0;' alt="2013 booklet cover"  border="1px">
       </div>
       <p class=clearfix><A href="/resources/Booklet2013-viewer.pdf" target="_blank" title="View the Booklet">View our booklet.</a> Please <a href=contact.jsp>contact us</a> and we'll send you some!</SPAN></p>
-</div>
+</div> -->
 </div>
 
   <div class="row">
