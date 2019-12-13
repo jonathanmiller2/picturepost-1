@@ -12,6 +12,12 @@ String picsJSON = WebUtil.dbJsonArray(rs).toString();
 
 <div class="jumbotron">
   <div class="container">
+    <p>We've moved! The picturepost project is now hosted by The University of Oklahoma. There may be some issues as we complete this transfer. If you see something, please contact us at picturepostsupport@ou.edu.</p>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <div class="container">
     <div class="row">
       <div class="col-lg-7">
         <h1 id=aboutheader><img src=images/logo.png alt="picture post logo"><span>picture post</span></h1>

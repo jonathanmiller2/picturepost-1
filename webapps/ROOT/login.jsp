@@ -118,8 +118,8 @@ else if ("internallogin".equals(wu.param("act"))) {
     </div>
      
 
-    <!--<hr style='border-color: #ddd; clear:both;'> -->
-    <!-- <a id=Facebooklogin href=# class="btn btn-default btn-facebook"><img src=../images/facebookicon.png> Log In with Facebook</a> -->
+    <!--<hr style='border-color: #ddd; clear:both;'>
+    <a id=Facebooklogin href=# class="btn btn-default btn-facebook"><img src=../images/facebookicon.png> Log In with Facebook</a> -->
   </form>
 </div>
 

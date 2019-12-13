@@ -11,7 +11,7 @@
 
 <BODY>
 <%@ include file="/includes/header.jsp" %>
-<% String redirectURL = "http://www.ou.edu/publicaffairs/webpolicies/termsofuse"; 
+<% String redirectURL = "http://www.ou.edu/marcomm/web-policies/termsofuse"; 
 response.sendRedirect(redirectURL);
 %>
 <!-- <DIV id="container" style="padding-left:10px; padding-right:10px"> 
