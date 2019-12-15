@@ -7,9 +7,6 @@ System Setup
 yum install -y epel-release
 sudo yum -y install git httpd ant tomcat-webapps postgresql-jdbc perl-DBD-Pg perl-Digest-SHA postgis2_94 postgis2_94-client postgis2_94-utils ImageMagick pgbouncer
 
-#NO PACKAGES postgis2_94... FOUND
-#NO PACKAGE pgbouncer FOUND
-
 
 # initialize postgres database
 # (paths differs depending on postgres version) #CANNOT FIND#
