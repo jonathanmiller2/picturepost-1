@@ -7,7 +7,9 @@ System Setup
 yum install -y epel-release
 sudo yum -y install git httpd ant tomcat-webapps postgresql-jdbc perl-DBD-Pg perl-Digest-SHA postgis2_94 postgis2_94-client postgis2_94-utils ImageMagick pgbouncer
 
-#We didn't install pgbouncer, it seems to be gone
+#We didn't install pgbouncer, it seems to be gone  
+http://serverautocom.blogspot.com/2017/06/how-to-install-pgbouncer-on-centos-6.html  
+Add RPM from here? https://yum.postgresql.org/repopackages.php  
 
 #Unsure of this
 sudo yum -y install postgis postgis-utils 
