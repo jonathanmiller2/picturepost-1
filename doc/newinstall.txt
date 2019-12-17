@@ -4,20 +4,28 @@ System Setup
 # Instructions for RHEL 7/Scientific Linux 7
 
 # install OS dependencies
-yum install -y epel-release
-sudo yum -y install git httpd ant tomcat-webapps postgresql-jdbc perl-DBD-Pg perl-Digest-SHA postgis2_94 postgis2_94-client postgis2_94-utils ImageMagick pgbouncer
-
-#We didn't install pgbouncer, it seems to be gone  
-http://serverautocom.blogspot.com/2017/06/how-to-install-pgbouncer-on-centos-6.html  
-Add RPM from here? https://yum.postgresql.org/repopackages.php  
+sudo yum install -y epel-release
+sudo yum -y install git wget httpd ant tomcat-webapps postgresql-jdbc perl-DBD-Pg perl-Digest-SHA ImageMagick  
 
 #Unsure of this
 sudo yum -y install postgis postgis-utils 
 
+#Find postgresql version
+psql --version
+
+#Go to https://yum.postgresql.org/repopackages.php and find the link for the rpm for your OS/Psql version
+#For CentOS7 and PSQL 9.2.?? (not sure which ??'s work), use:
+#https://download.postgresql.org/pub/repos/yum/9.2/redhat/rhel-7-x86_64/pgdg-centos92-9.2-3.noarch.rpm
+
+#WGet the RPM for the version of SQL that matches your PSQL version
+sudo wget [RPM LINK]
+sudo rpm -ivh [PATH TO FILE THAT WGET MADE] 
+sudo yum -y install pgbouncer
+
 #This may not be needed
 sudo yum -y install postgresql-server postgresql-contrib
 
-#Set up locate command (optional)
+#Set up locate and command (optional)
 sudo yum -y install git mlocate
 sudo updatedb
 
