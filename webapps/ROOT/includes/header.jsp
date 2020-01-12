@@ -82,7 +82,8 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li><a href="/news.jsp">News</a>
-        <li><a href="/map.jsp" title='find a post on a map'>Map</a>
+        <li><a href="/map.jsp" title='Find a post on a map'>Map</a>
+        <li><a href="http://eomf.ou.edu/photos/">EOMF Site</a>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Resources<span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -105,6 +106,7 @@
           <a href="/login.jsp" style='padding: 15px;'>Login</a>
         <% } %>
         </li>
+        
       </ul>
 
       <div class="input-group hidden-xs" style="padding: 8px;" title="search news, post names, location, photographer, keywords, ..">
