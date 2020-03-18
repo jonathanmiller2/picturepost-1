@@ -13,6 +13,33 @@
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 	
+	<filter>
+	  <filter-name>CorsFilter</filter-name>
+	  <filter-class>org.apache.catalina.filters.CorsFilter</filter-class>
+	  <init-param>
+	    <param-name>cors.allowed.methods</param-name>
+	    <param-value>GET,POST,HEAD,OPTIONS,PUT</param-value>
+	  </init-param>
+	  <init-param>
+	    <param-name>cors.allowed.headers</param-name>
+	    <param-value>Content-Type,X-Requested-With,accept,Origin,Access-Control-Request-Method,Access-Control-Request-Headers</param-value>
+	  </init-param>
+	  <init-param>
+	    <param-name>cors.exposed.headers</param-name>
+	    <param-value>Access-Control-Allow-Origin,Access-Control-Allow-Credentials</param-value>
+	  </init-param>
+	  <init-param>
+	    <param-name>cors.support.credentials</param-name>
+	    <param-value>true</param-value>
+	  </init-param>
+	</filter>
+	<filter-mapping>
+	  <filter-name>CorsFilter</filter-name>
+	  <url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+
+
 	<listener>
 		<listener-class>edu.unh.sr.picturepost.StartupPicturepost</listener-class>
 	</listener>
@@ -44,6 +71,11 @@
 
 	<servlet>
 		<servlet-name>GetPostList</servlet-name>
+		<servlet-class>edu.unh.sr.picturepost_rest.GetPostList</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>GetGeoJSONPostList</servlet-name>
 		<servlet-class>edu.unh.sr.picturepost_rest.GetPostList</servlet-class>
 	</servlet>
 
@@ -145,6 +177,10 @@
 	</servlet-mapping>
 
 
+	<servlet-mapping>
+		<servlet-name>GetGeoJSONPostList</servlet-name>
+		<url-pattern>/app/GetGeoJSONPostList</url-pattern>
+	</servlet-mapping>
 
 	<servlet-mapping>
 		<servlet-name>GetPost</servlet-name>
