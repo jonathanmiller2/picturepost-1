@@ -432,6 +432,7 @@ if (p==null) return;
 <label>date taken
 <br>
 <input type=datetime-local class="form-control" name=picture_set_timestamp value="<%=WebUtil.esc(p.picture_set_timestamp)%>">
+<br>
 </label>
 <% if (! p.ready) { %>
 <br><label><input type=checkbox id=verifydatetaken>  Please check to verify that the <em>date taken</em> is correct.</label>

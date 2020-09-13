@@ -65,6 +65,11 @@
 	</servlet>
 
 	<servlet>
+		<servlet-name>DeletePictureSet</servlet-name>
+		<servlet-class>edu.unh.sr.picturepost_rest.DeletePictureSet</servlet-class>
+	</servlet>
+
+	<servlet>
 		<servlet-name>IsValidMobilePhone</servlet-name>
 		<servlet-class>edu.unh.sr.picturepost_rest.IsValidMobilePhone</servlet-class>
 	</servlet>
@@ -162,7 +167,10 @@
 		<url-pattern>/app/AddPictureSet</url-pattern>
 	</servlet-mapping>
 
-
+	<servlet-mapping>
+		<servlet-name>DeletePictureSet</servlet-name>
+		<url-pattern>/app/DeletePictureSet</url-pattern>
+	</servlet-mapping>
 
 	<servlet-mapping>
 		<servlet-name>IsValidMobilePhone</servlet-name>
